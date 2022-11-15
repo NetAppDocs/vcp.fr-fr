@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head class="at-element-marker">
+  <title>Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/fr-fr/vcp/vcp_task_getstarted_5_0.html" />
+	<meta property="og:description" content="Vous pouvez installer et configurer le plug-in Element pour vCenter Server 5.0 et versions ultérieures afin de l"utiliser avec le stockage Element." />
+  <meta property="og:image" content="https://docs.netapp.com/fr-fr/vcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Vous pouvez installer et configurer le plug-in Element pour vCenter Server 5.0 et versions ultérieures afin de l"utiliser avec le stockage Element.">
+  <meta name="keywords" content=" netapp, hci, vcp, vcenter, element, install, setup"><!-- Icons -->
+  <link rel="icon" href="/fr-fr/vcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/fr-fr/vcp/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/fr-fr/vcp/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/fr-fr/vcp/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/fr-fr/vcp/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/fr-fr/vcp/js/na-search.js'></script><script src='/fr-fr/vcp/js/na-pagenav.js'></script><script src='/fr-fr/vcp/js/na-utility.js'></script>
+  <script src='/fr-fr/vcp/js/clouddocs.js'></script>
+  <script src='/fr-fr/vcp/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/fr-fr/vcp/js/toc.js'></script>
+  <script src='/fr-fr/vcp/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/fr-fr/vcp"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/fr-fr/vcp/js/custom-dropdown.js'></script>
+  <script src='/fr-fr/vcp/js/FileSaver.min.js'></script>
+  <script src='/fr-fr/vcp/js/jszip-utils.min.js'></script>
+  <script src='/fr-fr/vcp/js/jszip.min.js'></script>
+  <script src='/fr-fr/vcp/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/vcp/issues/new?body=Page%3A%20[Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures](https://docs.netapp.com/fr-fr/vcp/vcp_task_getstarted_5_0.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/fr-fr/vcp/images/discuss-sm.svg" alt="" class="github-icon" />Demander de modifier un document</a><a target="_blank" href="https://github.com/NetAppDocs/vcp/blob/main/vcp_task_getstarted_5_0.adoc" class="page-nav-contribute-link" role="button"><img src="/fr-fr/vcp/images/edit-sm.svg" alt="" class="github-icon" />Modifier sur GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/fr-fr/vcp/images/article-sm.svg" alt="" class="github-icon" />Guide des contributeurs</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">SUR CETTE PAGE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Produits et solutions</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Support et formation</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Communauté</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Témoignages clients</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/fr-fr/vcp/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/fr-fr/vcp/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/fr-fr/vcp/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/fr-fr/vcp/search.html"
+          data-type="widget" 
+          data-placeholder="Rechercher une documentation"
+          data-no-results-found="Aucun résultat n'a été trouvé pour {query}"
+          data-did-you-mean="Rechercher {suggestion}."
+          data-no-results-found-did-you-mean="Aucun résultat n’a été trouvé pour {query}. Voulez-vous dire {suggestion} ?"
+          data-results-found="{hitCount} résultats trouvés"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fr-fr/vcp/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Français</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/fr-fr/vcp/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/fr-fr/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/vcp/vcp_task_getstarted_5_0.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/fr-fr/vcp/images/collapse.png" alt="Réduire le panneau de navigation"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/fr-fr/vcp/pdfs/fullsite-sidebar/Documentation_du_plug_in_NetApp_Element_pour_VMware_vCenter_Server.pdf" >
+          <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>PDF de ce site de documentation</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Notes_de_version.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Notes de version
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Concepts.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Concepts
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Plug_in_NetApp_Element_pour_VMware_vCenter_Server_5_0_ou_version_ultérieure.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Plug_in_NetApp_Element_pour_VMware_vCenter_Server_4_10_ou_version_antérieure.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Installez_et_configurez_le_plug_in_NetApp_Element_pour_vCenter_Server.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Installez et configurez le plug-in NetApp Element pour vCenter Server
+          </a>
+          
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Gestion_du_stockage_grâce_au_plug_in_vCenter.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Gestion du stockage grâce au plug-in vCenter
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Gestion_du_matériel_de_cluster_et_des_réseaux_virtuels.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Gestion du matériel de cluster et des réseaux virtuels
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Contrôle_des_performances_du_système.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Contrôle des performances du système
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Surveillance_des_alertes_système.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Surveillance des alertes système
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Protection_des_données_grâce_au_plug_in_vCenter.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf.png" alt="" width="16" height="16"/>
+            Protection des données grâce au plug-in vCenter
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/fr-fr/vcp/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Collection de documents PDF séparés<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentation du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/index.html">
+        Documentation du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/concept_vcp_product_overview.html">
+        Présentation du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notes de version"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Notes de version</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nouveautés du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/rn_whatsnew_vcp.html">
+        Nouveautés du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Informations supplémentaires sur la version"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/rn_relatedrn_vcp.html">
+        Informations supplémentaires sur la version
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Concepts"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Concepts</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation de l'architecture des plug-ins à distance"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_remote_plugin_architecture.html">
+        Présentation de l'architecture des plug-ins à distance
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension du plug-in distant NetApp Element"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_remote_plugin_extension_point.html">
+        Point d'extension du plug-in distant NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension de la configuration NetApp Element"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_config_extension_point.html">
+        Point d'extension de la configuration NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension de gestion NetApp Element"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_management_extension_point.html">
+        Point d'extension de gestion NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comptes d'utilisateur"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_accounts.html">
+        Comptes d'utilisateur
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Les domaines de protection"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_protection_domains.html">
+        Les domaines de protection
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mode lié et plug-in vCenter"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_linkedmode.html">
+        Mode lié et plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="QoSSIOC"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_qossioc.html">
+        QoSSIOC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Volumes virtuels (vvols)"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_concept_vvols.html">
+        Volumes virtuels (vvols)
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="De déploiement requis"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/reference_requirements_vcp.html">
+        De déploiement requis
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installez et configurez le plug-in NetApp Element pour vCenter Server"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Installez et configurez le plug-in NetApp Element pour vCenter Server</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_getstarted_5_0.html">
+        Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installer et configurer le plug-in d'élément 4.10 et versions antérieures"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_getstarted.html">
+        Installer et configurer le plug-in d'élément 4.10 et versions antérieures
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mettez à niveau le plug-in"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/task_vcp_upgrades.html">
+        Mettez à niveau le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestion du stockage grâce au plug-in vCenter"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestion du stockage grâce au plug-in vCenter</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les clusters"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_clusters_manage.html">
+        Gérer les clusters
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les datastores"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_datastores_manage.html">
+        Gérer les datastores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les volumes"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_volumes_manage.html">
+        Gérer les volumes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer et gérer des comptes utilisateur"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_create_manage_user_accounts.html">
+        Créer et gérer des comptes utilisateur
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion des groupes d'accès"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_create_manage_access_groups.html">
+        Création et gestion des groupes d'accès
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion des initiateurs"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_create_manage_initiators.html">
+        Création et gestion des initiateurs
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuration et gestion des QoSSIOC pour les volumes Element et les datastores VMware"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_qossioc.html">
+        Configuration et gestion des QoSSIOC pour les volumes Element et les datastores VMware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion de règles de QoS pour les volumes"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_qos_policies.html">
+        Création et gestion de règles de QoS pour les volumes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestion du matériel de cluster et des réseaux virtuels"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Gestion du matériel de cluster et des réseaux virtuels</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation de la gestion du matériel de cluster et des réseaux virtuels"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_manage_cluster_overview.html">
+        Présentation de la gestion du matériel de cluster et des réseaux virtuels
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ajouter et gérer des disques"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_add_manage_drive.html">
+        Ajouter et gérer des disques
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ajoutez et gérez des nœuds"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_add_manage_nodes.html">
+        Ajoutez et gérez des nœuds
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion de réseaux virtuels"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_create_manage_vlans.html">
+        Création et gestion de réseaux virtuels
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Contrôle des performances du système"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Contrôle des performances du système</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les performances du système à l'aide des options de rapport"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_intro.html">
+        Surveiller les performances du système à l'aide des options de rapport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveillez l'état global du cluster sur la page Présentation"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_overview.html">
+        Surveillez l'état global du cluster sur la page Présentation
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveillance des alertes système"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="/fr-fr/vcp/vcp_task_reports_alerts.html">
+        <div class="na-navbar-padding"> Surveillance des alertes système</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Liste des alertes système"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_reference_reports_alert_errors.html">
+        Liste des alertes système
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les journaux d'événements pour le dépannage"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_event_logs.html">
+        Surveiller les journaux d'événements pour le dépannage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Contrôle des performances du volume"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_volume_performance.html">
+        Contrôle des performances du volume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les sessions iSCSI pour déterminer l'état de la connexion"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_iscsi.html">
+        Surveiller les sessions iSCSI pour déterminer l'état de la connexion
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les performances des machines virtuelles en utilisant des événements QoSSIOC"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_reports_qossioc.html">
+        Surveiller les performances des machines virtuelles en utilisant des événements QoSSIOC
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Protection des données grâce au plug-in vCenter"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Protection des données grâce au plug-in vCenter</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Protégez les données avec la présentation du plug-in vCenter"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_protect_overview.html">
+        Protégez les données avec la présentation du plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créez et gérez des snapshots de volume"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_protect_snapshots_volume.html">
+        Créez et gérez des snapshots de volume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer et gérer des instantanés de groupe"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_protect_snapshots_group.html">
+        Créer et gérer des instantanés de groupe
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer des planifications de snapshot"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_protect_snapshots_schedules.html">
+        Créer des planifications de snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Réplication à distance entre les clusters"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_protect_remote_replication.html">
+        Réplication à distance entre les clusters
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuration et gestion des volumes virtuels via le plug-in vCenter"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_task_configure_manage_vvols.html">
+        Configuration et gestion des volumes virtuels via le plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Désenregistrer le plug-in"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/task_vcp_unregister.html">
+        Désenregistrer le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Retirez le bouchon"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/task_vcp_remove.html">
+        Retirez le bouchon
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Dépanner le plug-in"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/vcp_reference_troubleshoot_vcp.html">
+        Dépanner le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Versions antérieures de la documentation du plug-in NetApp Element"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/reference_earlier_versions.html">
+        Versions antérieures de la documentation du plug-in NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mentions légales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/fr-fr/vcp/legal-notices.html">
+        Mentions légales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/fr-fr/vcp/images/expand.png" alt="Développer le panneau de navigation"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/fr-fr/vcp/">VCP</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/fr-fr/vcp/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> La version française est une traduction automatique. La version anglaise prévaut sur la française en cas de divergence. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    
+  
+
+<span>Contributeurs
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Depuis le plug-in NetApp Element pour vCenter Server 5.0, vous pouvez installer la version la plus récente du plug-in Element directement dans votre vCenter et accéder au plug-in à l&#8217;aide du client Web vSphere.</p>
+</div>
+<div class="paragraph">
+<p>Une fois l&#8217;installation terminée, vous pouvez utiliser la qualité de service basée sur le service de contrôle des E/S de stockage (QoSSIOC) ainsi que sur d&#8217;autres services du plug-in vCenter.</p>
+</div>
+<div class="paragraph">
+<p>Lisez et effectuez chaque étape pour installer et commencer à utiliser le plug-in :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>for installation</p>
+</li>
+<li>
+<p>the management node</p>
+</li>
+<li>
+<p>the plug-in with vCenter</p>
+</li>
+<li>
+<p>the plug-in and verify successful installation</p>
+</li>
+<li>
+<p>storage clusters for use with the plug-in</p>
+</li>
+<li>
+<p>QoSSIOC settings using the plug-in</p>
+</li>
+<li>
+<p>user accounts</p>
+</li>
+<li>
+<p>datastores and volumes</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="avant-linstallation">Avant l&#8217;installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Avant de commencer l&#8217;installation, vérifiez <a href="reference_requirements_vcp.html">"de déploiement requis"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="installez-le-nœud-de-gestion">Installez le nœud de gestion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez effectuer manuellement <a href="https://docs.netapp.com/us-en/hci/docs/task_mnode_install.html" target="_blank" rel="noopener">"installez le nœud de gestion"</a> Si votre cluster exécute le logiciel NetApp Element à l&#8217;aide de l&#8217;image appropriée pour votre configuration.</p>
+</div>
+<div class="paragraph">
+<p>Ce processus manuel est destiné aux administrateurs du stockage 100 % Flash SolidFire et aux administrateurs NetApp HCI qui n&#8217;utilisent pas le moteur de déploiement NetApp pour l&#8217;installation des nœuds de gestion.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enregistrez-le-plug-in-avec-vcenter">Enregistrez le plug-in avec vCenter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le déploiement du module plug-in vCenter dans le client Web vSphere implique l&#8217;enregistrement du package en tant qu&#8217;extension sur vCenter Server. Une fois l&#8217;inscription terminée, le plug-in est disponible pour tout client Web vSphere qui se connecte à votre environnement vSphere.</p>
+</div>
+<div class="ulist">
+<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<ul>
+<li>
+<p>Vous disposez des privilèges de rôle d&#8217;administrateur vCenter pour enregistrer un plug-in.</p>
+</li>
+<li>
+<p>Vous avez déployé un nœud de gestion OVA exécutant le logiciel Element 12.3.x ou version ultérieure.</p>
+</li>
+<li>
+<p>Votre nœud de gestion est sous tension avec son adresse IP ou son adresse DHCP configurée.</p>
+</li>
+<li>
+<p>Vous utilisez un client SSH ou un navigateur Web (Chrome 56 ou version ultérieure ou Firefox 52 ou version ultérieure).</p>
+</li>
+<li>
+<p>Vos règles de pare-feu autorisent l&#8217;ouverture <a href="reference_requirements_vcp.html">"communication réseau"</a> Entre vCenter et le cluster de stockage MVIP sur les ports TCP 443, 8443, 8333 et 9443. Le port 9443 est utilisé pour l&#8217;enregistrement et peut être fermé une fois l&#8217;enregistrement terminé. Si vous avez activé la fonctionnalité de volumes virtuels sur le cluster, assurez-vous que le port TCP 8444 est également ouvert pour l&#8217;accès à VASA Provider.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Vous devez enregistrer le plug-in vCenter sur chaque serveur vCenter où vous devez utiliser le plug-in.</p>
+</div>
+<div class="paragraph">
+<p>Pour les environnements en mode lié, vous devez enregistrer des plug-ins distincts avec chaque serveur vCenter dans l&#8217;environnement pour synchroniser les données MOB et pouvoir mettre à niveau le plug-in. Lorsqu&#8217;un client Web vSphere se connecte à un serveur vCenter où votre plug-in n&#8217;est pas enregistré, le plug-in n&#8217;est pas visible pour le client.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+À utiliser <a href="vcp_concept_linkedmode.html">"Mode lié vCenter"</a>, Vous enregistrez le plug-in Element à partir d&#8217;un nœud de gestion distinct pour chaque serveur vCenter qui gère les clusters de stockage NetApp SolidFire.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Entrez l&#8217;adresse IP de votre nœud de gestion dans un navigateur, y compris le port TCP pour l&#8217;enregistrement :</p>
+<div class="paragraph">
+<p><code>https://&lt;managementNodeIP&gt;:9443</code></p>
+</div>
+<div class="paragraph">
+<p>L&#8217;interface utilisateur d&#8217;enregistrement affiche la page gérer les informations d&#8217;identification du service QoSSIOC pour le plug-in.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./media/vcp_registration_ui_qossioc.png" alt="Page de l&#8217;utilitaire d&#8217;enregistrement QoSSIOC">
+</div>
+</div>
+</li>
+<li>
+<p><strong>Facultatif</strong> : modifiez le mot de passe du service QoSSIOC avant d&#8217;enregistrer le plug-in vCenter :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Pour l&#8217;ancien mot de passe, entrez le mot de passe actuel du service QoSSIOC. Si vous n&#8217;avez pas encore attribué de mot de passe, saisissez le mot de passe par défaut :</p>
+<div class="paragraph">
+<p><code>solidfire</code></p>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>soumettre les modifications</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Après avoir soumis les modifications, le service QoSSIOC redémarre automatiquement.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>enregistrement du plug-in vCenter</strong>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./media/vcp_remote_plugin_registration_ui.png" alt="Interface utilisateur de l&#8217;utilitaire d&#8217;enregistrement de plug-in à distance">
+</div>
+</div>
+</li>
+<li>
+<p>Saisissez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;adresse IPv4 ou le FQDN du service vCenter sur lequel vous enregistrez votre plug-in.</p>
+</li>
+<li>
+<p>Nom d&#8217;utilisateur de vCenter Administrator.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Le nom d&#8217;utilisateur et les informations d&#8217;identification du mot de passe que vous entrez doivent correspondre à un utilisateur disposant des privilèges de rôle d&#8217;administrateur vCenter.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Mot de passe de l&#8217;administrateur vCenter.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>Enregistrer</strong>.</p>
+</li>
+<li>
+<p>(Facultatif) Vérifiez l&#8217;état de l&#8217;enregistrement :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Sélectionnez <strong>Statut d&#8217;enregistrement</strong>.</p>
+</li>
+<li>
+<p>Saisissez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;adresse IPv4 ou le FQDN du service vCenter sur lequel vous enregistrez votre plug-in</p>
+</li>
+<li>
+<p>Nom d&#8217;utilisateur de vCenter Administrator</p>
+</li>
+<li>
+<p>Mot de passe de l&#8217;administrateur vCenter</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>Check Status</strong> pour vérifier que la nouvelle version du plug-in est enregistrée sur le serveur vCenter.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Dans le client Web vSphere, recherchez les tâches terminées suivantes dans le moniteur des tâches pour vous assurer que l&#8217;installation est terminée : <code>Download plug-in</code> et <code>Deploy plug-in</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="accédez-au-plug-in-et-vérifiez-que-linstallation-a-réussi">Accédez au plug-in et vérifiez que l&#8217;installation a réussi</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Une fois l&#8217;installation ou la mise à niveau terminée, le point d&#8217;extension du plug-in à distance NetApp Element apparaît dans l&#8217;onglet raccourcis du client Web vSphere du panneau latéral.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./media/vcp_remote_plugin_icons_home_page.png" alt="illustre le point d&#8217;extension du plug-in après une mise à niveau ou une installation réussie">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Si les icônes du plug-in vCenter ne sont pas visibles, reportez-vous à la section <a href="vcp_reference_troubleshoot_vcp.html#plug-in-registration-successful-but-icons-do-not-appear-in-web-client">"documentation de dépannage"</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ajout-de-clusters-de-stockage-pour-une-utilisation-avec-le-plug-in">Ajout de clusters de stockage pour une utilisation avec le plug-in</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez ajouter et gérer un cluster exécutant le logiciel Element à l&#8217;aide du point d&#8217;extension du plug-in distant NetApp Element.</p>
+</div>
+<div class="ulist">
+<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<ul>
+<li>
+<p>Au moins un cluster doit être disponible et son adresse IP ou FQDN connue.</p>
+</li>
+<li>
+<p>Identifiants actuels de l&#8217;utilisateur administrateur complet du cluster pour le cluster.</p>
+</li>
+<li>
+<p>Les règles de pare-feu autorisent l&#8217;ouverture <a href="reference_requirements_vcp.html">"communication réseau"</a> Entre vCenter et le cluster MVIP sur les ports TCP 443, 8333 et 8443.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+Vous devez ajouter au moins un cluster pour utiliser les fonctions de gestion.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Cette procédure décrit comment ajouter un profil de cluster afin que le cluster puisse être géré par le plug-in. Vous ne pouvez pas modifier les informations d&#8217;identification de l&#8217;administrateur du cluster à l&#8217;aide du plug-in.</p>
+</div>
+<div class="paragraph">
+<p>Voir <a href="https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html" target="_blank" rel="noopener">"gestion des comptes utilisateurs d&#8217;administrateur du cluster"</a> pour obtenir des instructions sur la modification des identifiants d&#8217;un compte d&#8217;administrateur de cluster.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Sélectionnez <strong>NetApp Element Remote Plugin &gt; Configuration &gt; clusters</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Ajouter un cluster</strong>.</p>
+</li>
+<li>
+<p>Saisissez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adresse IP/FQDN</strong> : saisissez l&#8217;adresse MVIP du cluster.</p>
+</li>
+<li>
+<p><strong>ID utilisateur</strong> : saisissez un nom d&#8217;utilisateur administrateur de cluster.</p>
+</li>
+<li>
+<p><strong>Mot de passe</strong> : saisissez un mot de passe administrateur de cluster.</p>
+</li>
+<li>
+<p><strong>Serveur vCenter</strong> : si vous configurez un groupe en mode lié, sélectionnez le serveur vCenter auquel vous souhaitez accéder. Si vous n&#8217;utilisez pas le mode lié, le serveur vCenter actuel est le serveur par défaut.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Les hôtes d&#8217;un cluster sont exclusifs à chaque serveur vCenter. Assurez-vous que le serveur vCenter que vous sélectionnez a accès aux hôtes prévus. Vous pouvez supprimer un cluster, le réattribuer à un autre serveur vCenter et le réajouter si vous décidez par la suite d&#8217;utiliser d&#8217;autres hôtes.</p>
+</li>
+<li>
+<p>À utiliser <a href="vcp_concept_linkedmode.html">"Mode lié vCenter"</a>, Vous enregistrez le plug-in Element à partir d&#8217;un nœud de gestion distinct pour chaque serveur vCenter qui gère les clusters de stockage NetApp SolidFire.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Lorsque le processus est terminé, le cluster apparaît dans la liste des clusters disponibles et peut être utilisé dans le point d&#8217;extension de NetApp Element Management.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurez-les-paramètres-qossioc-à-laide-du-plug-in">Configurez les paramètres QoSSIOC à l&#8217;aide du plug-in</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez configurer la qualité de service automatique basée sur le contrôle des E/S du stockage <a href="vcp_concept_qossioc.html">"(QoSSIOC)"</a> pour les volumes individuels et les datastores contrôlés par le plug-in. Pour ce faire, vous configurez les informations d&#8217;identification QoSSIOC et vCenter qui permettront au service QoSSIOC de communiquer avec vCenter.</p>
+</div>
+<div class="paragraph">
+<p>Après avoir configuré des paramètres QoSSIOC valides pour le nœud de gestion, ces paramètres deviennent par défaut. Les paramètres QoSSIOC reviennent aux derniers paramètres QoSSIOC valides connus jusqu&#8217;à ce que vous ayez les paramètres QoSSIOC valides pour un nouveau noeud de gestion. Vous devez effacer les paramètres QoSSIOC pour le noeud de gestion configuré avant de configurer les informations d&#8217;identification QoSSIOC pour un nouveau noeud de gestion.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Sélectionnez <strong>NetApp Element Remote Plugin &gt; Configuration &gt; QoSSIOC Settings</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Dans le menu qui s&#8217;affiche, sélectionnez <strong>configurer</strong>.</p>
+</li>
+<li>
+<p>Dans la boîte de dialogue <strong>Configure QoSSIOC Settings</strong>, entrez les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adresse IP nœud M/FQDN</strong> : adresse IP du nœud de gestion du cluster qui contient le service QoSSIOC.</p>
+</li>
+<li>
+<p><strong>Port nœud M</strong> : adresse de port pour le nœud de gestion qui contient le service QoSSIOC. Le port par défaut est 8443.</p>
+</li>
+<li>
+<p><strong>QoSSIOC ID utilisateur</strong> : ID utilisateur du service QoSSIOC. L&#8217;ID utilisateur par défaut du service QoSSIOC est admin. Pour NetApp HCI, l&#8217;ID utilisateur est le même que celui saisi lors de l&#8217;installation à l&#8217;aide du moteur de déploiement NetApp.</p>
+</li>
+<li>
+<p><strong>QoSSIOC Mot de passe</strong> : le mot de passe de l&#8217;élément QoSSIOC. Le mot de passe par défaut du service QoSSIOC est <code>solidfire</code>. Si vous n&#8217;avez pas créé de mot de passe personnalisé, vous pouvez en créer un à partir de l&#8217;interface utilisateur de l&#8217;utilitaire d&#8217;enregistrement (<code>https://[management node IP]:9443</code>).</p>
+</li>
+<li>
+<p><strong>ID utilisateur vCenter</strong> : nom d&#8217;utilisateur pour l&#8217;administrateur vCenter avec privilèges de rôle administrateur complets.</p>
+</li>
+<li>
+<p><strong>Mot de passe vCenter</strong> : mot de passe de l&#8217;administrateur vCenter avec privilèges d&#8217;administrateur complets.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+<div class="paragraph">
+<p>Le champ <strong>QoSSIOC Status</strong> s&#8217;affiche <code>UP</code> lorsque le plug-in peut communiquer avec le service.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Consultez ce {url-pic}[KB^] pour résoudre le problème si l&#8217;état est l&#8217;un des suivants :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Down</code>: QoSSIOC n&#8217;est pas activé.</p>
+</li>
+<li>
+<p><code>Not Configured</code>: Les paramètres QoSSIOC n&#8217;ont pas été configurés.</p>
+</li>
+<li>
+<p><code>Network Down</code>: VCenter ne peut pas communiquer avec le service QoSSIOC sur le réseau. Il se peut que le nœud M et le service SIOC soient toujours en cours d&#8217;exécution.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Une fois le service QoSSIOC activé, vous pouvez configurer les performances QoSSIOC sur des datastores individuels.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configurer-des-comptes-utilisateur">Configurer des comptes utilisateur</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pour activer l&#8217;accès aux volumes, vous devez en créer au moins un <a href="vcp_task_create_manage_user_accounts.html#create-an-account">"compte utilisateur"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="créer-des-datastores-et-des-volumes">Créer des datastores et des volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer <a href="vcp_task_datastores_manage.html#create-a-datastore">"Datastores et volumes Element"</a> à commencer à allouer du stockage.</p>
+</div>
+<h2 id="trouvez-plus-dinformations" class="discrete">Trouvez plus d&#8217;informations</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hci/index.html" target="_blank" rel="noopener">"Documentation NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="http://mysupport.netapp.com/hci/resources" target="_blank" rel="noopener">"Page Ressources NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/data-storage/solidfire/documentation" target="_blank" rel="noopener">"Page Ressources SolidFire et Element"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Conditions générales</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Privacy Policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie Policy</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Paramètres de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Envoyer un avis à propos de cette page</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/fr-fr/vcp/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/fr-fr/vcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/fr-fr/vcp/js/prism.js'></script>
+      <script type="text/javascript" src='/fr-fr/vcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/fr-fr/vcp/js/www-ntap.js'></script>
+    <script src='/fr-fr/vcp/js/tabbed-blocks.js'></script>
+    <script src='/fr-fr/vcp/js/sidebar.js'></script>
+  </body></html>
