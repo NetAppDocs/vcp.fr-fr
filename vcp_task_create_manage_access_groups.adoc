@@ -14,7 +14,7 @@ keywords: netapp, storage, access groups, vcp, vcenter, element
 
 
 [role="lead"]
-A link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.html["groupe d'accès de volume"] Est une collection de volumes auxquels les utilisateurs peuvent accéder via des initiateurs iSCSI ou des initiateurs FC.
+A link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.html["groupe d'accès de volume"^] Est une collection de volumes auxquels les utilisateurs peuvent accéder via des initiateurs iSCSI ou des initiateurs FC.
 
 Vous pouvez créer des groupes d'accès en mappant les IQN des initiateurs iSCSI ou les WWPN FC dans une collection de volumes. Chaque IQN que vous ajoutez à un groupe d'accès peut accéder à chaque volume du groupe sans nécessiter d'authentification CHAP. Chaque WWPN que vous ajoutez à un groupe d'accès permet d'accéder au réseau FC aux volumes du groupe d'accès.
 

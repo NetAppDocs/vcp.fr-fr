@@ -242,7 +242,6 @@
   <block id="c9bf0b029ad3ede39b7d6cf39607a322" category="summary">Vous pouvez créer et gérer des groupes d'accès de volumes à l'aide du plug-in.</block>
   <block id="43c95975fceac67e14abe3895f6650b5" category="doc">Créez et gérez des groupes d'accès de volume</block>
   <block id="1e678cda01a6edfd6a8c776103d2e15b" category="inline-link-macro">groupe d'accès de volume</block>
-  <block id="35217a2ac23a8b6448931b9efc4c4f94" category="paragraph">A <block ref="2934e3adb910b5942a2e24ca276b4338" category="inline-link-macro-rx"></block> Est une collection de volumes auxquels les utilisateurs peuvent accéder via des initiateurs iSCSI ou des initiateurs FC.</block>
   <block id="adcd2fc490460962064733fd569fa4ea" category="paragraph">Vous pouvez créer des groupes d'accès en mappant les IQN des initiateurs iSCSI ou les WWPN FC dans une collection de volumes. Chaque IQN que vous ajoutez à un groupe d'accès peut accéder à chaque volume du groupe sans nécessiter d'authentification CHAP. Chaque WWPN que vous ajoutez à un groupe d'accès permet d'accéder au réseau FC aux volumes du groupe d'accès.</block>
   <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">Options</block>
   <block id="9a8af925f49d81fafe7af5c7760a9d2d" category="list-text"><block ref="57543d97a29cc33d58ce14b3298c6f06" category="inline-xref-macro-rx"></block></block>
@@ -2645,4 +2644,5 @@
   <block id="e832d6528eba00e46f3e6d6ad9b8258b" category="sidebar">Ressources de documentation NetApp HCI</block>
   <block id="f5409f597000de172b3e43bc31e32407" category="sidebar">Notes de version de la base de connaissances NetApp sur les services de contrôle et de gestion du cloud hybride</block>
   <block id="bc4fe2352063642d68529f2aa0ca7ca3" category="sidebar">Documentation produit NetApp</block>
+  <block id="e97497d0f5938ed35b2e63e89f51bf3c" category="paragraph">A <block ref="e64b216761b70bc0cfda4bc4eab1b43a" category="inline-link-macro-rx"></block> Est une collection de volumes auxquels les utilisateurs peuvent accéder via des initiateurs iSCSI ou des initiateurs FC.</block>
 </blocks>
