@@ -1,0 +1,210 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_add_manage_nodes.html 
+summary: 'Vous pouvez créer et gérer des nœuds dans la configuration du cluster à l"aide du plug-in.' 
+keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element 
+---
+= Ajoutez et gérez des nœuds
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+À l'aide du plug-in, vous pouvez ajouter https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["nœuds de stockage"] lorsqu'un cluster est créé ou lorsqu'il faut plus de stockage. Vous pouvez également ajouter des nœuds de stockage exécutant le logiciel Element. Vous devez ajouter des nœuds de calcul NetApp HCI en dehors du plug-in vSphere.
+
+*  a node to a cluster
+*  node details
+*  a node
+*  down a node
+*  a node from a cluster
+
+
+
+
+== Ajout d'un nœud à un cluster
+
+Vous pouvez ajouter des nœuds de stockage à votre cluster à l'aide du plug-in vCenter.
+
+.Ce dont vous avez besoin, 8217;ll
+* Le nœud que vous ajoutez a été configuré, sous tension et configuré.
+* Le numéro de version majeur ou secondaire du logiciel sur chaque nœud d'un cluster doit correspondre pour que le logiciel soit compatible. Par exemple, Element 9.0 n'est pas compatible avec la version 9.1.
+
+
+
+NOTE: Si le nœud que vous ajoutez dispose d'une version mineure ou majeure du logiciel NetApp Element différente de celle exécutée sur le cluster, le cluster met à jour de manière asynchrone le nœud vers la version du logiciel NetApp Element qui s'exécute sur le maître de cluster. Une fois le nœud mis à jour, il s'ajoute automatiquement au cluster. Au cours de ce processus asynchrone, le nœud sera dans un `pendingActive` état.
+
+Les nœuds requièrent la configuration initiale lors de la première mise sous tension. Lorsque le nœud a été configuré et configuré, il s'enregistre sur le cluster identifié lorsque le nœud a été configuré et apparaît dans la liste des nœuds en attente sur la page *Cluster > nœuds* du point d'extension du plug-in.
+
+Vous pouvez ajouter des nœuds de plus petite ou plus grande capacité à un cluster existant.
+
+La procédure est identique pour l'ajout de nœuds FC ou de nœuds de stockage exécutant le logiciel NetApp Element.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *noeuds*.
+. Sélectionnez *en attente* dans la liste déroulante pour afficher la liste des nœuds.
+. Pour ajouter un ou plusieurs nœuds, procédez comme suit :
++
+.. Cochez la case correspondant à chaque nœud que vous souhaitez ajouter.
+.. Cliquez sur *Ajouter un noeud*.
+
+
+. Vérifiez les détails des nœuds que vous souhaitez ajouter et confirmer l'action.
++
+Une fois l'action terminée, le nœud apparaît dans la liste des nœuds actifs du cluster.
+
+
+
+
+
+== Afficher les détails du nœud
+
+Vous pouvez afficher la liste des nœuds du cluster sur la page nœuds de l'onglet Cluster à partir du point d'extension du plug-in. Vous devez sélectionner la vue active pour afficher la liste des nœuds actifs. Vous pouvez modifier la vue en sélectionnant `Pending`, `PendingActive`, et `All` options à l'aide du filtre déroulant.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *noeuds*.
+. Sélectionnez la vue *active*.
+. Afficher le détail des nœuds du cluster de stockage.
++
+Vous pouvez afficher des informations telles que les ID de nœud, le nom et l'état de chaque nœud, les IOPS configurées, le type de nœud, le nombre de disques actifs de chaque nœud, ainsi que des informations réseau sur chaque nœud.
+
+
+
+
+
+== Redémarrez un nœud
+
+Vous pouvez redémarrer un ou plusieurs nœuds actifs dans un cluster à l'aide du point d'extension du plug-in.
+
+Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.
+
+Pour redémarrer le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un redémarrage.
+
+
+IMPORTANT: Cette méthode redémarre tous les services réseau d'un nœud, ce qui entraîne une perte temporaire de connectivité réseau.
+
+
+NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterprise SDS.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *noeuds*.
++
+.. Dans la vue *Active*, cochez la case pour chaque noeud que vous souhaitez redémarrer.
+.. Cliquez sur *actions*.
+.. Sélectionnez *redémarrer*.
+
+
+. Confirmez l'action.
+
+
+
+
+== Arrêtez un nœud
+
+Vous pouvez arrêter un ou plusieurs nœuds actifs d'un cluster à l'aide du point d'extension du plug-in. Pour arrêter le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un arrêt simultané.
+
+Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.
+
+.Description de la tâche
+
+NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterprise SDS.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *noeuds*.
++
+.. Dans la vue *Active*, cochez la case pour chaque noeud que vous voulez arrêter.
+.. Cliquez sur *actions*.
+.. Sélectionnez *Arrêter*.
+
+
+. Confirmez l'action.
+
+
+
+NOTE: Si un nœud a été arrêté plus de 5.5 minutes sous un type d'arrêt, le logiciel NetApp Element détermine que ce nœud n'est pas renvoyé au cluster. La protection des données Helix double débute la tâche d'écriture de blocs individuels répliqués sur un autre nœud afin de répliquer les données. Selon la durée d'arrêt d'un nœud, ses disques peuvent devoir être ajoutés au cluster une fois que le nœud est remis en ligne.
+
+
+
+== Supprime un nœud d'un cluster
+
+Vous pouvez supprimer des nœuds d'un cluster sans interruption de service lorsque le stockage n'est plus nécessaire ou qu'ils nécessitent une maintenance.
+
+Vous avez supprimé tous les disques du nœud du cluster. Vous ne pouvez pas supprimer un nœud tant que `RemoveDrives` le processus est terminé et toutes les données ont été migrées à l'écart du nœud.
+
+Au moins deux nœuds FC sont nécessaires pour assurer la connectivité FC dans un cluster NetApp Element. Si un seul nœud FC est connecté, le système déclenche des alertes dans le journal des événements jusqu'à ce que vous ajouiez un autre nœud FC au cluster, même si tout le trafic réseau FC continue de fonctionner avec un seul nœud FC.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *noeuds*.
+. Pour supprimer un ou plusieurs nœuds, effectuez les opérations suivantes :
++
+.. Dans la vue *Active*, cochez la case pour chaque noeud que vous souhaitez supprimer.
+.. Cliquez sur *actions*.
+.. Sélectionnez *Supprimer*.
+
+
+. Confirmez l'action.
++
+Tous les nœuds supprimés d'un cluster apparaissent dans la liste des nœuds en attente.
+
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

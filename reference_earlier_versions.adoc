@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference_earlier_versions.html 
+keywords: documentation, earlier, previous, versions 
+summary: De la documentation est disponible pour les versions antérieures à la version 4.6 du plug-in NetApp Element pour VMware vCenter Server. 
+---
+= Versions antérieures de la documentation du plug-in NetApp Element pour VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+De la documentation est également disponible pour les versions antérieures à la version 5.0 du plug-in NetApp Element pour VMware vCenter Server.
+
+
+NOTE: C'est ça link:index.html["lien vers la documentation"] Pour le plug-in Element vCenter 5.0, comprend également les versions 4.6, 4.7, 4.8, 4.9 et 4.10.
+
+[cols="4*"]
+|===
+| Version | Notes de version du plug-in | Notes de version des services de gestion | Guide de l'utilisateur 
+
+
+| 4.10 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["2.21.61"^] | link:index.html["Lien"] 
+
+
+| 4.9 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2881904["2.20.69"^] | link:index.html["Lien"] 
+
+
+| 4.8 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2879296["2.19.48"^] | link:index.html["Lien"] 
+
+
+| 4.7 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["PDF"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2876748["2.18.91"^] | link:index.html["Lien"] 
+
+
+| 4.6 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2874631["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/NetApp_Hybrid_Cloud_Control_and_Management_Services_2.17.56_Release_Notes["2.17.56 KO"^] | link:index.html["Lien"] 
+
+
+| 4.5 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2873396["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.14.60_Release_Notes["2.14.60 KO"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2872843["PDF"^] 
+
+
+| 4.4 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2866569["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.11.34_Release_Notes["2.11.34 KO"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2870280["PDF"^] 
+
+
+| 4.3 | https://library.netapp.com/ecm/ecm_download_file/ECMLP2856119["PDF"^] | https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_2.0.725_Release_Notes["2.0.725 KO"^] | https://library.netapp.com/ecm/ecm_download_file/ECMLP2860023["PDF"^]REMARQUE : cette publication décrit les procédures de mise à jour des nœuds de gestion pour le logiciel Element 11.3/NetApp HCI 1.6.https://library.netapp.com/ecm/ecm_download_file/ECMLP2860878["PDF"^]REMARQUE : cette publication décrit les procédures de mise à jour des nœuds de gestion pour le logiciel Element 11.5/NetApp HCI 1.7https://library.netapp.com/ecm/ecm_download_file/ECMLP2863783["PDF"^]REMARQUE : cette publication présente les procédures de mise à niveau des nœuds de gestion mises à jour pour le logiciel Element 11.7/NetApp HCI 1.7P1 
+|===

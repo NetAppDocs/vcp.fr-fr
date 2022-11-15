@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_remote_plugin_architecture.html 
+summary: 'En savoir plus sur l"architecture du plug-in NetApp Element distant pour vCenter Server.' 
+keywords: netapp, vcp, vcenter, plugin, element, remote, architecture 
+---
+= Présentation de l'architecture des plug-ins à distance
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Depuis le plug-in NetApp Element pour vCenter Server 5.0, l'architecture du plug-in change de site local à distant. Le plug-in n'est plus déployé dans un serveur vCenter grâce à l'architecture à distance. Pour le plug-in Element pour vCenter Server 4.10 ou version antérieure, le déploiement du plug-in reste local au serveur vCenter auquel il est enregistré.
+
+Cette page décrit la mise en œuvre du plug-in NetApp Element distant pour vCenter Server.
+
+L'architecture du plug-in à distance du client vSphere est conçue pour intégrer la fonctionnalité du plug-in au client vSphere sans avoir à l'exécuter dans vCenter Server. L'architecture des plug-ins à distance prend en charge l'isolation des plug-ins, permet une évolutivité horizontale des plug-ins compatibles avec les environnements vSphere de grande taille et offre les avantages suivants :
+
+* Le plug-in est protégé contre les interférences par des plug-ins instables ou compromis chargés sur le même client vSphere.
+* La compatibilité des plug-ins est fiable pour toutes les mises à niveau de vCenter Server.
+* Un plug-in incompatible n'interfère pas avec le fonctionnement de vCenter Server.
+* Vous pouvez déployer plusieurs versions de plug-ins dans le même environnement vSphere.
+* L'interface utilisateur enfichable à distance ne doit communiquer qu'avec un seul serveur back-end.
+* La topologie des plug-ins déployés est bien définie et facile à comprendre qui prend en charge le dépannage.
+
+
+
+
+== Plug-in d'élément distant pour l'architecture générale de vCenter Server
+
+Grâce à NetApp Hybrid Cloud Control, le plug-in distant Element est déployé dans un conteneur docker situé à l'intérieur d'un nœud de gestion avec des services de gestion.
+
+image:vcp_remote_plugin_high_level_architecture.png["Architecture générale du plug-in distant"]
+
+Le serveur vCenter du plug-in d'élément distant, le service d'enregistrement et le service SIOC (Storage I/O Control) partagent le même service docker, mais ils sont à l'écoute de différents ports.
+
+[cols="50,25"]
+|===
+| Description | Port 
+
+
+| Serveur vCenter du plug-in Remote Element | 8333 
+
+
+| Service d'enregistrement | 9443 
+
+
+| Service SIOC | 8443 
+|===
+
+
+== Présentation des chemins de communication du plug-in d'élément distant
+
+Vous devez d'abord enregistrer le plug-in distant avec vCenter Server à l'aide du service d'enregistrement exécuté sur un nœud de gestion (`https://<mnode-ip>:9443/`). Sur la page d'inscription, vous pouvez afficher le nom d'utilisateur, le mot de passe et le `plugin.json` chemin d'accès au fichier de manifeste.
+
+
+NOTE: Le chemin par défaut est indiqué dans l'interface utilisateur. Aucune action n'est requise.
+
+Si les détails fournis sont corrects, le service d'enregistrement enregistre le plug-in avec vCenter Server et saisit les détails de vCenter dans la base de données du serveur du plug-in.
+
+Une fois l'enregistrement terminé, le serveur du plug-in télécharge le `plugin.json` le fichier manifeste et initie le déploiement du plug-in distant, qui implique la configuration du plug-in distant comme extension avec le `vsphere-ui` client. Une fois le déploiement terminé, vous pouvez accéder au point d'extension *NetApp Element Remote Plugin* à partir du `vsphere-ui` client web.
+
+Toutes les communications à partir de l'interface utilisateur du plug-in se font via vCenter Server qui exécute un service proxy inverse en utilisant le protocole HTTPS chargé de transférer les demandes pour le service de plug-in distant. Le serveur du plug-in interagit avec le service SIOC via l'authentification de base HTTPS et un cluster Element via le kit de développement logiciel Java Element.
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

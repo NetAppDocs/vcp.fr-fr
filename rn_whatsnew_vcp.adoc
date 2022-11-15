@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: rn_whatsnew_vcp.html 
+summary: Découvrez les nouveautés de cette version du plug-in NetApp Element pour VMware vCenter Server. 
+keywords: netapp, vcp, vcenter, plugin, element, new, whats new 
+---
+= Nouveautés du plug-in NetApp Element pour VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le plug-in NetApp Element pour vCenter Server 5.0 contient l'architecture de plug-in à distance conçue pour intégrer la fonctionnalité du plug-in à un client vSphere sans avoir à l'exécuter à l'intérieur de vCenter Server. L'architecture distante prend en charge l'isolation des plug-ins et permet une évolutivité horizontale des plug-ins compatibles avec les grands environnements vSphere. Le plug-in Remote Element est déployé dans un conteneur docker situé dans un nœud de gestion avec des services de gestion. link:vcp_concept_remote_plugin_architecture.html["En savoir plus ."]
+
+Le plug-in vCenter Element 5.0 prend en charge VMware vSphere 8.0, 7.0 et 7.0 Update 1, 2 et 3, notamment vCenter Server, ESXi et le client Web HTML5 vSphere.
+
+Le plug-in Element vCenter 5.0 est disponible dans la version 2.22.7 des services de gestion. Si vous n'utilisez pas le plug-in, il s'agit d'une mise à niveau facultative car tous les autres services et fonctionnalités sont identiques à la version 2.21.61. Pour plus d'informations sur les dernières mises à jour des services de gestion, reportez-vous à la section https://library.netapp.com/ecm/ecm_download_file/ECMLP2884458["Notes de mise à jour des services de gestion 2.21.61"^].
+
+
+
+== Plug-in NetApp Element pour vCenter Server 4.10
+
+Le plug-in Element vCenter 4.10 contient des problèmes résolus, notamment des vulnérabilités de sécurité, qui peuvent réduire considérablement les interruptions détectées lors des mises à niveau et améliorer les opérations quotidiennes dans certains environnements. Dans la version 4.10 du plug-in, les liens d'aide en ligne ont été transférés vers ceci link:index.html["lien vers la documentation"]. Pour accéder aux liens d'aide en ligne à partir du plug-in, vous devez disposer d'un accès réseau.
+
+Le plug-in Element vCenter 4.10 est disponible dans la version 2.21.61 des services de gestion.
+
+
+
+== Plug-in NetApp Element pour vCenter Server 4.9
+
+Le plug-in NetApp Element pour vCenter Server 4.9 prend en charge les restaurations pour vSphere 6.5, notamment vCenter Server, ESXi et le client Web HTML5 vSphere.
+
+Le plug-in Element vCenter 4.9 est disponible dans la version 2.20.69 des services de gestion.
+
+
+
+== Plug-in NetApp Element pour vCenter Server 4.8
+
+Le plug-in Element vCenter 4.8 offre des améliorations en matière de sécurité, une meilleure utilisation de la mémoire et des mises à niveau de bibliothèques tierces.
+
+Le plug-in Element vCenter 4.8 est disponible dans la version 2.19 des services de gestion.
+
+
+
+== Plug-in NetApp Element pour vCenter Server 4.7
+
+Le plug-in Element vCenter 4.7 inclut des améliorations de sécurité importantes qui développez encore les améliorations apportées à la https://security.netapp.com/advisory/ntap-20210315-0001/["correctif 2.17.56 pour les services de gestion récents"] relâchez.
+
+Dans la version 4.7, le plug-in prend désormais en charge les composants de vSphere 7.0 Update 2, notamment vCenter Server, ESXi et le client Web HTML5 vSphere.
+
+Le plug-in Element vCenter 4.7 est disponible dans la version 2.18 des services de gestion.
+
+
+
+== Plug-in NetApp Element pour vCenter Server 4.6
+
+Dans la version 4.6, le plug-in prend désormais en charge les composants de vSphere 7.0 Update 1, notamment vCenter Server, ESXi et le client Web HTML5 vSphere.
+
+Le plug-in Element vCenter 4.6 est disponible dans la version 2.16 des services de gestion.
+
+
+
+== Trouvez plus d'informations
+
+* link:reference_earlier_versions.html["Versions antérieures de la documentation du plug-in NetApp Element"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Notes de version des services de contrôle et de gestion dans le cloud hybride"^]
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_iscsi.html 
+summary: Vous pouvez afficher des informations sur les sessions iSCSI connectées au cluster sélectionné dans le plug-in NetApp Element pour VMware vCenter Server. 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, iscsi, connection 
+---
+= Surveiller les sessions iSCSI pour déterminer l'état de la connexion
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez afficher des informations sur les sessions iSCSI connectées au cluster sélectionné dans le plug-in NetApp Element pour VMware vCenter Server.
+
+.Étapes
+. Depuis le plug-in vCenter, ouvrez l'onglet *Reporting* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Reporting*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Reporting*.
+
+
+. Sélectionnez *sessions iSCSI*.
+
+
+
+
+== Données de session iSCSI
+
+* *Node* : nœud hébergeant la partition de métadonnées principale du volume.
+* *Compte* : le nom du compte qui détient le volume. Si la valeur est vide, un tiret (-) s'affiche.
+* *Volume* : nom du volume identifié sur le nœud.
+* *ID de volume* : ID du volume associé à l'IQN cible.
+* *ID initiateur* : ID généré par le système pour l'initiateur.
+* *Alias d'initiateur* : nom facultatif de l'initiateur qui facilite la recherche de l'initiateur dans une longue liste.
+* *IP de l'initiateur* : adresse IP du noeud final qui initie la session.
+* *IQN de l'initiateur* : l'IQN du noeud final qui initie la session.
+* *Adresse IP cible* : adresse IP du nœud hébergeant le volume.
+* *IQN cible* : l'IQN du volume.
+* *Créé le* : date à laquelle la session a été établie.
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

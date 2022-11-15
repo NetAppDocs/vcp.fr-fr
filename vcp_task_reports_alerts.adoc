@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_alerts.html 
+summary: 'Surveillez les alertes, qui fournissent des informations, des avertissements ou des erreurs indiquant leur fonctionnement à l"aide des pages de reporting du plug-in NetApp Element pour VMware vCenter Server.' 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, alert, cluster, performance 
+---
+= Surveillance des alertes système
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez contrôler les alertes, qui sont des informations, des avertissements ou des erreurs indiquant leur bonne exécution sur le cluster.
+
+Les alertes sont des pannes ou des erreurs de cluster et sont signalées au fur et à mesure. La plupart des erreurs se résolvent automatiquement. Cependant, d'autres peuvent être manuelles. Le système signale les codes d'erreur d'alerte avec chaque alerte sur la page alertes. Les codes d'erreur vous aident à déterminer quel composant du système a rencontré l'alerte et pourquoi l'alerte a été générée. Voir link:vcp_reference_reports_alert_errors.html["Liste des alertes système"] pour une description et une procédure de correction.
+
+Une fois que vous avez résolu le problème, le système se interroge et identifie le problème comme résolu. Ensuite, toutes les informations concernant l'alerte, y compris la date de sa résolution, sont déplacées vers la vue résolue.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
+
+
+. Sélectionnez *Rapport* > *alertes*.
+. Contrôler les informations suivantes d'alerte du cluster :
++
+** *ID* : ID unique pour une alerte de cluster.
+** *Gravité*
++
+*** *Avertissement*: Un problème mineur qui pourrait bientôt nécessiter l'attention. Les mises à niveau du système sont toujours autorisées à ce niveau de sévérité.
+*** *Erreur* : défaillance pouvant entraîner une dégradation des performances ou la perte de la haute disponibilité (HA). Les erreurs ne doivent généralement pas affecter le service.
+*** *Critique*: Une défaillance grave qui affecte le service. Le système ne peut pas traiter les demandes d'E/S de l'API ou du client. L'utilisation de cet état peut entraîner une perte potentielle de données.
+*** *BEST Practice*: Une pratique recommandée de configuration du système n'est pas utilisée.
+
+
+** *Type*
++
+*** *Node* : erreur affectant un nœud entier.
+*** *Lecteur* : défaut affectant un lecteur individuel.
+*** *Cluster* : défaut affectant l'ensemble du cluster.
+*** *Service* : défaut affectant un service sur le cluster.
+*** *Volume* : défaut affectant un volume sur le cluster.
+
+
+** *Node* : ID de nœud pour le nœud auquel cette erreur fait référence. Inclus pour les défaillances de nœud et de lecteur, sinon réglé sur - (tableau de bord).
+** *ID de lecteur* : ID de lecteur pour le lecteur auquel cette erreur fait référence. Inclus pour les défauts de conduite, sinon réglé à - (tableau de bord).
+** *Code d'erreur* : code descriptif indiquant la cause de l'anomalie.
+** *Détails* : description détaillée du défaut.
+** *Time* : cet en-tête est visible uniquement dans la vue filtre actif. La date et l'heure auxquelles le défaut a été enregistré.
+** *Date de résolution* : cet en-tête est visible uniquement dans la vue de filtre résolu. Date et heure de résolution de l'anomalie.
+
+
+. Pour vérifier que le problème a été résolu, recherchez-le dans la vue résolu.
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: concept_vcp_product_overview.html 
+summary: Informations générales sur le plug-in, notamment les composants et les URL importantes. 
+keywords: netapp, vcp, element, vcenter plugin, plug-in 
+---
+= Présentation du plug-in NetApp Element pour VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le plug-in NetApp Element pour VMware vCenter Server est un outil Web intégré à l'interface utilisateur du client Web VMware vSphere. Le plug-in est une extension et une interface alternative évolutive et conviviale pour VMware vSphere, qui peuvent gérer et surveiller les clusters de stockage exécutant *le logiciel NetApp Element*.
+
+Vous pouvez utiliser l'interface utilisateur du plug-in pour détecter et configurer les clusters, ainsi que pour gérer, surveiller et allouer du stockage à partir de la capacité du cluster pour configurer des datastores et des datastores virtuels (pour les volumes virtuels). Un cluster apparaît sur le réseau comme un seul groupe local représenté aux hôtes et aux administrateurs par des adresses IP virtuelles. Vous pouvez également surveiller l'activité du cluster à l'aide de rapports en temps réel, notamment des messages d'erreur et d'alerte pour tout événement susceptible de se produire lors de l'exécution de diverses opérations.
+
+
+
+== Composants NetApp associés au plug-in
+
+* *Utilitaire d'enregistrement* : un outil qui vous permet de gérer le link:vcp_concept_qossioc.html["QoSSIOC"] Enregistrement des services et des plug-ins avec vCenter.
++
+
+NOTE: Depuis le plug-in Element pour vCenter 5.0, vous enregistrez le plug-in Element à partir d'un nœud de gestion distinct pour chaque serveur vCenter qui gère les clusters de stockage NetApp SolidFire.
+
+* *Services de gestion* : microservices qui incluent le service QoSSIOC pour le plug-in vCenter. Les mises à niveau vers le plug-in sont publiées dans le cadre d'un pack de services de gestion.
++
+
+TIP: En savoir plus sur link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["versions des services de gestion"^].
+
+* *Nœud de gestion (nœud M)* : une machine virtuelle qui s'exécute en parallèle avec un ou plusieurs clusters de stockage basés sur logiciel Element. À partir d'Element 11.3, les services de gestion sont hébergés sur le nœud de gestion, ce qui permet une mise à jour plus rapide de certains services logiciels en dehors des versions majeures.
+
+
+
+
+== URL courantes
+
+Outre vSphere, il s'agit des URL les plus courantes utilisées avec le plug-in vCenter :
+
+[cols="2*"]
+|===
+| URL | Description 
+
+
+| `https://[management node IP address]:9443` | Enregistrez le module du plug-in vCenter dans le client Web vSphere. 
+
+
+| `https://[management node IP address]:442` | Depuis l'interface utilisateur du nœud de gestion par nœud, accédez aux paramètres du réseau et du cluster et utilisez les tests et utilitaires du système. https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html["En savoir plus ."^] 
+
+
+| `https://[management node IP address]` | Accédez à la solution NetApp de contrôle du cloud hybride pour mettre à niveau vos services de gestion, ou développez, surveillez et gérez votre installation. https://docs.netapp.com/us-en/hci/docs/task_hci_getstarted.html["En savoir plus ."^] 
+
+
+| `https://[management node IP address]/mnode` | Mettre à jour manuellement les services de gestion ou gérer les ressources via l'interface utilisateur de l'API REST depuis le nœud de gestion. https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html["En savoir plus ."^] 
+
+
+| `https://[storage cluster MVIP address]` | Accédez à l'interface utilisateur du logiciel NetApp Element. 
+|===
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* http://mysupport.netapp.com/hci/resources["Page Ressources NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+* link:vcp_concept_config_extension_point.html["Point d'extension de la configuration NetApp Element"]
+* link:vcp_concept_management_extension_point.html["Point d'extension de la configuration NetApp Element"]
+* link:vcp_concept_remote_plugin_extension_point.html["Point d'extension du plug-in distant NetApp Element"]
+

@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_reports_event_logs.html 
+summary: 'Consultez les journaux d"événements du plug-in NetApp Element pour VMware vCenter Server qui répertorient les opérations effectuées sur le cluster ainsi que toutes les défaillances de cluster indiquant des erreurs.' 
+keywords: netapp, hci, vcp, vcenter, element, monitor, report, event, log, cluster, performance 
+---
+= Surveiller les journaux d'événements pour le dépannage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez consulter les journaux d'événements pour vérifier s'il y a des opérations effectuées sur le cluster sélectionné ainsi que les défaillances de cluster qui peuvent se produire. La plupart des erreurs sont résolues automatiquement par le système. D'autres défaillances peuvent nécessiter une intervention manuelle.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
+
+
+. Sélectionnez *Rapport* > *Journal des événements*.
+. Pour consulter les détails, sélectionnez un événement et cliquez sur *Détails*.
+. Passez en revue les informations relatives à l'événement qui comprennent les éléments suivants :
++
+** *Type d'événement* : type d'événement en cours de journalisation, par exemple événements API ou événements de clonage.
+** *ID de service* : ID du service qui a signalé l'événement (le cas échéant). La valeur est nulle si l'anomalie n'est pas associée à un service.
+** *Node* ou *Drive ID* : ID du nœud ou du lecteur qui a signalé l'événement (le cas échéant).
+
+
+
+
+
+
+== Types d'événement
+
+Le système signale plusieurs types d'événements ; chaque événement est une opération que le système a effectuée. Les événements peuvent être de routine, des événements normaux ou des événements nécessitant l'intervention de l'administrateur. La colonne Type d'événement de la page Journal des événements indique dans quelle partie du système l'événement s'est produit.
+
+
+NOTE: Le système ne consigne pas les commandes API en lecture seule dans le journal des événements.
+
+La liste suivante décrit les types d'événements susceptibles d'apparaître dans le journal des événements.
+
+* *ApiEvent* : événements lancés par un utilisateur via une API ou une interface utilisateur Web qui modifie les paramètres.
+* *BinAssignesEvénement* : événements liés à l'affectation des bacs de données. Les bacs sont essentiellement des conteneurs qui détiennent des données et qui sont mappés dans le cluster.
+* *BinSyncEvent* : événements système liés à une réaffectation de données entre les services de bloc.
+* *BsCheckEvent* : événements système liés aux contrôles de service de bloc.
+* *BsKillEvent* : événements système liés aux terminaisons de service de bloc.
+* *BulkOpEvent* : événements relatifs aux opérations effectuées sur un volume entier, comme une sauvegarde, une restauration, un snapshot ou un clone.
+* *CloneEvent* : événements liés au clonage de volumes.
+* *ClusterMasterEvent* : événements apparaissant lors de l'initialisation du cluster ou lors des modifications de configuration du cluster, comme l'ajout ou la suppression de nœuds.
+* *CsumEvent* : événements liés à des checksums de données non valides sur le disque.
+* *DataEvent* : événements liés à la lecture et à l'écriture de données.
+* *DbEvent* : événements liés à la base de données globale gérée par les nœuds d’ensemble du cluster.
+* *DriveEvent* : événements liés aux opérations de conduite.
+* *EncryptionAtRestEvent* : événements liés au processus de chiffrement sur un cluster.
+* *EnsemleEvent* : événements liés à l'augmentation ou à la diminution du nombre de nœuds dans un ensemble.
+* *FibroChannelEvent* : événements liés à la configuration et aux connexions aux nœuds.
+* *GcEvent* : les événements liés aux processus s'exécutent toutes les 60 minutes pour récupérer du stockage sur des lecteurs de blocs. Ce processus est également connu sous le nom de collecte de déchets.
+* *IeEvent* : erreur système interne.
+* *Installevent*: Les événements d'installation automatique du logiciel. Le logiciel est automatiquement installé sur un nœud en attente.
+* *ISCSIEvent* : événements liés à des problèmes iSCSI dans le système.
+* *LimitEvent* : événements liés au nombre de volumes ou de volumes virtuels dans un compte ou dans le cluster proche du maximum autorisé.
+* *MainenanceModeEvent* : événements liés au mode de maintenance du nœud, tels que la désactivation du nœud.
+* *NetworkEvent* : événements liés à l'état de la mise en réseau virtuelle.
+* *HardwareEvent de plate-forme*: Événements liés à des problèmes détectés sur des périphériques matériels.
+* *RemoteClusterEvent* : événements liés au couplage de cluster à distance.
+* *SchedulerEvent* : événements liés aux instantanés programmés.
+* *ServiceEvent* : événements liés à l'état du service système.
+* *SliceEvent* : événements liés au serveur de tranches, tels que le retrait d'un lecteur de métadonnées ou d'un volume.
++
+Il existe trois types d'événements de réaffectation de tranche, qui incluent des informations sur le service dans lequel un volume est affecté :
+
+* inversion : changement du service principal en un nouveau service principal
++
+`sliceID oldPrimaryServiceID->newPrimaryServiceID`
+
+* déplacement : déplacement du service secondaire vers un nouveau service secondaire
++
+`sliceID {oldSecondaryServiceID(s)}->{newSecondaryServiceID(s)}`
+
+* suppression: suppression d'un volume d'un ensemble de services
++
+`sliceID {oldSecondaryServiceID(s)}`
+
+* *SnmpTrapEvent*: Événements liés aux traps SNMP.
+* *StatEvent* : événements liés aux statistiques du système.
+* *TsEvent*: Événements liés au service de transport du système.
+* *UnexpectedException*: Événements liés à des exceptions système inattendues.
+* *UreEvent* : événements liés aux erreurs de lecture irrécupérables qui se produisent lors de la lecture à partir du périphérique de stockage.
+* *VavaProviderEvent* : événements liés à un fournisseur VASA (vSphere APIs for Storage Awareness).
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

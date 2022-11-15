@@ -1,0 +1,204 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_snapshots_schedules.html 
+summary: 'Créez un planning de snapshots à l"aide du plug-in.' 
+keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, schedule 
+---
+= Créer des planifications de snapshot
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez planifier l'exécution automatique d'un instantané d'un volume à des intervalles de date et d'heure spécifiés. Vous pouvez planifier l'exécution automatique des snapshots d'un seul volume ou de groupes.
+
+Lorsque vous créez des planifications de snapshots, vous pouvez stocker les snapshots résultants sur un système de stockage NetApp Element distant si le volume est répliqué.
+
+
+NOTE: Les horaires sont créés à l'aide de l'heure UTC+0. Il se peut que vous deviez régler la durée réelle d'exécution d'un instantané en fonction de votre fuseau horaire.
+
+*  a snapshot schedule
+*  snapshot schedule details
+*  a snapshot schedule
+*  a snapshot schedule
+*  a snapshot schedule
+
+
+
+
+== Créer un planning de snapshots
+
+Vous pouvez planifier l'exécution automatique d'un ou de plusieurs volumes à des intervalles spécifiques.
+
+Lorsque vous configurez un planning de snapshots, vous pouvez choisir entre des intervalles de temps basés sur des jours de la semaine ou des jours du mois. Vous pouvez également indiquer les jours, heures et minutes avant le prochain instantané.
+
+Si vous planifiez l'exécution d'un instantané à une période qui n'est pas divisible d'ici 5 minutes, l'instantané s'exécute à la période suivante divisible d'ici 5 minutes. Par exemple, si vous planifiez l'exécution d'un snapshot à 12:42:00 UTC, il s'exécutera à 12:45:00 UTC. Vous ne pouvez pas programmer l'exécution d'un instantané à des intervalles inférieurs à 5 minutes.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *Schedules*.
+. Sélectionnez *Créer un programme*.
+. Dans le champ *ID de volume CSV*, entrez un ID de volume unique ou une liste séparée par des virgules d'ID de volume à inclure dans l'opération de planification de snapshot.
+. Saisissez un nom d'horaire.
+. Sélectionnez un type de planification et configurez les détails.
+. (Facultatif) pour répéter indéfiniment l'horaire, cochez *Calendrier récurrent*.
+. (Facultatif) dans le champ Nouveau nom d'instantané, entrez un nom pour le nouvel instantané.
++
+
+NOTE: Si vous n'entrez pas de nom, le système crée un nom d'instantané par défaut en utilisant la date et l'heure de création de l'instantané.
+
+. (Facultatif) cochez *inclure l'instantané dans la réplication lorsqu'il est couplé* pour vous assurer que l'instantané est répliqué lorsque le volume parent est couplé.
+. Sélectionnez l'une des options suivantes comme période de conservation du snapshot :
++
+** *Conserver indéfiniment* : conserve l'instantané sur le système indéfiniment.
+** *Définir la période de rétention* : déterminer la durée (jours, heures ou minutes) de conservation de l'instantané par le système.
++
+
+NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez une période qui commence à l'heure actuelle. (La conservation n'est pas calculée à partir de l'heure de création des snapshots.)
+
+
+
+. Sélectionnez *OK*.
+
+
+
+
+== Afficher les détails de la planification des snapshots
+
+Vous pouvez vérifier les détails de la planification des snapshots.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez afficher est sélectionné dans la barre de navigation.
+
+. Sélectionnez la page *programmes*.
+. Vérifiez les détails du planning.
+
+
+
+
+== Modifier un planning de snapshots
+
+Vous pouvez modifier des plannings de snapshots existants. Après modification, la prochaine fois que le planning s'exécute, il utilise les attributs mis à jour. Tous les snapshots créés par le planning d'origine restent sur le système de stockage.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *Schedules*.
+. Cochez la case correspondant au planning de snapshots que vous souhaitez modifier.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, sélectionnez *Modifier*.
+. Dans le champ *ID de volume CSV*, modifiez l'ID de volume unique ou la liste des ID de volume séparés par des virgules actuellement inclus dans l'opération de snapshot.
+. (Facultatif) pour interrompre un programme actif ou reprendre un planning en pause, cochez la case *suspendre manuellement le programme*.
+. (Facultatif) Entrez un nom différent pour le programme dans le champ *Nouveau nom d'horaire*.
+. (Facultatif) modifiez le type de planification actuel en sélectionnant l'une des options suivantes :
++
+.. *Jours de la semaine* : sélectionnez un des jours de la semaine et une heure du jour pour créer un instantané.
+.. *Jours du mois* : sélectionnez un des jours du mois et une heure du jour pour créer un instantané.
+.. *Intervalle de temps* : sélectionnez un intervalle pour l'exécution de la planification en fonction du nombre de jours, d'heures et de minutes entre les snapshots.
+
+
+. (Facultatif) sélectionnez *Programme récurrent* pour répéter indéfiniment la planification des instantanés.
+. (Facultatif) Entrez ou modifiez le nom des snapshots définis par le planning dans le champ *Nouveau nom d'instantané*.
++
+
+NOTE: Si vous laissez le champ vide, le système utilise l'heure et la date de création de l'instantané comme nom.
+
+. (Facultatif) cochez la case *inclure les instantanés dans la réplication lorsqu'ils sont couplés* pour vous assurer que les instantanés sont capturés dans la réplication lorsque le volume parent est couplé.
+. (Facultatif) sélectionnez l'une des options suivantes comme période de conservation de l'instantané :
++
+** *Conserver indéfiniment* : conserve l'instantané sur le système indéfiniment.
+** *Définir la période de rétention* : déterminer la durée (jours, heures ou minutes) de conservation de l'instantané par le système.
++
+
+NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez une période qui commence à l'heure actuelle (la conservation n'est pas calculée à partir de l'heure de création de l'instantané).
+
+
+
+. Cliquez sur *OK*.
+
+
+
+
+== Copier un planning de snapshots
+
+Vous pouvez créer une copie d'un planning de snapshots et l'attribuer à de nouveaux volumes ou l'utiliser à d'autres fins.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *Schedules*.
+. Cochez la case correspondant au planning de snapshots que vous souhaitez copier.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, cliquez sur *Copier*. La boîte de dialogue Copier le programme s'affiche, avec les attributs actuels du planning.
+. (Facultatif) Entrez un nom et mettez à jour les attributs pour la copie du planning.
+. Cliquez sur *OK*.
+
+
+
+
+== Supprime une planification de snapshots
+
+Vous pouvez supprimer un planning de snapshots. Une fois que vous avez supprimé le planning, il n'exécute pas de snapshots planifiés futurs. Tous les snapshots créés par la planification restent sur le système de stockage.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *Schedules*.
+. Cochez la case correspondant au planning de snapshots que vous souhaitez supprimer.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, cliquez sur *Supprimer*.
+. Confirmez l'action.
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

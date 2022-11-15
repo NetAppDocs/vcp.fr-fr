@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_add_manage_drive.html 
+summary: 'Vous pouvez ajouter et gérer des disques au cluster à l"aide du plug-in.' 
+keywords: netapp, drives, add, manage, remove, view vcp, vcenter, element 
+---
+= Ajouter et gérer des disques
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter des lecteurs à un cluster, afficher des lecteurs existants et supprimer des lecteurs à l'aide du point d'extension enfichable.
+
+*  available drives to a cluster
+*  drive details
+*  a drive
+
+
+
+
+== Ajoutez des disques disponibles à un cluster
+
+Vous pouvez ajouter des lecteurs à un cluster à l'aide du point d'extension du plug-in. Lorsque vous ajoutez un nœud au cluster ou que vous installez de nouveaux disques dans un nœud existant, les disques s'enregistrent automatiquement en tant que `Available`. Vous devez ajouter les disques au cluster avant que chaque disque ne puisse participer au cluster.
+
+Les disques ne sont pas affichés dans la liste disponible lorsque les conditions suivantes existent :
+
+* Les disques sont dans un `Active`, `Removing`, `Erasing`, ou `Failed` état.
+* Nœud dans lequel le lecteur est un composant `Pending` état.
+
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Dans le sous-onglet *lecteurs*, sélectionnez *disponibles* dans la liste déroulante pour afficher la liste des lecteurs disponibles.
+. Ajoutez des disques comme suit :
++
+.. Cochez la case correspondant à chaque lecteur que vous souhaitez ajouter.
+.. Cliquez sur *Ajouter des lecteurs*.
+
+
+. Consultez les détails des lecteurs que vous souhaitez ajouter et confirmer l'action.
+
+
+
+
+== Afficher les détails du lecteur
+
+Vous pouvez afficher la liste des lecteurs actifs dans le cluster à l'aide de la vue active sur la page lecteurs de l'onglet Cluster à partir du point d'extension du plug-in. Vous pouvez modifier la vue en sélectionnant les options disponibles à l'aide du filtre déroulant.
+
+Lorsque vous initialisez un cluster, la liste des disques actifs est vide. Vous pouvez ajouter des disques non assignés à un cluster et listés dans l'onglet disponible après la création d'un nouveau cluster.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *lecteurs*.
+. Sélectionnez la vue *active*.
+. Afficher les détails des lecteurs actuellement actifs dans le système.
++
+Vous pouvez afficher des informations telles que les ID de disque, la capacité et l'état de chaque disque, ainsi que des informations sur le nœud dans lequel réside le disque.
+
+
+
+
+
+== Déposer un lecteur
+
+Vous pouvez retirer un lecteur d'un cluster à l'aide du point d'extension enfichable. Vous pouvez le faire en réduisant la capacité du cluster ou en préparant le remplacement de disques en fin de vie. Le retrait d'un lecteur met le lecteur hors ligne. Toutes les données du disque sont supprimées et migrées vers d'autres disques du cluster avant que le disque ne soit retiré du cluster. La migration des données vers d'autres disques actifs du système peut prendre quelques minutes à une heure selon l'utilisation de la capacité et les E/S actives sur le cluster.
+
+Lorsque vous retirez un lecteur dans un `Failed` état, le lecteur n'est pas renvoyé à `Available` ou `Active` états-unis. En revanche, le disque n'est pas disponible pour une utilisation dans le cluster.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez *tous* dans la liste déroulante pour afficher la liste complète des lecteurs.
+. Déposer les entraînements comme suit :
++
+.. Cochez la case correspondant à chaque lecteur que vous souhaitez supprimer.
+.. Cliquez sur *Supprimer les lecteurs*.
+
+
+. Confirmez l'action.
++
+
+NOTE: Si la capacité de retrait des disques actifs est insuffisante avant de supprimer un nœud, un message d'erreur s'affiche lorsque vous confirmez le retrait du disque.
+
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

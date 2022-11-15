@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_vvols.html 
+summary:  
+keywords: netapp, vvol, virtual volume, storage container, protocol endpoint, vcp, vcenter, element 
+---
+= Volumes virtuels (vvols)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les volumes virtuels vSphere sont un modèle de stockage utilisé par VMware qui permet de déplacer une grande partie de la gestion du stockage pour vSphere du système de stockage vers VMware vCenter. Avec Virtual volumes (vvols), vous pouvez allouer du stockage en fonction des besoins de machines virtuelles individuelles.
+
+
+
+== Liaisons
+
+Le cluster NetApp Element choisit un noeud final de protocole optimal, crée une liaison qui associe l'hôte ESXi et le volume virtuel au noeud final du protocole et renvoie la liaison à l'hôte ESXi. Une fois lié, l'hôte ESXi peut effectuer des opérations d'E/S avec le volume virtuel lié.
+
+
+
+== Terminaux PE
+
+Les hôtes VMware ESXi utilisent des proxys d'E/S logiques appelés terminaux de protocole pour communiquer avec les volumes virtuels. Les hôtes ESXi lient les volumes virtuels aux terminaux PE pour effectuer des opérations d'E/S. Lorsqu'une machine virtuelle de l'hôte effectue une opération d'E/S, le point de terminaison de protocole associé dirige les E/S vers le volume virtuel auquel elle est couplée.
+
+Les terminaux PE d'un cluster NetApp Element fonctionnent comme des unités logiques d'administration SCSI. Chaque terminal de protocole est créé automatiquement par le cluster. Pour chaque nœud d'un cluster, un terminal de protocole correspondant est créé. Par exemple, un cluster à quatre nœuds possède quatre terminaux de protocole.
+
+ISCSI est le seul protocole pris en charge par le logiciel NetApp Element. Le protocole Fibre Channel n'est pas pris en charge. Les terminaux de protocole ne peuvent pas être supprimés ou modifiés par un utilisateur, ne sont pas associés à un compte et ne peuvent pas être ajoutés à un groupe d'accès de volume. Vous pouvez consulter les informations de point final du protocole à l'aide du point d'extension du plug-in :
+
+* Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > gestion > VVol > terminaux PE*.
+* Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *gestion NetApp Element > VVol > terminaux PE*.
+
+
+
+
+== Conteneurs de stockage
+
+Les conteneurs de stockage sont des constructions logiques qui sont mappées aux comptes NetApp Element et utilisées pour le reporting et l'allocation des ressources. Ils regroupent des capacités de stockage brutes ou des fonctionnalités de stockage agrégées que le système de stockage peut fournir aux volumes virtuels. Un datastore VVol créé dans vSphere est mappé à un conteneur de stockage individuel. Par défaut, un conteneur de stockage unique dispose de toutes les ressources disponibles depuis le cluster NetApp Element. Si une gouvernance plus granulaire est nécessaire pour la colocation, plusieurs conteneurs de stockage peuvent être créés.
+
+Les conteneurs de stockage fonctionnent comme des comptes classiques et peuvent contenir à la fois des volumes virtuels et des volumes traditionnels. Un maximum de quatre conteneurs de stockage par cluster est pris en charge. Un conteneur de stockage au moins est requis pour utiliser la fonctionnalité VVols. Vous pouvez créer, supprimer et afficher des détails sur les conteneurs de stockage à l'aide du point d'extension du plug-in :
+
+* Depuis le plug-in vCenter Element 5.0, sélectionnez *Plug-in distant NetApp Element > gestion > VVol > conteneurs de stockage*.
+* Pour le plug-in Element vCenter 4.10 et versions antérieures, sélectionnez *gestion NetApp Element > VVol > conteneurs de stockage*.
+
+
+Vous pouvez également découvrir les conteneurs de stockage dans vCenter lors de la création des volumes virtuels.
+
+
+
+== Fournisseur VASA
+
+Pour que vSphere soit conscient de la fonctionnalité vVol du cluster NetApp Element, l'administrateur vSphere doit enregistrer le fournisseur NetApp Element VASA auprès de vCenter. Le fournisseur VASA est le chemin de contrôle hors bande entre vSphere et le cluster Element. Il est chargé d'exécuter les demandes sur le cluster Element pour le compte de vSphere, par exemple la création de machines virtuelles, la mise à disposition de machines virtuelles pour vSphere et la publicité des fonctionnalités de stockage pour vSphere.
+
+Le fournisseur VASA s'exécute comme faisant partie du maître de cluster dans le logiciel Element. Le maître de cluster est un service hautement disponible qui bascule vers n'importe quel nœud du cluster si nécessaire. En cas de défaillance du maître de cluster, le fournisseur VASA le déplace tout en assurant une haute disponibilité pour le fournisseur VASA. Toutes les tâches de provisionnement et de gestion du stockage utilisent le fournisseur VASA, qui gère toutes les modifications requises dans le cluster Element.
+
+
+NOTE: Pour le logiciel Element 12.5 et version antérieure, ne vous enregistrez pas plusieurs fournisseurs NetApp Element VASA vers une seule instance de vCenter. Ainsi, lorsqu'un deuxième fournisseur NetApp Element VASA est ajouté, tous les data stores VVOL sont inaccessibles.
+
+
+NOTE: Le support VASA pour 10 centres maximum est disponible en tant que correctif de mise à niveau si vous avez déjà enregistré un fournisseur VASA auprès de votre vCenter. Pour installer, suivez les instructions du manifeste VASA39 et téléchargez le fichier .tar.gz à partir du link:https://mysupport.netapp.com/site/products/all/details/element-software/downloads-tab/download/62654/vasa39["Téléchargements de logiciels NetApp"^] le site. Le fournisseur NetApp Element VASA utilise un certificat NetApp. Avec ce correctif, le certificat est utilisé non modifié par vCenter pour prendre en charge plusieurs vCenters pour VASA et VVol. Ne modifiez pas le certificat. Les certificats SSL personnalisés ne sont pas pris en charge par VASA.
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* http://mysupport.netapp.com/hci/resources["Page Ressources NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

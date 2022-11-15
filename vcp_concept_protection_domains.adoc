@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: vcp_concept_protection_domains.html 
+summary:  
+keywords: netapp, vcp, element, plugin, plug-in, protection, domain 
+---
+= Les domaines de protection
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un domaine de protection est un nœud ou un ensemble de nœuds regroupés de manière à ce qu'un nœud ou tous les nœuds du domaine puissent tomber en panne sans que le cluster perde la disponibilité des données. La fonction de domaines de protection vous permet de surveiller la capacité des ressources d'un cluster afin de vous assurer que le cluster est toujours capable de guérison en cas de défaillance. Vous pouvez sélectionner la surveillance au niveau d'un nœud ou du domaine du châssis :
+
+* *Niveau de nœud* définit chaque domaine de protection par nœud individuel, chaque nœud étant potentiellement placé sur le châssis.
+* *Niveau de châssis* définit chaque domaine de protection par des nœuds qui partagent un châssis.
+
+
+Un domaine de châssis nécessite plus de ressources de capacité qu'un domaine de nœud pour être résilient aux pannes. Lorsqu'un seuil de protection est dépassé, un cluster ne dispose plus de la capacité suffisante pour corriger les pannes tout en assurant une disponibilité des données sans interruption.
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

@@ -1,0 +1,216 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_snapshots_group.html 
+summary: 'Créer un snapshot de groupe d"un ensemble de volumes afin de préserver une copie instantanée des métadonnées de chaque volume.' 
+keywords: netapp, hci, vcp, vcenter, element, protect, snapshots, clone, backup, amazon, s3, openstack, swift 
+---
+= Création et gestion de snapshots de groupe dans vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez créer un snapshot de groupe d'un ensemble de volumes associé afin de conserver une copie instantanée des métadonnées de chaque volume. Vous pouvez utiliser le snapshot de groupe comme sauvegarde ou restauration pour restaurer l'état du groupe de volumes à un point dans le temps souhaité.
+
+.Options
+*  a group snapshot
+*  group snapshot details
+*  volumes from a group snapshot
+*  back volumes to a group snapshot
+*  a group snapshot
+
+
+
+
+== Créez un snapshot de groupe
+
+Vous pouvez créer immédiatement un snapshot d'un groupe de volumes ou créer une planification permettant d'automatiser d'autres snapshots du groupe de volumes. Un snapshot de groupe unique peut effectuer des snapshots de manière cohérente jusqu'à 32 volumes à la fois.
+
+Vous pouvez modifier ultérieurement les paramètres de réplication ou la période de rétention d'un instantané de groupe. La période de rétention que vous spécifiez commence lorsque vous entrez le nouvel intervalle. Lorsque vous définissez une période de rétention, vous pouvez sélectionner une période qui commence à l'heure actuelle (la conservation n'est pas calculée à partir de l'heure de création de l'instantané). Vous pouvez spécifier des intervalles en minutes, heures et jours.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case du volume à utiliser pour l'instantané.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, sélectionnez *Créer un instantané de groupe*.
+. (Facultatif) dans la boîte de dialogue Créer un instantané de groupe, entrez un nom pour le snapshot.
++
+
+TIP: Utilisez les bonnes pratiques descriptives en matière de dénomination. Ceci est particulièrement important si plusieurs clusters ou serveurs vCenter sont utilisés dans votre environnement. Si vous n'entrez pas de nom, le système crée un nom de snapshot de groupe par défaut en utilisant la date et l'heure de création de l'instantané.
+
+. (Facultatif) cochez la case *inclure l'instantané dans la réplication lorsqu'il est couplé* pour vous assurer que l'instantané est répliqué lorsque le volume parent est couplé.
+. Sélectionnez l'une des options suivantes comme période de conservation du snapshot :
++
+** *Conserver indéfiniment* : conserve l'instantané sur le système indéfiniment.
+** *Définir la période de rétention* : déterminer la durée (jours, heures ou minutes) de conservation de l'instantané par le système.
++
+
+NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez une période qui commence à l'heure actuelle. (La conservation n'est pas calculée à partir de l'heure de création des snapshots.)
+
+
+
+. Pour prendre un instantané unique, sélectionnez *prendre un instantané de groupe maintenant*.
+. Pour planifier l'exécution ultérieure de l'instantané, procédez comme suit :
++
+.. Sélectionnez *Créer planning d'instantanés*.
+.. Saisissez un nom d'horaire.
+.. Sélectionnez un type de planification et configurez les détails de la planification.
+.. (Facultatif) cochez la case *Programme récurrent* pour répéter l'instantané programmé périodiquement.
+
+
+. Cliquez sur *OK*.
+
+
+
+
+== Afficher les détails des instantanés de groupe
+
+Vous pouvez vérifier que le snapshot a été ajouté.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *snapshots de groupe*.
+. Vérifier les détails du snapshot :
++
+** *Date de création* : date et heure de création de l'instantané de groupe.
+** *Status* : affiche l'état de l'instantané sur le cluster distant exécutant le logiciel NetApp Element :
++
+*** *Préparation*: L'instantané est en cours de préparation et n'est pas encore accessible en écriture.
+*** *Fait*: Ce snapshot a terminé la préparation et est maintenant utilisable.
+*** *Actif* : l'instantané est la branche active.
+
+
+** *Nombre de volumes* : nombre de volumes dans le snapshot de groupe.
+
+
+
+
+
+
+== Cloner des volumes à partir d'un snapshot de groupe
+
+Vous pouvez cloner un groupe de volumes à partir d'un snapshot de groupe instantané. Une fois les volumes créés, vous pouvez les utiliser comme n'importe quel autre volume du système.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *snapshots de groupe*.
+. Cochez la case correspondant au snapshot de groupe à utiliser pour les clones de volume.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, sélectionnez *Cloner volumes à partir de l'instantané de groupe*.
+. (Facultatif) Entrez un nouveau préfixe de nom de volume qui sera appliqué à tous les volumes créés à partir du snapshot de groupe.
+. (Facultatif) sélectionnez un autre compte auquel appartient le clone. Si vous ne sélectionnez pas de compte, le système attribue les nouveaux volumes au compte de volume actuel.
+. Sélectionnez une autre méthode d'accès pour les volumes du clone. Si vous ne sélectionnez pas de méthode, le système utilise l'accès actuel au volume :
++
+** *Lecture seule* : seules les opérations de lecture sont autorisées.
+** *Lecture/écriture* : toutes les opérations de lecture et d'écriture sont acceptées.
+** *Verrouillé* : seul l'accès administrateur est autorisé.
+** *Cible de réplication* : désigné comme volume cible dans une paire de volumes répliqués.
+
+
+. Cliquez sur *OK*.
++
+
+NOTE: La taille du volume et la charge actuelle du cluster affectent le temps nécessaire à une opération de clonage.
+
+
+
+
+
+== Restaurer les volumes dans un snapshot de groupe
+
+Vous pouvez restaurer un groupe de volumes actifs vers un snapshot de groupe. Tous les volumes associés d'un snapshot de groupe sont alors à leur état au moment de la création du snapshot de groupe. Cette procédure restaure également les tailles de volume à la taille enregistrée dans le snapshot d'origine. Si le système a purgé un volume, tous les snapshots de ce volume ont également été supprimés au moment de la purge ; le système ne restaure pas les snapshots de volume supprimés.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Cliquez sur le sous-onglet *snapshots de groupe*.
+. Cochez la case correspondant au snapshot de groupe à utiliser pour la restauration du volume.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, sélectionnez *Restaurer les volumes pour regrouper l'instantané*.
+. (Facultatif) pour enregistrer l'état actuel des volumes avant de revenir au snapshot :
++
+.. Dans la boîte de dialogue *revenir à l'instantané*, sélectionnez *Enregistrer l'état actuel des volumes comme instantané de groupe*.
+.. Entrez un nom pour le nouvel instantané.
+
+
+. Cliquez sur *OK*.
+
+
+
+
+== Supprimer un snapshot de groupe
+
+Vous pouvez supprimer un instantané de groupe du système. Lorsque vous supprimez le snapshot de groupe, vous pouvez choisir de supprimer ou de conserver tous les instantanés associés au groupe en tant que snapshots individuels.
+
+Si vous supprimez un volume ou un snapshot membre d'un snapshot de groupe, vous ne pouvez plus revenir au snapshot de groupe. Toutefois, vous pouvez restaurer chaque volume individuellement.
+
+.Étapes
+. Dans le plug-in vCenter, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser est sélectionné dans la barre de navigation.
+
+. Cochez la case correspondant au snapshot de groupe que vous souhaitez supprimer.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, sélectionnez *Supprimer*.
+. Sélectionnez l'une des options suivantes :
++
+** *Supprimer l'instantané de groupe et les membres* : supprime l'instantané de groupe et tous les instantanés membres.
+** *Conserver les membres* : supprime l'instantané de groupe mais conserve tous les instantanés membres.
+
+
+. Confirmez l'action.
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

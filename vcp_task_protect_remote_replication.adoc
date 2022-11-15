@@ -1,0 +1,725 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_remote_replication.html 
+summary: La réplication en temps réel permet de créer rapidement des copies distantes des données de volume. 
+keywords: netapp, hci, vcp, vcenter, element, protect, replication, remote, cluster 
+---
+= Réplication à distance entre les clusters
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour les clusters exécutant le logiciel NetApp Element, la réplication en temps réel permet de créer rapidement des copies distantes des données de volume. Vous pouvez associer un cluster de stockage à quatre autres clusters de stockage maximum.
+
+Il peut répliquer des données de volume de manière synchrone ou asynchrone à partir de l'un des clusters d'une paire de clusters pour effectuer des scénarios de basculement et de restauration. Vous devez d'abord coupler deux clusters NetApp Element, puis coupler des volumes sur chaque cluster pour bénéficier de la réplication à distance en temps réel.
+
+.Ce dont vous avez besoin, 8217;ll
+* Assurez-vous que vous avez ajouté au moins un cluster au plug-in.
+* Assurez-vous que toutes les adresses IP de nœud sur les réseaux de gestion et de stockage des clusters jumelés sont acheminées les unes aux autres.
+* Assurez-vous que la MTU de tous les nœuds associés est identique et qu'elle est prise en charge de bout en bout entre les clusters.
+* Assurez-vous que la différence entre les versions logicielles NetApp Element sur les clusters n'est pas supérieure à une version majeure. Si la différence est supérieure, l'un des clusters doit être mis à niveau pour effectuer la réplication des données.
+
+
+
+NOTE: Les appliances WAN Accelerator n'ont pas été qualifiées par NetApp pour la réplication des données. Ces appliances peuvent interférer avec la compression et la déduplication si elles sont déployées entre deux clusters qui répliquant les données. Assurez-vous de bien qualifier les effets de tout accélérateur WAN avant de le déployer dans un environnement de production.
+
+.Étapes
+.  clusters
+.  volumes
+.  volume replication
+.  a volume relationship after replication
+.  volume relationships
+
+
+
+
+== Coupler les clusters
+
+Vous devez coupler deux clusters pour utiliser la fonctionnalité de réplication en temps réel. Une fois que vous avez couplé et connecté deux clusters, vous pouvez configurer des volumes actifs sur un cluster pour qu'ils soient répliqués en continu sur un second cluster, assurant ainsi la protection continue des données (CDP).
+
+Vous pouvez coupler un cluster source et cible à l'aide du MVIP du cluster cible si l'accès d'administrateur de cluster aux deux clusters est possible. Si l'accès administrateur de cluster n'est disponible que sur un seul cluster d'une paire de clusters, une clé de couplage peut être utilisée sur le cluster cible pour terminer l'appariement du cluster.
+
+.Ce dont vous avez besoin, 8217;ll
+* Vous avez besoin de privilèges d'administrateur de cluster pour un ou les deux clusters en cours de couplage.
+* Assurez-vous que la latence aller-retour entre les clusters est inférieure à 2000 millisecondes.
+* Assurez-vous que la différence entre les versions logicielles NetApp Element sur les clusters n'est pas supérieure à une version majeure.
+* Assurez-vous que toutes les adresses IP de nœud sur les clusters jumelés sont acheminées les unes aux autres.
+
+
+
+NOTE: L'association de cluster requiert une connectivité complète entre les nœuds du réseau de gestion. La réplication nécessite une connectivité entre les différents nœuds du réseau de cluster de stockage.
+
+Vous pouvez coupler un cluster NetApp Element avec quatre autres clusters au maximum pour répliquer des volumes. Vous pouvez également coupler les clusters au sein du groupe de clusters.
+
+Choisissez l'une des méthodes suivantes :
+
+*  clusters using known credentials
+*  clusters with a pairing key
+
+
+
+
+=== Couplez des clusters à l'aide d'identifiants connus
+
+Vous pouvez coupler deux clusters pour la réplication en temps réel en utilisant le MVIP d'un cluster pour établir une connexion avec l'autre cluster. Cette méthode requiert l'accès aux administrateurs du cluster sur les deux clusters.
+
+Le nom d'utilisateur et le mot de passe de l'administrateur du cluster permettent d'authentifier l'accès au cluster avant de pouvoir apparier les clusters.
+
+Si le MVIP n'est pas connu ou si l'accès au cluster n'est pas disponible, vous pouvez coupler le cluster en générant une clé de couplage et utiliser la clé pour coupler les deux clusters. Pour obtenir des instructions, reportez-vous à la section  clusters with a pairing key.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Configuration > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *Configuration NetApp Element > protection*.
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+
+
+. Sélectionnez le sous-onglet *Cluster paires*.
+. Sélectionnez *Créer un couplage de groupe*.
+. Sélectionnez l'une des options suivantes :
++
+** *Cluster enregistré* : si le cluster distant du couplage est contrôlé par la même instance du plug-in vCenter Element, sélectionnez cette option.
+** *Cluster titulaire* : si le cluster distant possède des informations d'identification connues en dehors de la configuration du plug-in Element vCenter, sélectionnez cette option.
+
+
+. Si vous avez sélectionné *cluster enregistré*, sélectionnez un cluster dans la liste des clusters disponibles et cliquez sur *paire*.
+. Si vous avez sélectionné *Cluster admissible*, procédez comme suit :
++
+.. Saisissez l'adresse MVIP du cluster distant.
+.. Entrez un nom d'utilisateur administrateur de cluster.
+.. Entrez un mot de passe d'administrateur du cluster.
+.. Sélectionnez *Démarrer le couplage*.
+
+
+. Une fois la tâche terminée et que vous voyez la page paires de clusters, vérifiez que la paire de clusters est connectée.
+. (Facultatif) sur le cluster distant, vérifiez que la paire de clusters est connectée à l'aide de l'interface utilisateur d'Element ou des points d'extension du plug-in :
++
+** À partir du plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection > Cluster paires*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection > paires de clusters*.
+
+
+
+
+
+
+=== Couplez des clusters avec une clé de couplage
+
+Si vous disposez d'un accès administrateur de cluster à un cluster local, mais pas à distance, vous pouvez coupler les clusters à l'aide d'une clé de couplage. Une clé de couplage est générée sur un cluster local, puis envoyée de manière sécurisée à un administrateur de cluster sur un site distant afin d'établir une connexion et d'effectuer le couplage du cluster pour une réplication en temps réel.
+
+Cette procédure décrit l'association de clusters entre deux clusters à l'aide de vCenter sur les sites locaux et distants. Vous pouvez également choisir de ne pas contrôler les clusters qui ne sont pas contrôlés par le plug-in vCenter https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_cluster_using_pairing_key.html["démarrer ou effectuer le couplage complet du cluster"] Utilisation de l'interface utilisateur Web Element.
+
+[[open_protection_tab]]
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+
+
+. Sélectionnez le sous-onglet *Cluster paires*.
+. Sélectionnez *Créer un couplage de groupe*.
+. Sélectionnez *cluster inaccessible*.
+. Sélectionnez *générer clé*.
++
+
+NOTE: Cette action génère une clé de texte pour le couplage et crée une paire de clusters non configurée sur le cluster local. Si vous ne terminez pas la procédure, vous devez supprimer manuellement la paire de clusters.
+
+. Copiez la clé de couplage du cluster dans le presse-papiers.
+. Sélectionnez *Fermer*.
+. Mettez la clé de couplage à la disposition de l'administrateur du cluster sur le site distant du cluster.
++
+
+NOTE: La clé de couplage de cluster contient une version du MVIP, le nom d'utilisateur, le mot de passe et les informations de base de données permettant les connexions de volume pour la réplication à distance. Cette clé doit être traitée de manière sécurisée et ne doit pas être stockée de manière à permettre un accès accidentel ou non sécurisé au nom d'utilisateur ou au mot de passe.
+
++
+
+IMPORTANT: Ne modifiez aucun des caractères de la clé de couplage. La clé devient non valide si elle est modifiée.
+
+. Depuis le vCenter qui contient le cluster distant, ,Ouvrez l'onglet protection.
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
++
+
+NOTE: Vous pouvez également terminer le couplage à l'aide de l'interface utilisateur Element.
+
+. Sélectionnez le sous-onglet *Cluster paires*.
+. Sélectionnez *terminer le couplage de groupe*.
++
+
+NOTE: Attendez que la bague de chargement disparaisse avant de passer à l'étape suivante. Si une erreur inattendue se produit pendant le processus de couplage, recherchez et supprimez manuellement les paires de clusters non configurées sur le cluster local et distant, puis effectuez à nouveau le couplage.
+
+. Collez la clé de couplage du cluster local dans le champ *clé de couplage de cluster*.
+. Sélectionnez *pair Cluster*.
+. Une fois la tâche terminée et que la page *Cluster pair* s'affiche, vérifiez que la paire cluster est connectée.
+. Pour vérifier que la paire de clusters est connectée, sur le cluster distant ,Ouvrez l'onglet protection Vous pouvez également utiliser l'interface utilisateur Element.
+
+
+
+
+=== Valider les connexions de la paire de clusters
+
+Une fois le couplage du cluster terminé, vous pouvez vérifier la connexion de la paire de clusters pour assurer la réussite de la réplication.
+
+.Étapes
+. Sur le cluster local, sélectionnez *Data protection* > *Cluster paires*.
+. Vérifiez que la paire de clusters est connectée.
+. Revenez au cluster local et à la fenêtre *Cluster paires* et vérifiez que la paire cluster est connectée.
+
+
+
+
+== Coupler les volumes
+
+Une fois la connexion entre les clusters d'une paire de clusters établie, vous pouvez coupler un volume sur un cluster avec un volume sur l'autre cluster de la paire.
+
+Vous pouvez coupler le volume à l'aide de l'une des méthodes suivantes :
+
+*  volumes using known credentials: Utilisez les informations d'identification connues pour les deux clusters
+*  volumes using a pairing key: Utilisez une clé de couplage si les informations d'identification du cluster ne sont disponibles que sur le cluster source.
+*  target volumes and pair them with local volumes: Si vous connaissez les informations d'identification des deux clusters, créez un volume cible de réplication sur le cluster distant pour le coupler au cluster source.
+
+
+Après l'établissement d'une relation de couplage de volume, vous devez identifier le volume cible de réplication :
+
+*  a replication source and target to paired volumes
+
+
+.Ce dont vous avez besoin, 8217;ll
+* Vous devez avoir établi une connexion entre les clusters d'une paire de clusters.
+* Vous devez disposer des privilèges d'administrateur de cluster sur un ou les deux clusters en cours d'association.
+
+
+
+
+=== Couplez des volumes à l'aide d'informations d'identification connues
+
+Vous pouvez associer un volume local à un autre volume d'un cluster distant. Utilisez cette méthode si l'administrateur du cluster a accès aux deux clusters sur lesquels les volumes doivent être appariés. Cette méthode utilise l'ID du volume du cluster distant pour établir une connexion.
+
+.Avant de commencer
+* Vous disposez des informations d'identification d'administrateur de cluster pour le cluster distant.
+* Assurez-vous que les clusters contenant les volumes sont appariés.
+* Vous connaissez l'ID de volume distant, sauf si vous avez l'intention de créer un nouveau volume pendant ce processus.
+* Si vous souhaitez que le volume local soit la source, assurez-vous que le mode d'accès du volume est défini sur lecture/écriture.
+
+
+.Étapes
+. Dans vCenter qui contient le cluster local, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case du volume que vous souhaitez coupler.
+. Sélectionnez *actions*.
+. Sélectionnez *couplage de volume*.
+. Sélectionnez l'une des options suivantes :
++
+** *Volume Creation* : pour créer un volume cible de réplication sur le cluster distant, sélectionnez cette option. Cette méthode peut être utilisée uniquement sur les clusters distants qui sont contrôlés par un plug-in Element vCenter.
+** *Volume Selection* : si le cluster distant du volume cible est contrôlé par un plug-in vCenter Element, sélectionnez cette option.
+** *Volume ID* : si le cluster distant du volume cible possède des informations d'identification connues en dehors de la configuration du plug-in Element vCenter, sélectionnez cette option.
+
+
+. Sélectionnez un mode de réplication :
++
+** *Temps réel (synchrone)* : les écritures sont reconnues au client après leur validation sur les clusters source et cible.
+** *Temps réel (asynchrone)* : les écritures sont reconnues au client après leur validation sur le cluster source.
+** *Snapshots uniquement* : seuls les snapshots créés sur le cluster source sont répliqués. Les écritures actives du volume source ne sont pas répliquées.
+
+
+. Si vous avez sélectionné *Volume Creation* comme mode de couplage, procédez comme suit :
++
+.. Sélectionnez un cluster apparié dans la liste déroulante.
++
+
+NOTE: Cette action renseigne les comptes disponibles sur le cluster à sélectionner dans l'étape suivante.
+
+.. Sélectionnez un compte sur le cluster cible pour le volume cible de réplication.
+.. Entrez un nom de volume cible de réplication.
++
+
+NOTE: La taille du volume ne peut pas être ajustée pendant ce processus.
+
+
+
+. Si vous avez sélectionné *Volume Selection* comme mode de couplage, procédez comme suit :
++
+.. Sélectionnez un cluster couplé.
++
+
+NOTE: Cette action renseigne les volumes disponibles sur le cluster à sélectionner dans l'étape suivante.
+
+.. (Facultatif) sélectionnez l'option *définir le volume distant sur cible de réplication* si vous souhaitez définir le volume distant comme cible dans le couplage de volume. Le volume local, s'il est défini sur lecture/écriture, devient la source de la paire.
++
+
+IMPORTANT: Si vous attribuez un volume existant comme cible de réplication, les données de ce volume sont écrasées. Il est recommandé d'utiliser un nouveau volume comme cible de réplication.
+
++
+
+NOTE: Vous pouvez également attribuer la source et la cible de réplication ultérieurement dans le processus de couplage à partir de *volumes* > *actions* > *Modifier*. Vous devez affecter une source et une cible pour terminer le couplage.
+
+.. Sélectionnez un volume dans la liste des volumes disponibles.
+
+
+. Si vous avez sélectionné *Volume ID* comme mode de couplage, procédez comme suit :
++
+.. Sélectionnez un cluster apparié dans la liste déroulante.
+.. Si le cluster n'est pas enregistré avec le plug-in, entrez un ID utilisateur d'administrateur de cluster et un mot de passe d'administrateur de cluster.
+.. Entrez un ID de volume.
+.. Sélectionnez l'option *définir le volume distant sur cible de réplication* si vous souhaitez définir le volume distant comme cible dans le couplage de volume. Le volume local, s'il est défini sur lecture/écriture, devient la source de la paire.
++
+
+IMPORTANT: Si vous attribuez un volume existant comme cible de réplication, les données de ce volume sont écrasées. Il est recommandé d'utiliser un nouveau volume comme cible de réplication.
+
++
+
+NOTE: Vous pouvez également attribuer la source et la cible de réplication ultérieurement dans le processus de couplage à partir de *volumes* > *actions* > *Modifier*. Vous devez affecter une source et une cible pour terminer le couplage.
+
+
+
+. Sélectionnez *paire*.
++
+
+NOTE: Une fois le couplage effectué, les deux clusters commencent le processus de connexion des volumes. Pendant le processus de couplage, vous pouvez voir les messages de progression dans la colonne État du volume de la page paires de volumes.
+
++
+
+NOTE: Si vous n'avez pas encore affecté un volume à la cible de réplication, la configuration de couplage n'est pas terminée. La paire de volumes affiche PausedMisConfigured jusqu'à ce que la source et la cible de la paire de volumes soient affectées. Vous devez affecter une source et une cible pour terminer le couplage du volume.
+
+. Sélectionnez *protection* > *paires de volumes* sur l'un ou l'autre des clusters.
+. Vérifiez l'état du couplage de volume.
+
+
+
+
+=== Couplez des volumes à l'aide d'une clé de couplage
+
+Vous pouvez coupler un volume local avec un autre volume d'un cluster distant à l'aide d'une touche de couplage. Utilisez cette méthode si l'administrateur du cluster est autorisé à accéder uniquement au cluster source. Cette méthode génère une clé de couplage qui peut être utilisée sur le cluster distant pour terminer la paire de volumes.
+
+.Avant de commencer
+* Assurez-vous que les clusters contenant les volumes sont appariés.
+* *Meilleures pratiques* : définissez le volume source sur lecture/écriture et le volume cible sur cible de réplication. Le volume cible ne doit pas contenir de données et doit avoir les caractéristiques exactes du volume source, comme la taille, la valeur 512 et la configuration de la qualité de service. Si vous attribuez un volume existant comme cible de réplication, les données de ce volume sont écrasées. La taille du volume cible peut être supérieure ou égale au volume source, mais elle ne peut pas être plus petite.
+
+
+Cette procédure décrit le couplage de volumes entre deux volumes à l'aide de vCenter sur les sites locaux et distants. Pour les volumes qui ne sont pas contrôlés par le plug-in vCenter, vous pouvez alternativement démarrer ou terminer le couplage de volumes à l'aide de l'interface utilisateur Web d'Element.
+
+Pour obtenir des instructions sur le démarrage ou la fin du couplage de volumes à partir de l'interface utilisateur Web d'Element, reportez-vous à la section https://docs.netapp.com/us-en/element-software/storage/task_replication_pair_volumes_using_a_pairing_key.html["Documentation du logiciel NetApp Element"^].
+
+
+NOTE: La clé de couplage de volume contient une version chiffrée des informations relatives au volume et peut contenir des informations sensibles. Partagez cette clé de manière sécurisée.
+
+[[open_management]]
+.Étapes
+. Dans vCenter qui contient le cluster local, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+
+
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case du volume que vous souhaitez coupler.
+. Sélectionnez *actions*.
+. Sélectionnez *couplage de volume*.
+. Sélectionnez *cluster inaccessible*.
+. Sélectionnez un mode de réplication :
++
+** *Temps réel (synchrone)* : les écritures sont reconnues au client après leur validation sur les clusters source et cible.
+** *Temps réel (asynchrone)* : les écritures sont reconnues au client après leur validation sur le cluster source.
+** *Snapshots uniquement* : seuls les snapshots créés sur le cluster source sont répliqués. Les écritures actives du volume source ne sont pas répliquées.
+
+
+. Sélectionnez *générer clé*.
++
+
+NOTE: Cette action génère une clé de texte pour le couplage et crée une paire de volumes non configurés sur le cluster local. Si ce n'est pas le cas, vous devrez supprimer manuellement la paire de volumes.
+
+. Copiez la clé de couplage dans le presse-papiers.
+. Sélectionnez *Fermer*.
+. Mettez la clé de couplage à la disposition de l'administrateur du cluster sur le site distant du cluster.
++
+
+NOTE: La clé de couplage de volume doit être traitée de manière sécurisée et ne doit pas être stockée de manière à permettre un accès accidentel ou non sécurisé.
+
++
+
+IMPORTANT: Ne modifiez aucun des caractères de la clé de couplage. La clé devient non valide si elle est modifiée.
+
+. Depuis le vCenter qui contient le cluster distant, ,Ouvrez l'onglet gestion.
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case correspondant au volume que vous souhaitez coupler.
+. Sélectionnez *actions*.
+. Sélectionnez *couplage de volume*.
+. Sélectionnez *terminer le couplage de groupe*.
+. Collez la clé de couplage de l'autre groupe dans la case *clé de couplage*.
+. Sélectionnez *terminer le couplage*.
++
+
+NOTE: Une fois le couplage effectué, les deux clusters commencent le processus de connexion des volumes. Pendant le processus de couplage, vous pouvez voir les messages de progression dans la colonne État du volume de la page paires de volumes. Si une erreur inattendue se produit pendant le processus de couplage, recherchez et supprimez manuellement les paires de clusters non configurées sur le cluster local et distant, puis effectuez à nouveau le couplage.
+
++
+
+IMPORTANT: Si vous n'avez pas encore affecté un volume à la cible de réplication, la configuration de couplage n'est pas terminée. La paire de volumes affiche « PausedMisConfigured » jusqu'à ce que la source et la cible de la paire de volumes soient affectées. Vous devez affecter une source et une cible pour terminer le couplage du volume.
+
+. Sélectionnez *protection* > *paires de volumes* sur l'un ou l'autre des clusters.
+. Vérifiez l'état du couplage de volume.
++
+
+NOTE: Les volumes couplés à l'aide d'une touche de couplage apparaissent une fois le processus de couplage terminé à l'emplacement distant.
+
+
+
+
+
+=== Création des volumes cibles et association avec des volumes locaux
+
+Vous pouvez coupler deux ou plusieurs volumes locaux avec des volumes cibles associés sur un cluster distant. Ce processus crée un volume cible de réplication sur le cluster distant pour chaque volume source local sélectionné. Utilisez cette méthode si Cluster Admin accède aux deux clusters sur lesquels les volumes doivent être appariés et que le cluster distant est contrôlé par le plug-in.
+
+Cette méthode utilise l'ID de volume de chaque volume du cluster distant pour initier une ou plusieurs connexions.
+
+.Avant de commencer
+* Vérifiez que vous disposez des informations d'identification d'administrateur de cluster pour le cluster distant.
+* Assurez-vous que les clusters contenant les volumes sont couplés à l'aide du plug-in.
+* Assurez-vous que le cluster distant est contrôlé par le plug-in.
+* Assurez-vous que le mode d'accès de chaque volume local est défini sur lecture/écriture.
+
+
+.Étapes
+. Dans vCenter qui contient le cluster local, ouvrez l'onglet *Management* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Management*.
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, sélectionnez deux volumes ou plus que vous souhaitez coupler.
+. Sélectionnez *actions*.
+. Sélectionnez *couplage de volume*.
+. Sélectionnez un *mode de réplication* :
++
+** *Temps réel (synchrone)* : les écritures sont reconnues au client après leur validation sur les clusters source et cible.
+** *Temps réel (asynchrone)* : les écritures sont reconnues au client après leur validation sur le cluster source.
+** *Snapshots uniquement* : seuls les snapshots créés sur le cluster source sont répliqués. Les écritures actives du volume source ne sont pas répliquées.
+
+
+. Sélectionnez un cluster apparié dans la liste déroulante.
+. Sélectionnez un compte sur le cluster cible pour le volume cible de réplication.
+. (Facultatif) saisissez un préfixe ou un suffixe pour les nouveaux noms de volumes sur le cluster cible.
++
+
+NOTE: Un exemple de nom de volume avec le nom modifié s'affiche.
+
+. Sélectionnez *Créer des paires*.
++
+
+NOTE: Une fois le couplage effectué, les deux clusters commencent le processus de connexion des volumes. Pendant le processus de couplage, vous pouvez voir les messages de progression dans la colonne État du volume de la page paires de volumes. Une fois le processus terminé, de nouveaux volumes cibles sont créés et connectés sur le cluster distant.
+
+. Sélectionnez *protection* > *paires de volumes* sur l'un ou l'autre des clusters.
+. Vérifiez l'état du couplage de volume.
+
+
+
+
+=== Attribuez une source et une cible de réplication aux volumes couplés
+
+Si vous n'avez pas affecté de volume à la cible de réplication pendant le couplage de volume, la configuration n'est pas terminée. Vous pouvez utiliser cette procédure pour affecter un volume source et son volume cible de réplication. Une source ou une cible de réplication peut être un volume dans une paire de volumes.
+
+Cette procédure permet également de rediriger les données d'un volume source vers un volume cible distant en cas d'indisponibilité du volume source.
+
+Vous avez accès aux clusters contenant les volumes source et cible.
+
+Cette procédure décrit l'attribution de volumes source et de réplication entre deux clusters à l'aide de vCenter sur les sites locaux et distants. Pour les volumes qui ne sont pas contrôlés par le plug-in vCenter, vous pouvez alternativement https://docs.netapp.com/us-en/element-software/storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html["attribuez un volume source ou de réplication"] Utilisation de l'interface utilisateur Web Element.
+
+Un volume source de réplication a un accès au compte en lecture/écriture. Un volume cible de réplication n'est accessible que par la source de réplication en lecture/écriture.
+
+*Meilleures pratiques* : le volume cible ne doit pas contenir de données et possède les caractéristiques exactes du volume source, telles que la taille, le paramètre 512 et la configuration de la qualité de service. La taille du volume cible peut être supérieure ou égale au volume source, mais elle ne peut pas être plus petite.
+
+.Étapes
+. Sélectionnez le cluster contenant le volume apparié que vous souhaitez utiliser comme source de réplication à partir du point d'extension du plug-in :
++
+** Disponibles depuis le plug-in Element vCenter 5.0 et *NetApp Remote Plug-in > Management*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management*.
+
+
+. Dans le point d'extension de votre plug-in Element pour vCenter Server, sélectionnez l'onglet *Management*.
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case du volume que vous souhaitez modifier.
+. Sélectionnez *actions*.
+. Sélectionnez *Modifier*.
+. Dans la liste déroulante accès, sélectionnez *lecture/écriture*.
++
+
+IMPORTANT: Si vous inversez l'affectation de la source et de la cible, cette action entraîne l'affichage de la paire de volumes PausedMisConfigured jusqu'à ce qu'une nouvelle cible de réplication soit affectée. La modification de l'accès interrompt la réplication du volume et entraîne l'arrêt de la transmission des données. Assurez-vous d'avoir coordonné ces changements sur les deux sites.
+
+. Sélectionnez *OK*.
+. Sélectionnez le cluster contenant le volume apparié que vous souhaitez utiliser comme cible de réplication :
++
+** Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez *NetApp Element Management > Management > Management*.
+** Depuis le plug-in Element vCenter 5.0 dans *NetApp Remote Plug-in > Management > Management*.
+
+
+. Sélectionnez le sous-onglet *volumes*.
+. Dans la vue *Active*, cochez la case correspondant au volume que vous souhaitez modifier.
+. Sélectionnez *actions*.
+. Sélectionnez *Modifier*.
+. Dans la liste déroulante *Access*, sélectionnez *cible de réplication*.
++
+
+IMPORTANT: Si vous attribuez un volume existant comme cible de réplication, les données de ce volume sont écrasées. Il est recommandé d'utiliser un nouveau volume comme cible de réplication.
+
+. Sélectionnez *OK*.
+
+
+
+
+== Validation de la réplication de volume
+
+Après la réplication d'un volume, assurez-vous que les volumes source et cible sont actifs. Dans l'état actif, les volumes sont couplés, les données sont envoyées depuis la source vers le volume cible, et les données sont synchronisées.
+
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *Volume paires*.
+. Vérifiez que l'état du volume est actif.
+
+
+
+
+== Supprime une relation de volume après la réplication
+
+Une fois la réplication terminée et vous n'avez plus besoin de la relation de couplage de volume, vous pouvez supprimer la relation de volume.
+
+Voir  a volume pair.
+
+
+
+== Gestion des relations de volume
+
+Vous pouvez gérer les relations de volume de plusieurs façons, comme mettre en pause la réplication, inverser le couplage de volumes, changer le mode de réplication, supprimer une paire de volumes ou supprimer une paire de clusters.
+
+*  replication
+*  the mode of replication
+*  a volume pair
+*  a cluster pair
+
+
+
+
+=== Interrompre la réplication
+
+Vous pouvez modifier les propriétés de la paire de volumes pour interrompre la réplication manuellement.
+
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *Volume paires*.
+. Cochez la case correspondant à la paire de volumes que vous souhaitez modifier.
+. Sélectionnez *actions*.
+. Sélectionnez *Modifier*.
+. Interrompre ou démarrer manuellement le processus de réplication.
++
+
+IMPORTANT: La mise en pause ou la reprise manuelle de la réplication du volume entraînera l'arrêt ou la reprise de la transmission des données. Assurez-vous d'avoir coordonné ces changements sur les deux sites.
+
+. Sélectionnez *Enregistrer les modifications*.
+
+
+
+
+=== Changer le mode de réplication
+
+Vous pouvez modifier les propriétés de la paire de volumes pour modifier le mode de réplication de la relation de la paire de volumes.
+
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *Volume paires*.
+. Cochez la case correspondant à la paire de volumes que vous souhaitez modifier.
+. Sélectionnez *actions*.
+. Sélectionnez *Modifier*.
+. Sélectionnez un nouveau mode de réplication :
++
+
+IMPORTANT: La modification du mode de réplication entraîne la modification immédiate du mode. Assurez-vous d'avoir coordonné ces changements sur les deux sites.
+
++
+** *Temps réel (synchrone)* : les écritures sont reconnues au client après leur validation sur les clusters source et cible.
+** *Temps réel (asynchrone)* : les écritures sont reconnues au client après leur validation sur le cluster source.
+** *Snapshots uniquement* : seuls les snapshots créés sur le cluster source sont répliqués. Les écritures actives du volume source ne sont pas répliquées.
+
+
+. Sélectionnez *Enregistrer les modifications*.
+
+
+
+
+=== Supprime une paire de volumes
+
+Vous pouvez supprimer une paire de volumes si vous souhaitez supprimer une association de paires entre deux volumes.
+
+Cette procédure décrit la suppression d'une relation de couplage de volumes entre deux volumes à l'aide de vCenter sur les sites locaux et distants.
+
+Pour les volumes qui ne sont pas contrôlés par le plug-in vCenter, vous pouvez également choisir link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_volume_relationship_after_replication.html["supprimer une paire de volumes fin"] Utilisation de l'interface utilisateur Web Element.
+
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *Volume paires*.
+. Sélectionnez une ou plusieurs paires de volumes à supprimer.
+. Sélectionnez *actions*.
+. Sélectionnez *Supprimer*.
+. Confirmez les détails de chaque paire de volumes.
++
+
+NOTE: Dans le cas des clusters qui ne sont pas gérés par le plug-in, cette action supprime uniquement la paire de volumes qui se trouve sur le cluster local. Vous devez supprimer manuellement la paire de volumes du cluster distant pour supprimer complètement la relation de couplage.
+
+. (Facultatif pour les clusters gérés par plug-in) cochez la case *Modifier l'accès cible de réplication sur* et sélectionnez un nouveau mode d'accès pour le volume cible de réplication. Ce nouveau mode d'accès sera appliqué après la suppression de la relation de couplage de volume.
+. Sélectionnez *Oui*.
+
+
+
+
+=== Supprime une paire de clusters
+
+Vous pouvez supprimer une relation de couplage de cluster entre deux clusters à l'aide de vCenter sur les sites locaux et distants. Pour supprimer complètement une relation de couplage de cluster, vous devez supprimer les extrémités de la paire de clusters des clusters locaux et distants.
+
+Vous pouvez utiliser le plug-in vCenter pour supprimer une extrémité de la paire de clusters
+
+Vous pouvez également choisir de ne pas contrôler les clusters qui ne sont pas contrôlés par le plug-in vCenter link:https://docs.netapp.com/us-en/element-software/storage/task_replication_delete_cluster_pair.html["supprime une paire de clusters"] Utilisation de l'interface utilisateur Web Element.
+
+.Étapes
+. Depuis le serveur vCenter qui contient le cluster local, ouvrez l'onglet *protection* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > protection*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > protection*.
+
+
+. Sélectionnez le sous-onglet *Cluster paires*.
+. Cochez la case correspondant à la paire de clusters que vous souhaitez supprimer.
+. Sélectionnez *actions*.
+. Sélectionnez *Supprimer*.
+. Confirmez l'action.
++
+
+NOTE: Cette action supprime uniquement l'extrémité de la paire de clusters sur le cluster local. Vous devez supprimer manuellement la paire de clusters du cluster distant pour supprimer complètement la relation de couplage.
+
+. Répétez les étapes à partir du cluster distant au cours de l'association de cluster.
+
+
+
+
+== Messages et avertissements de couplage de volume
+
+Vous pouvez afficher les informations relatives aux volumes qui ont été appariés ou qui sont en cours de couplage sur la page paires de volumes de l'onglet protection à partir du point d'extension du plug-in. Depuis le plug-in Element vCenter 5.0, sélectionnez l'onglet gestion dans le point d'extension du plug-in distant NetApp Element. Pour le plug-in Element vCenter 4.10 et versions antérieures, sélectionnez le point d'extension NetApp Element Management.
+
+Le système affiche des messages de couplage et de progression dans la colonne État du volume.
+
+*  pairing messages
+*  pairing warnings
+
+
+
+
+=== Messages de couplage de volume
+
+Vous pouvez afficher les messages pendant le processus de couplage initial sur la page paires de volumes de l'onglet protection à partir du point d'extension du module. Ces messages s'affichent dans la colonne Etat du volume et peuvent s'afficher aux extrémités source et cible du couplage.
+
+* *PausedDisconnected* : expiration du délai de réplication de la source ou des RPCS de synchronisation. La connexion au cluster distant a été perdue. Vérifiez les connexions réseau au cluster.
+* *ResumingConnected**: La synchronisation de réplication à distance est maintenant active. Début du processus de synchronisation et attente des données.
+* *ResuminingRRSync**: Une seule copie hélicoïdale des métadonnées du volume est effectuée sur le cluster couplé.
+* *ResumingLocalSync** : une copie en double hélice des métadonnées du volume est effectuée sur le cluster couplé.
+* *ResuminingDataTransfer**: Le transfert de données a repris.
+* *Active* : les volumes sont appariés et les données sont envoyées de la source au volume cible et les données sont synchronisées.
+* *Idle* : aucune activité de réplication n'a lieu.
+
+
+*Ce processus est piloté par le volume cible et peut ne pas s'afficher sur le volume source.
+
+
+
+=== Avertissements de couplage de volume
+
+Vous pouvez afficher les messages d'avertissement après avoir couplé des volumes sur la page paires de volumes de l'onglet protection à partir du point d'extension du plug-in. Ces messages s'affichent dans la colonne Etat du volume et peuvent s'afficher aux extrémités source et cible du couplage.
+
+Ces messages peuvent s'afficher à la fois aux extrémités de la source et de la cible du couplage, sauf indication contraire.
+
+* *PausedClusterFull*: Comme le cluster cible est plein, la réplication source et le transfert de données en bloc ne peuvent pas se poursuivre. Le message s'affiche uniquement à l'extrémité source de la paire.
+* *PausedExceededMaxSnapshotCount* : le volume cible a déjà le nombre maximal de snapshots et ne peut pas répliquer d'autres instantanés.
+* *PausedManual* : le volume local a été mis en pause manuellement. Il doit être mis en pause avant la reprise de la réplication.
+* *PausedManualRemote* : le volume distant est en mode pause manuelle. Intervention manuelle requise pour annuler la pause du volume distant avant la reprise de la réplication.
+* *PausedMisConfigured* : attente d'une source et d'une cible actives. Intervention manuelle requise pour reprendre la réplication.
+* *PausedQoS*: La qualité de service cible n'a pas pu supporter les E/S entrantes. Reprises automatiques de la réplication. Le message s'affiche uniquement à l'extrémité source de la paire.
+* *PausedSlowLink* : liaison lente détectée et interrompue. Reprises automatiques de la réplication. Le message s'affiche uniquement à l'extrémité source de la paire.
+* *PausedVolumeSizeMismatch* : le volume cible est plus petit que le volume source.
+* *PausedXCopy* : une commande SCSI XCOPY est émise vers un volume source. La commande doit se terminer avant que la réplication puisse reprendre. Le message s'affiche uniquement à l'extrémité source de la paire.
+* *StoppedMisConfigured* : une erreur de configuration permanente a été détectée. Le volume distant a été purgé ou non apparié. Aucune action corrective n'est possible ; une nouvelle association doit être établie.
+
+
+[discrete]
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

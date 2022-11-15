@@ -1,0 +1,102 @@
+---
+sidebar: sidebar 
+permalink: reference_requirements_vcp.html 
+summary: 'Avant de commencer à utiliser le plug-in NetApp Element pour VMware vCenter Server, vous devez comprendre les conditions préalables à l"installation et à l"utilisation du produit.' 
+keywords: netapp, hci, kubernetes, on premise, cloud services 
+---
+= Conditions requises pour le plug-in NetApp Element pour VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d'utiliser le plug-in NetApp Element pour VMware vCenter Server pour gérer le stockage de votre baie 100 % Flash NetApp HCI ou SolidFire, vous devez vérifier que votre système répond aux exigences d'utilisation du plug-in.
+
+[role="tabbed-block"]
+====
+.Plug-in Element pour vCenter 5.0 ou version ultérieure
+--
+Vérifiez que votre système répond aux exigences d'utilisation du plug-in Element vCenter version 5.0 ou ultérieure.
+
+VMware vSphere 8.0 et 7.0 comprenant vCenter et ESXi avec un adaptateur iSCSI logiciel et une configuration de réseau iSCSI, est requis pour utiliser le plug-in Element vCenter.
+
+Le plug-in prend en charge les principales versions suivantes du logiciel VMware :
+
+* VSphere 8.0 comprend des datastores vCenter Server, ESXi, VMFS5 et VMFS6
+* VSphere 7.0 et 7.0 mise à jour 1, 2 et 3 incluant les datastores vCenter Server, ESXi, VMFS5 et VMFS6
+
+
+
+IMPORTANT: VMware vSphere 6.5 et 6.7 ont atteint la fin du support le 15 octobre 2022. Depuis le plug-in Element 5.0, vSphere 6.5 et 6.7 ne sont plus pris en charge. Pour plus de détails, reportez-vous à ce document https://core.vmware.com/blog/reminder-vsphere-6567-end-general-support["article"^].
+
+--
+.Plug-in Element pour vCenter 4.10 ou version antérieure
+--
+Vérifiez que votre système répond aux exigences d'utilisation du plug-in Element vCenter 4.10 ou version antérieure.
+
+Pour utiliser le plug-in vCenter Element vCenter, vous devez disposer de VMware vSphere 7.0, 6.7 ou 6.5, avec un adaptateur iSCSI logiciel et une configuration réseau iSCSI.
+
+Le plug-in prend en charge les principales versions suivantes du logiciel VMware :
+
+* VSphere 7.0 et 7.0 mise à jour 1 et 2, notamment les datastores vCenter Server, ESXi, VMFS5 et VMFS6
+* Mise à jour 3 de vSphere 7.0 comprenant les datastores vCenter Server, ESXi, VMFS5 et VMFS6 utilisant Spring Framework 4
++
+
+IMPORTANT: Lorsque vous effectuez une mise à niveau vers VMware vCenter Server 7.0 U3, le plug-in Element ne peut pas être déployé. Pour résoudre ce problème à l'aide de Spring Framework 4, voir https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/NetApp_HCI/vCenter_plug-in_deployment_fails_after_upgrading_vCenter_to_version_7.0_U3["Article de cette base de connaissances"^].
+
+* VSphere 6.7 et 6.7 mise à jour 1 et 3, notamment les datastores vCenter Server, ESXi, VMFS5 et VMFS6
++
+
+IMPORTANT: Le plug-in n'est pas compatible avec la version 6.7 U2 build 13007421 du client Web HTML5 vSphere et avec les autres versions 6.7 U2 publiées avant la mise à jour 2a (build 13643870). Il est compatible avec la version 6.7 U2 vSphere Web client pour Flash/FLEX.
+
+* VSphere 6.5, notamment les datastores vCenter Server, ESXi, VMFS5 et VMFS6
++
+
+IMPORTANT: Le plug-in n'est pas compatible avec la version 6.5 du plug-in Element pour vCenter 4.6, 4.7 et 4.8.
+
+
+
+.Fin de la prise en charge de vSphere 6.0
+
+IMPORTANT: VMware vSphere 6.0 a atteint la fin du support le 12 mars 2020. VSphere 6.0 n'est plus pris en charge depuis NetApp HCI 1.8 et Element 12. Pour plus de détails, reportez-vous à ce document https://mysupport.netapp.com/info/communications/ECMLP2863840.html["communiqué sur le produit"].
+
+--
+====
+
+
+== Compatibilité et meilleures pratiques vSphere
+
+Prenez en compte les fonctionnalités et recommandations suivantes avant d'utiliser le plug-in :
+
+* La haute disponibilité vCenter (VCHA) n'est pas prise en charge.
+* Étant donné que les datastores sont créés à l'aide de la version VMFS la plus élevée prise en charge par l'hôte ESXi sélectionné, tous les membres du cluster doivent exécuter la même version de vSphere et ESXi pour éviter les problèmes de compatibilité VMFS.
+* Le client Web HTML5 vSphere et le client Web Flash ont des bases de données distinctes qui ne peuvent pas être combinées. Les clusters ajoutés dans un client ne seront pas visibles dans l'autre. Si vous prévoyez d'utiliser les deux clients, ajoutez vos clusters dans les deux.
+
+
+
+
+== Prise en charge de NetApp Element
+
+Le plug-in prend en charge les principales versions suivantes :
+
+* Élément 12.x
+* Élément 11.x
+
+
+
+
+== Configuration requise pour les ports réseau
+
+Vous devez autoriser certains ports TCP par le biais du pare-feu de bord de votre centre de données afin que vous puissiez gérer le système à distance et permettre aux clients situés en dehors de votre centre de données de se connecter aux ressources. Pour obtenir la liste complète des ports utilisés dans les systèmes NetApp HCI et SolidFire, consultez ce document link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["page"].
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

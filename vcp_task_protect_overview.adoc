@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_protect_overview.html 
+summary: Vous pouvez vous assurer que des copies de vos données sont créées et stockées là où vous en avez besoin. 
+keywords: netapp, vcp, vcenter, element, protect, data 
+---
+= Protection des données à l'aide du plug-in NetApp Element pour VMware vCenter Server
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez vous assurer que des copies de vos données sont créées et stockées là où vous en avez besoin à l'aide du plug-in NetApp Element pour VMware vCenter Server. Pour cela, vous pouvez créer et gérer des snapshots de volume et de groupe, configurer des plannings de snapshots et créer des relations de volume et de paire de clusters pour la réplication entre les clusters distants.
+
+.Options
+* link:vcp_task_protect_snapshots_volume.html["Créez et gérez des snapshots de volume"]
+* link:vcp_task_protect_snapshots_group.html["Créer et gérer des instantanés de groupe"]
+* link:vcp_task_protect_snapshots_schedules.html["Créer des planifications de snapshot"]
+* link:vcp_task_protect_remote_replication.html["Réplication à distance entre les clusters"]
+
+
+
+
+== Trouvez plus d'informations
+
+* https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
+* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+

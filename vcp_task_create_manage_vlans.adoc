@@ -1,0 +1,179 @@
+---
+sidebar: sidebar 
+permalink: vcp_task_create_manage_vlans.html 
+summary: 'Vous pouvez créer et gérer des réseaux virtuels dans la configuration du cluster à l"aide du plug-in.' 
+keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element 
+---
+= Création et gestion de réseaux virtuels
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez ajouter un nouveau réseau virtuel à une configuration en cluster pour permettre la connexion d'un environnement mutualisé à un cluster exécutant le logiciel NetApp Element, et gérer le réseau virtuel à l'aide du plug-in vCenter.
+
+*  a virtual network
+*  virtual network details
+*  a virtual network
+*  a virtual network
+
+
+
+
+== Créer un réseau virtuel
+
+Vous pouvez ajouter un nouveau réseau virtuel à une configuration de cluster.
+
+.Ce dont vous avez besoin, 8217;ll
+* Les hôtes ESXi ne disposent que d'un adaptateur logiciel iSCSI unique.
+* Les hôtes ou les commutateurs sont configurés pour le VLAN.
+* Vous avez identifié le bloc d'adresses IP qui sera affecté aux réseaux virtuels sur les nœuds de cluster.
+* Vous avez identifié une adresse IP (SVIP) du réseau de stockage qui sera utilisée comme point de terminaison pour l'ensemble du trafic de stockage NetApp Element.
+
+
+[IMPORTANT]
+====
+Cette configuration doit prendre en compte les critères suivants :
+
+* VRF ne peut être activée qu'au moment de la création d'un VLAN. Si vous souhaitez revenir à une fonction non VRF, vous devez supprimer et recréer le VLAN.
+* Les VLAN qui ne sont pas activés par VRF exigent que les initiateurs se trouvent dans le même sous-réseau que le SVIP.
+* Les VLAN activés par VRF ne nécessitent pas que les initiateurs se trouvent sur le même sous-réseau que le SVIP, et le routage est pris en charge.
+
+
+====
+Lorsqu'un réseau virtuel est ajouté, une interface pour chaque nœud est créée et chaque nœud nécessite une adresse IP de réseau virtuel. Le nombre d'adresses IP que vous spécifiez lors de la création d'un nouveau réseau virtuel doit être égal ou supérieur au nombre de nœuds du cluster. Les adresses réseau virtuelles sont provisionnées en bloc et attribuées automatiquement aux nœuds individuels. Il n'est pas nécessaire d'attribuer manuellement des adresses réseau virtuelles aux nœuds du cluster.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *réseau*.
+. Sélectionnez *Create VLAN*.
+. Dans la boîte de dialogue *Create VLAN*, entrez un nom pour le VLAN.
+. Entrez un entier pour la balise VLAN.
+. Saisissez l'adresse SVIP (Storage Virtual IP) du cluster de stockage.
+. Réglez le masque de réseau, si nécessaire.
++
+La valeur par défaut est `255.255.255.0`.
+
+. Facultatif : saisissez une description pour le VLAN.
+. Facultatif : cochez la case *Activer le routage virtuel et le transfert*.
++
+
+NOTE: Le routage et le transfert virtuels (VRF) permet à plusieurs instances d'une table de routage d'exister dans un routeur et de fonctionner simultanément. Cette fonctionnalité est disponible uniquement pour les réseaux de stockage.
+
++
+.. Entrez l'adresse IP d'une passerelle du réseau virtuel.
+
+
+. Sélectionnez les hôtes que vous souhaitez inclure dans le VLAN.
++
+
+NOTE: Remarque : si vous utilisez le mode lié vCenter, seuls les hôtes disponibles pour le serveur vCenter auquel le cluster est affecté sont disponibles.
+
+. Configurez les blocs d'adresse IP pour les nœuds de stockage comme suit :
++
+
+NOTE: Remarque : au moins un bloc d'adresses IP doit être créé.
+
++
+.. Cliquez sur *Créer un bloc*.
+.. Entrez l'adresse de départ de la plage IP.
+.. Entrez le nombre d'adresses IP à inclure dans le bloc d'adresses.
++
+
+NOTE: Le nombre total d'adresses IP doit correspondre au nombre de nœuds du cluster de stockage.
+
+.. Cliquez en dehors de l'entrée pour accepter les valeurs.
+
+
+. Cliquez sur *OK* pour créer le VLAN.
+
+
+
+
+== Afficher les détails des réseaux virtuels
+
+Vous pouvez afficher les informations sur le réseau des VLAN sur la page réseau de l'onglet Cluster à partir du point d'extension du plug-in.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *noeuds*.
+. Sélectionnez la vue *active*.
+. Afficher le détail des nœuds du cluster de stockage.
++
+Vous pouvez afficher des informations telles que l'ID et le nom de chaque VLAN, la balise associée à chaque VLAN, le SVIP affecté à chaque VLAN et la plage IP utilisée pour chaque VLAN.
+
+
+
+
+
+== Modifier un réseau virtuel
+
+Vous pouvez modifier les attributs VLAN, tels que le nom du VLAN, le masque de réseau et la taille des blocs d'adresse IP.
+
+Le marquage VLAN et le SVIP ne peuvent pas être modifiés pour un VLAN. L'attribut de passerelle ne peut être modifié que pour les VLAN VRF. Si des sessions iSCSI, de réplication à distance ou d'autres sessions réseau existent, la modification peut échouer.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *réseau*.
+. Cochez la case correspondant au VLAN que vous souhaitez modifier.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, cliquez sur *Modifier*.
+. Dans le menu résultant, entrez les nouveaux attributs du VLAN.
+. Cliquez sur *Créer un bloc* pour ajouter un bloc non continu d'adresses IP pour le réseau virtuel.
+. Cliquez sur *OK*.
+
+
+
+
+== Supprimer un réseau virtuel
+
+Vous pouvez supprimer définitivement un objet VLAN et son bloc IP. Les blocs d'adresse attribués au VLAN sont désassociés au réseau virtuel et peuvent être réaffectés à un autre réseau virtuel.
+
+.Étapes
+. Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
++
+** Depuis le plug-in Element vCenter 5.0, sélectionnez *NetApp Element Remote Plugin > Management > Cluster*.
+** Pour le plug-in Element vCenter version 4.10 et antérieure, sélectionnez *NetApp Element Management > Cluster*.
+
+
++
+
+NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous souhaitez utiliser pour la tâche est sélectionné dans la barre de navigation.
+
+. Sélectionnez le sous-onglet *réseau*.
+. Cochez la case correspondant au VLAN que vous souhaitez supprimer.
+. Cliquez sur *actions*.
+. Dans le menu qui s'affiche, cliquez sur *Supprimer*.
+. Confirmez l'action.
+
