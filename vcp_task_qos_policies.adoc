@@ -18,11 +18,11 @@ Une règle de QoS (QoS) vous permet de créer et de sauvegarder un paramètre de
 
 À l'aide du point d'extension du plug-in, vous pouvez configurer et gérer QoSSIOC en effectuant les tâches suivantes :
 
-*  a QoS policy
-*  a QoS policy to volumes
-*  the QoS policy association of a volume
-*  a QoS policy
-*  a QoS policy
+* <<Création d'une règle de QoS>>
+* <<Appliquer une policy de QoS aux volumes>>
+* <<Modifier l'association de la politique de QoS d'un volume>>
+* <<Modifiez une règle QoS>>
+* <<Suppression d'une règle QoS>>
 
 
 
@@ -62,7 +62,8 @@ TIP: Utilisez les bonnes pratiques descriptives en matière de dénomination. Ce
 
 Vous pouvez appliquer une règle de qualité de services existante à plusieurs volumes. Utilisez ce processus lorsque vous souhaitez appliquer une règle en bloc à un ou plusieurs volumes.
 
-La politique de QoS que vous souhaitez appliquer en bloc a été  a QoS policy,créé.
+.Ce dont vous avez besoin
+La politique de QoS que vous souhaitez appliquer en bloc a été <<Création d'une règle de QoS,créé>>.
 
 .Étapes
 . Dans le plug-in vCenter, ouvrez l'onglet *Management* :
@@ -89,7 +90,8 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 Vous pouvez supprimer une association de règles de QoS d'un volume ou sélectionner une autre politique de QoS ou personnalisée.
 
-Le volume que vous voulez modifier est  a QoS policy to volumes,associés Avec une règle de QoS.
+.Ce dont vous avez besoin
+Le volume que vous voulez modifier est <<Appliquer une policy de QoS aux volumes,associés>> Avec une règle de QoS.
 
 .Étapes
 . Dans le plug-in vCenter, ouvrez l'onglet *Management* :

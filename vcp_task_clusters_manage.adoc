@@ -16,7 +16,7 @@ keywords: netapp, cluster, vcp, vcenter, element
 [role="lead"]
 Vous pouvez modifier un cluster exécutant le logiciel Element, gérer la configuration SSH, définir le contrôle du domaine de protection et arrêter un cluster.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter au moins un cluster :
 +
 ** link:vcp_task_getstarted_5_0.html#add-storage-clusters-for-use-with-the-plug-in["Ajoutez un cluster en utilisant le plug-in Element pour vCenter 5.0 et les versions ultérieures"]
@@ -37,17 +37,17 @@ NOTE: Vous devez ajouter au moins un cluster pour utiliser les fonctions de poin
 
 
 .Options
-*  cluster details
-*  a cluster profile
-*  a cluster profile
-*  Encryption at Rest
-*  Encryption at Rest
-*  SSH
-*  the SSH time limit
-*  SSH
-*  protection domain monitoring
-*  down a cluster
-*  your NetApp HCI infrastructure
+* <<Afficher les détails du cluster>>
+* <<Modifier un profil de cluster>>
+* <<Supprimer un profil de cluster>>
+* <<Activez le chiffrement des données au repos>>
+* <<Désactiver le chiffrement des données au repos>>
+* <<Activez SSH>>
+* <<Modifier la limite de temps SSH>>
+* <<Désactivez SSH>>
+* <<Définissez la surveillance du domaine de protection>>
+* <<Arrêtez un cluster>>
+* <<Étendez votre infrastructure NetApp HCI>>
 
 
 
@@ -285,7 +285,7 @@ NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterpr
 
 Vous pouvez activer manuellement link:vcp_concept_protection_domains.html["surveillance des domaines de protection"] à l'aide du point d'extension enfichable. Vous pouvez sélectionner un seuil de domaine de protection en fonction des domaines de nœud ou de châssis.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Le cluster sélectionné doit être surveillé par l'élément 11.0 ou version ultérieure pour utiliser la surveillance du domaine de protection. Sinon, les fonctions de domaine de protection ne sont pas disponibles.
 * Votre cluster doit avoir plus de deux nœuds pour utiliser la fonction domaines de protection. La compatibilité avec les clusters à deux nœuds n'est pas disponible.
 
@@ -322,6 +322,7 @@ Si vous le souhaitez link:vcp_task_add_manage_nodes.html#restart-a-node["redéma
 
 NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterprise SDS.
 
+.Ce dont vous avez besoin
 Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI.
 
 .Étapes

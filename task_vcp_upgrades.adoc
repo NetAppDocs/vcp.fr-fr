@@ -23,6 +23,7 @@ Vous pouvez mettre à niveau le plug-in NetApp Element pour vCenter Server en su
 
 
 ====
+.Étapes
 Pour mettre à niveau le plug-in, suivez les instructions de la documentation de mise à niveau de votre produit :
 
 * https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html["Mettez à niveau votre système NetApp HCI"^]

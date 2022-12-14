@@ -17,14 +17,14 @@ keywords: netapp, volumes, vcp, vcenter, element,
 À l'aide du plug-in NetApp Element pour VMware vCenter Server, vous pouvez créer, afficher, modifier, supprimer, cloner, sauvegarder ou restaurer des volumes pour les comptes utilisateurs. Vous pouvez également gérer chaque volume d'un cluster, et ajouter ou supprimer des volumes dans des groupes d'accès aux volumes.
 
 .Options
-*  a volume
-*  volume details
-*  a volume
-*  a volume
-*  up or restore volumes
-*  volumes
-*  volumes
-*  deleted volumes
+* <<Créer un volume>>
+* <<Afficher les détails du volume>>
+* <<Modifier un volume>>
+* <<Clonez un volume>>
+* <<Sauvegarder ou restaurer des volumes>>
+* <<Supprimez des volumes>>
+* <<Purger les volumes>>
+* <<Restaurer les volumes supprimés>>
 
 
 
@@ -35,7 +35,7 @@ Vous pouvez créer un nouveau volume et associer le volume à un compte donné (
 
 VMware nécessite 512 octets pour les ressources disque. Si 512e n'est pas activé, un VMFS ne peut pas être créé.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 * Un compte utilisateur a été créé.
 
@@ -125,11 +125,11 @@ Valeurs possibles :
 
 . Consultez les détails d'un volume spécifique, comme indiqué dans les sections suivantes :
 +
-**  Details section
-**  section
-**  section
-**  of Service section
-**  section
+** <<Détails généraux>>
+** <<Section efficacité>>
+** <<Section performances>>
+** <<Section qualité de service>>
+** <<Section snapshots>>
 
 
 
@@ -284,13 +284,14 @@ Pour les volumes dont la valeur IOPS max ou Burst supérieure à 20,000, il faut
 
 Vous pouvez créer un clone de volume pour effectuer une copie instantanée des données. Lorsque vous clonez un volume, le système crée un snapshot du volume, puis crée une copie des données référencées par le snapshot. Il s'agit d'un processus asynchrone, et la durée nécessaire de ce processus dépend de la taille du volume que vous clonez et de la charge actuelle du cluster.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 * Au moins un volume doit être créé.
 * Au moins un compte utilisateur doit être créé.
 * L'espace non provisionné disponible doit être égal ou supérieur à la taille du volume source.
 
 
+.Description de la tâche
 Le cluster prend en charge jusqu'à deux demandes de clones en cours d'exécution par volume et jusqu'à 8 opérations de clonage de volumes actifs à la fois. Les demandes dépassant ces limites sont placées en file d'attente pour traitement ultérieur.
 
 

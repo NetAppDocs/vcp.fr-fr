@@ -19,12 +19,12 @@ Création d'un https://docs.netapp.com/us-en/hci/docs/concept_hci_dataprotection
 Vous pouvez utiliser les snapshots pour restaurer un volume à son état au moment de sa création. Toutefois, les snapshots sont simplement des répliques de métadonnées de volume, ce qui vous est impossible à monter ou à écrire.
 
 .Options
-*  a volume snapshot
-*  volume snapshot details
-*  a volume from a snapshot
-*  back a volume to a snapshot
-*  up a volume snapshot to an external object store
-*  a volume snapshot
+* <<Créer un snapshot de volume>>
+* <<Afficher les détails des snapshots de volume>>
+* <<Cloner un volume à partir d'un snapshot>>
+* <<Restaurer un volume vers un snapshot>>
+* <<Sauvegardez un snapshot de volume dans un magasin d'objets externe>>
+* <<Supprime un snapshot de volume>>
 
 
 
@@ -204,9 +204,9 @@ Vous pouvez utiliser la fonctionnalité de sauvegarde intégrée pour sauvegarde
 
 Lorsque vous sauvegardez un snapshot dans un magasin d'objets externe, vous devez disposer d'une connexion au magasin d'objets qui permet des opérations de lecture/écriture.
 
-*  up a volume snapshot to an Amazon S3 object store
-*  up a volume snapshot to an OpenStack Swift object store
-*  up a volume snapshot to a cluster running Element software
+* <<Sauvegarder un snapshot de volume dans un magasin d'objets Amazon S3>>
+* <<Sauvegardez un snapshot de volume dans un magasin d'objets OpenStack Swift>>
+* <<Sauvegardez un snapshot de volume sur un cluster exécutant le logiciel Element>>
 
 
 
@@ -297,8 +297,10 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 Vous pouvez sauvegarder un snapshot de volume résidant sur un cluster exécutant le logiciel NetApp Element sur un cluster Element distant.
 
+.Ce dont vous avez besoin
 Vous devez créer un volume sur le cluster de destination d'une taille égale ou supérieure au snapshot que vous utilisez pour la sauvegarde.
 
+.Description de la tâche
 Lorsque vous sauvegardez ou restaurez un cluster à un autre, le système génère une clé à utiliser comme authentification entre les clusters. Cette clé d'écriture de volume en bloc permet au cluster source de s'authentifier auprès du cluster de destination, offrant ainsi la sécurité lors de l'écriture sur le volume de destination. Dans le cadre du processus de sauvegarde ou de restauration, vous devez générer une clé d'écriture de volume en bloc à partir du volume de destination avant de démarrer l'opération.
 
 .Étapes
@@ -357,6 +359,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 Vous pouvez supprimer un snapshot de volume d'un cluster exécutant le logiciel NetApp Element à l'aide du point d'extension du plug-in. Lorsque vous supprimez un instantané, le système le supprime immédiatement.
 
+.Description de la tâche
 Vous pouvez supprimer les snapshots en cours de réplication à partir du cluster source. Si un snapshot est en cours de synchronisation avec le cluster cible lorsque vous le supprimez, la réplication de synchronisation est terminée et l'instantané est supprimé du cluster source. Le snapshot n'est pas supprimé du cluster cible.
 
 Vous pouvez également supprimer les snapshots qui ont été répliqués sur la cible du cluster cible. L'instantané supprimé est conservé dans une liste de snapshots supprimés sur la cible jusqu'à ce que le système détecte que vous avez supprimé l'instantané sur le cluster source. Une fois que la cible a détecté que vous avez supprimé le snapshot source, la cible arrête la réplication du snapshot.

@@ -16,7 +16,7 @@ keywords: netapp, set up vvol, configure vvol, virtual volume, vcp, vcenter, ele
 [role="lead"]
 Vous pouvez activer VMware vSphere link:vcp_concept_vvols.html["Volumes virtuels (VVol)"] Fonctionnalité et configuration d'une configuration de volumes virtuels sur un cluster de stockage NetApp Element. Le plug-in Element pour vCenter Server surveille les performances et vous permet de gérer les volumes virtuels, link:vcp_concept_vvols.html#storage-containers["conteneurs de stockage"], link:vcp_concept_vvols.html#protocol-endpoints["terminaux pe"], et hôtes à partir du point d'extension du plug-in.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous utilisez un cluster NetApp Element 10 ou version ultérieure connecté à un environnement ESXi 6.5 ou version ultérieure avec compatibilité VVol.
 * Vous utilisez vCenter 6.5 ou une version ultérieure.
 
@@ -28,18 +28,18 @@ Vous pouvez activer VMware vSphere link:vcp_concept_vvols.html["Volumes virtuels
 Vous devez effectuer les étapes de configuration initiales pour utiliser les volumes virtuels (VVol) dans le plug-in NetApp Element pour vCenter Server.
 
 .Étapes
-.  virtual volumes functionality on the NetApp Element cluster
-.  the VASA provider with vCenter
-.  a storage container and associated VVol datastore
+. <<Activez la fonctionnalité volumes virtuels sur le cluster NetApp Element>>
+. <<Enregistrez le fournisseur VASA avec vCenter>>
+. <<Créer un conteneur de stockage et le datastore VVol associé>>
 
 
 
 
 == Tâches de gestion
 
-*  virtual volume resources
-*  a VVol datastore for a storage container
-*  a storage container
+* <<Surveiller les ressources des volumes virtuels>>
+* <<Créez un datastore VVOL pour un conteneur de stockage>>
+* <<Supprime un conteneur de stockage>>
 
 
 
@@ -70,7 +70,7 @@ NOTE: Lorsque les VVol sont activés, le cluster Element démarre le fournisseur
 . Sélectionnez *actions* pour le groupe sélectionné.
 . Dans le menu qui s'affiche, sélectionnez *Détails*.
 . Copiez l'URL du fournisseur VASA à partir du champ *URL du fournisseur VASA*. Vous utiliserez cette URL pour enregistrer VASA Provider dans vCenter.
-. Voir  the VASA provider with vCenter pour les étapes suivantes.
+. Voir <<Enregistrez le fournisseur VASA avec vCenter>> pour les étapes suivantes.
 
 
 
@@ -79,10 +79,11 @@ NOTE: Lorsque les VVol sont activés, le cluster Element démarre le fournisseur
 
 Vous devez enregistrer le fournisseur NetApp Element VASA avec vCenter pour que vCenter connaisse les fonctionnalités de VVol au sein du cluster. L'enregistrement du fournisseur VASA avec vCenter est une tâche ponctuelle de configuration.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous avez activé la fonctionnalité VVols pour le cluster.
 
 
+.Description de la tâche
 Cette procédure décrit les étapes disponibles dans la version 6.7 de vSphere. Votre interface utilisateur vSphere peut différer légèrement des informations décrites en fonction de la version de vSphere installée. Pour plus d'aide, consultez la documentation de VMware vCenter.
 
 
@@ -117,7 +118,7 @@ NOTE: L'URL du fournisseur VASA est fournie lorsque vous activez les VVol dans l
 
 NOTE: Actualisez le fournisseur de stockage, si nécessaire, pour afficher le statut actuel du fournisseur après avoir enregistré le fournisseur pour la première fois. Vous pouvez également vérifier que le fournisseur est activé dans *NetApp Element Configuration > clusters* ou *NetApp Element Remote Plugin > Configuration > clusters*. Sélectionnez *actions* pour le cluster que vous activez et sélectionnez *Détails*.
 
-. Voir  a storage container and associated VVol datastore pour les étapes suivantes.
+. Voir <<Créer un conteneur de stockage et le datastore VVol associé>> pour les étapes suivantes.
 
 
 
@@ -179,9 +180,9 @@ NOTE: Si vous utilisez le mode lié vCenter, seuls les hôtes disponibles pour l
 
 Vous pouvez vérifier les performances et les paramètres des composants du volume virtuel à partir du point d'extension du plug-in :
 
-*  VVols
-*  storage containers
-*  protocol endpoints
+* <<Contrôle des volumes virtuels>>
+* <<Surveillance des conteneurs de stockage>>
+* <<Surveillance des terminaux PE>>
 
 
 
@@ -190,7 +191,7 @@ Vous pouvez vérifier les performances et les paramètres des composants du volu
 
 Vous pouvez examiner les données générales de tous les volumes virtuels actifs du cluster ou les données détaillées de chaque volume virtuel. Le plug-in assure le suivi de l'efficacité, des performances, des événements et de la qualité de service des volumes virtuels, ainsi que des snapshots, des machines virtuelles et des liaisons associés.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous avez activé les machines virtuelles afin que les informations des volumes virtuels soient accessibles.
 
 
@@ -261,9 +262,9 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 == Créez un datastore VVOL pour un conteneur de stockage
 
-Une fois que vous avez créé un conteneur de stockage, vous devez également créer un datastore de volume virtuel qui représente le conteneur de stockage du cluster NetApp Element dans vCenter. Cette procédure peut être utilisée comme alternative à la création d'un datastore à partir du  a storage container and associated VVol datastore,Créer un conteneur de stockage assistant. Vous devez créer au moins un datastore VVol pour commencer à provisionner des machines virtuelles sauvegardées par VVol.
+Une fois que vous avez créé un conteneur de stockage, vous devez également créer un datastore de volume virtuel qui représente le conteneur de stockage du cluster NetApp Element dans vCenter. Cette procédure peut être utilisée comme alternative à la création d'un datastore à partir du <<Créer un conteneur de stockage et le datastore VVol associé,Créer un conteneur de stockage>> assistant. Vous devez créer au moins un datastore VVol pour commencer à provisionner des machines virtuelles sauvegardées par VVol.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Un conteneur de stockage existant dans l'environnement virtuel.
 +
 
@@ -291,7 +292,7 @@ NOTE: Il n'est pas nécessaire de créer manuellement des LUN de point de termin
 
 Vous pouvez supprimer des conteneurs de stockage du point d'extension du plug-in.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Tous les volumes ont été supprimés du conteneur de stockage.
 
 

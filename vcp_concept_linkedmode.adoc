@@ -50,6 +50,7 @@ NOTE: Vous pouvez uniquement afficher et gérer les clusters de stockage associ�
 
 
 
+.Exemple
 Vous avez vCenter 1 et vCenter 2 en mode lié, cluster de stockage 1 et cluster de stockage 2. Vous voulez que vCenter 1 gère le cluster 1 et vCenter 2 pour gérer le cluster 2.
 
 image:two_vcenter_topology.PNG["Illustre la topologie vCenter et cluster"]
@@ -83,6 +84,7 @@ La connexion lance l'installation du plug-in sur le client Web.
 . Ajoutez le cluster de stockage à l'inventaire du plug-in Element.
 
 
+.Exemple
 Vous avez vCenter 1 et vCenter 2 en mode lié, cluster de stockage 1 et cluster de stockage 2. Vous voulez que vCenter 1 gère le cluster 1 et vCenter 2 pour gérer le cluster 2. Pour configurer la gestion du cluster de stockage, après avoir enregistré le plug-in sur chaque serveur vCenter, effectuez les opérations suivantes :
 
 . Connectez-vous au client Web vCenter 1.

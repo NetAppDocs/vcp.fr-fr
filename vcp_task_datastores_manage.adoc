@@ -16,7 +16,7 @@ keywords: netapp, datastore, vcp, vcenter, element
 [role="lead"]
 Le plug-in NetApp Element pour VMware vCenter Server vous permet de gérer les datastores qui sont sauvegardés par des volumes Element. Vous pouvez créer, étendre, cloner, partager ou supprimer des datastores. Vous pouvez également utiliser VAAI UNMAP pour permettre à un cluster de récupérer de l'espace de bloc libéré des datastores VMFS à provisionnement fin.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Pour créer et gérer des datastores, vous devez d'abord créer au moins un compte utilisateur.
 * Pour utiliser le service QoSSIOC avec les datastores, vous devez d'abord configurer les paramètres de la page QoSSIOC à partir du point d'extension du plug-in.
 +
@@ -28,13 +28,13 @@ Le plug-in NetApp Element pour VMware vCenter Server vous permet de gérer les d
 
 
 .Options
-*  a datastore
-*  the datastore list
-*  a datastore
-*  a datastore
-*  a datastore
-*  VAAI UNMAP
-*  a datastore
+* <<Créer un datastore>>
+* <<Afficher la liste des datastores>>
+* <<Extension d'un datastore>>
+* <<Cloner un datastore>>
+* <<Partager un datastore>>
+* <<Effectuer la commande VAAI UNMAP>>
+* <<Supprimer un datastore>>
 
 
 
@@ -46,7 +46,7 @@ TIP: Surveiller les opérations des datastores pour l'achèvement à l'aide de l
 
 Vous pouvez créer un datastore à partir de l'extension du plug-in.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Au moins un hôte doit être connecté à vCenter Server.
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 +
@@ -263,7 +263,7 @@ Si des machines virtuelles se trouvent sur le datastore source, les machines vir
 
 La taille du volume du datastore de clones correspond à la taille du volume sur lequel est placé le datastore source. Par défaut, l'émulation de 512 octets est définie sur ACTIVÉ pour tous les nouveaux volumes.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Au moins un hôte doit être connecté à vCenter Server.
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 +
@@ -402,7 +402,7 @@ Vous pouvez partager un datastore avec un ou plusieurs hôtes à l'aide du point
 
 Les datastores ne peuvent être partagés qu'entre les hôtes d'un même data Center.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 +
 
@@ -466,7 +466,7 @@ Si un initiateur hôte est déjà associé à un groupe d'accès de volume, le c
 
 Si vous souhaitez qu'un cluster récupère l'espace de bloc libéré des datastores VMFS5 à provisionnement fin, utilisez la fonctionnalité VAAI UNMAP.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Assurez-vous que le datastore que vous utilisez pour la tâche est VMFS5 ou antérieur. VAAI UNMAP n'est pas disponible pour VMFS6 car ESXi effectue la tâche automatiquement
 * Assurez-vous que les paramètres du système hôte ESXi sont activés pour VAAI UNMAP :
 +

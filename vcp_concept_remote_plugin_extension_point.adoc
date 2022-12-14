@@ -18,10 +18,10 @@ Depuis le plug-in NetApp Element vCenter 5.0, vous pouvez accéder au plug-in d'
 
 Les onglets suivants sont disponibles depuis le point d'extension du plug-in distant NetApp Element :
 
-*  Started
-* 
-* 
-* 
+* <<Mise en route>>
+* <<Configuration>>
+* <<Gestion>>
+* <<À propos de>>
 
 
 

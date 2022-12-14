@@ -16,11 +16,11 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 [role="lead"]
 À l'aide du plug-in, vous pouvez ajouter https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html#storage-nodes["nœuds de stockage"] lorsqu'un cluster est créé ou lorsqu'il faut plus de stockage. Vous pouvez également ajouter des nœuds de stockage exécutant le logiciel Element. Vous devez ajouter des nœuds de calcul NetApp HCI en dehors du plug-in vSphere.
 
-*  a node to a cluster
-*  node details
-*  a node
-*  down a node
-*  a node from a cluster
+* <<Ajout d'un nœud à un cluster>>
+* <<Afficher les détails du nœud>>
+* <<Redémarrez un nœud>>
+* <<Arrêtez un nœud>>
+* <<Supprime un nœud d'un cluster>>
 
 
 
@@ -29,7 +29,7 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 
 Vous pouvez ajouter des nœuds de stockage à votre cluster à l'aide du plug-in vCenter.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Le nœud que vous ajoutez a été configuré, sous tension et configuré.
 * Le numéro de version majeur ou secondaire du logiciel sur chaque nœud d'un cluster doit correspondre pour que le logiciel soit compatible. Par exemple, Element 9.0 n'est pas compatible avec la version 9.1.
 
@@ -37,6 +37,7 @@ Vous pouvez ajouter des nœuds de stockage à votre cluster à l'aide du plug-in
 
 NOTE: Si le nœud que vous ajoutez dispose d'une version mineure ou majeure du logiciel NetApp Element différente de celle exécutée sur le cluster, le cluster met à jour de manière asynchrone le nœud vers la version du logiciel NetApp Element qui s'exécute sur le maître de cluster. Une fois le nœud mis à jour, il s'ajoute automatiquement au cluster. Au cours de ce processus asynchrone, le nœud sera dans un `pendingActive` état.
 
+.Description de la tâche
 Les nœuds requièrent la configuration initiale lors de la première mise sous tension. Lorsque le nœud a été configuré et configuré, il s'enregistre sur le cluster identifié lorsque le nœud a été configuré et apparaît dans la liste des nœuds en attente sur la page *Cluster > nœuds* du point d'extension du plug-in.
 
 Vous pouvez ajouter des nœuds de plus petite ou plus grande capacité à un cluster existant.
@@ -99,8 +100,10 @@ Vous pouvez afficher des informations telles que les ID de nœud, le nom et l'é
 
 Vous pouvez redémarrer un ou plusieurs nœuds actifs dans un cluster à l'aide du point d'extension du plug-in.
 
+.Ce dont vous avez besoin
 Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.
 
+.Description de la tâche
 Pour redémarrer le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un redémarrage.
 
 
@@ -136,6 +139,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 Vous pouvez arrêter un ou plusieurs nœuds actifs d'un cluster à l'aide du point d'extension du plug-in. Pour arrêter le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un arrêt simultané.
 
+.Ce dont vous avez besoin
 Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.
 
 .Description de la tâche
@@ -172,8 +176,10 @@ NOTE: Si un nœud a été arrêté plus de 5.5 minutes sous un type d'arrêt, le
 
 Vous pouvez supprimer des nœuds d'un cluster sans interruption de service lorsque le stockage n'est plus nécessaire ou qu'ils nécessitent une maintenance.
 
+.Ce dont vous avez besoin
 Vous avez supprimé tous les disques du nœud du cluster. Vous ne pouvez pas supprimer un nœud tant que `RemoveDrives` le processus est terminé et toutes les données ont été migrées à l'écart du nœud.
 
+.Description de la tâche
 Au moins deux nœuds FC sont nécessaires pour assurer la connectivité FC dans un cluster NetApp Element. Si un seul nœud FC est connecté, le système déclenche des alertes dans le journal des événements jusqu'à ce que vous ajouiez un autre nœud FC au cluster, même si tout le trafic réseau FC continue de fonctionner avec un seul nœud FC.
 
 .Étapes

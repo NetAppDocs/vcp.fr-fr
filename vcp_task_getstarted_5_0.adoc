@@ -21,14 +21,14 @@ Une fois l'installation terminée, vous pouvez utiliser la qualité de service b
 
 Lisez et effectuez chaque étape pour installer et commencer à utiliser le plug-in :
 
-*  for installation
-*  the management node
-*  the plug-in with vCenter
-*  the plug-in and verify successful installation
-*  storage clusters for use with the plug-in
-*  QoSSIOC settings using the plug-in
-*  user accounts
-*  datastores and volumes
+* <<Avant l'installation>>
+* <<Installez le nœud de gestion>>
+* <<Enregistrez le plug-in avec vCenter>>
+* <<Accédez au plug-in et vérifiez que l'installation a réussi>>
+* <<Ajout de clusters de stockage pour une utilisation avec le plug-in>>
+* <<Configurez les paramètres QoSSIOC à l'aide du plug-in>>
+* <<Configurer des comptes utilisateur>>
+* <<Créer des datastores et des volumes>>
 
 
 
@@ -51,7 +51,7 @@ Ce processus manuel est destiné aux administrateurs du stockage 100 % Flash Sol
 
 Le déploiement du module plug-in vCenter dans le client Web vSphere implique l'enregistrement du package en tant qu'extension sur vCenter Server. Une fois l'inscription terminée, le plug-in est disponible pour tout client Web vSphere qui se connecte à votre environnement vSphere.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous disposez des privilèges de rôle d'administrateur vCenter pour enregistrer un plug-in.
 * Vous avez déployé un nœud de gestion OVA exécutant le logiciel Element 12.3.x ou version ultérieure.
 * Votre nœud de gestion est sous tension avec son adresse IP ou son adresse DHCP configurée.
@@ -59,6 +59,7 @@ Le déploiement du module plug-in vCenter dans le client Web vSphere implique l'
 * Vos règles de pare-feu autorisent l'ouverture link:reference_requirements_vcp.html["communication réseau"] Entre vCenter et le cluster de stockage MVIP sur les ports TCP 443, 8443, 8333 et 9443. Le port 9443 est utilisé pour l'enregistrement et peut être fermé une fois l'enregistrement terminé. Si vous avez activé la fonctionnalité de volumes virtuels sur le cluster, assurez-vous que le port TCP 8444 est également ouvert pour l'accès à VASA Provider.
 
 
+.Description de la tâche
 Vous devez enregistrer le plug-in vCenter sur chaque serveur vCenter où vous devez utiliser le plug-in.
 
 Pour les environnements en mode lié, vous devez enregistrer des plug-ins distincts avec chaque serveur vCenter dans l'environnement pour synchroniser les données MOB et pouvoir mettre à niveau le plug-in. Lorsqu'un client Web vSphere se connecte à un serveur vCenter où votre plug-in n'est pas enregistré, le plug-in n'est pas visible pour le client.
@@ -139,7 +140,7 @@ NOTE: Si les icônes du plug-in vCenter ne sont pas visibles, reportez-vous à l
 
 Vous pouvez ajouter et gérer un cluster exécutant le logiciel Element à l'aide du point d'extension du plug-in distant NetApp Element.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Au moins un cluster doit être disponible et son adresse IP ou FQDN connue.
 * Identifiants actuels de l'utilisateur administrateur complet du cluster pour le cluster.
 * Les règles de pare-feu autorisent l'ouverture link:reference_requirements_vcp.html["communication réseau"] Entre vCenter et le cluster MVIP sur les ports TCP 443, 8333 et 8443.
@@ -148,6 +149,7 @@ Vous pouvez ajouter et gérer un cluster exécutant le logiciel Element à l'aid
 
 NOTE: Vous devez ajouter au moins un cluster pour utiliser les fonctions de gestion.
 
+.Description de la tâche
 Cette procédure décrit comment ajouter un profil de cluster afin que le cluster puisse être géré par le plug-in. Vous ne pouvez pas modifier les informations d'identification de l'administrateur du cluster à l'aide du plug-in.
 
 Voir https://docs.netapp.com/us-en/element-software/storage/concept_system_manage_manage_cluster_administrator_users.html["gestion des comptes utilisateurs d'administrateur du cluster"^] pour obtenir des instructions sur la modification des identifiants d'un compte d'administrateur de cluster.
@@ -182,6 +184,7 @@ Lorsque le processus est terminé, le cluster apparaît dans la liste des cluste
 
 Vous pouvez configurer la qualité de service automatique basée sur le contrôle des E/S du stockage link:vcp_concept_qossioc.html["(QoSSIOC)"] pour les volumes individuels et les datastores contrôlés par le plug-in. Pour ce faire, vous configurez les informations d'identification QoSSIOC et vCenter qui permettront au service QoSSIOC de communiquer avec vCenter.
 
+.Description de la tâche
 Après avoir configuré des paramètres QoSSIOC valides pour le nœud de gestion, ces paramètres deviennent par défaut. Les paramètres QoSSIOC reviennent aux derniers paramètres QoSSIOC valides connus jusqu'à ce que vous ayez les paramètres QoSSIOC valides pour un nouveau noeud de gestion. Vous devez effacer les paramètres QoSSIOC pour le noeud de gestion configuré avant de configurer les informations d'identification QoSSIOC pour un nouveau noeud de gestion.
 
 .Étapes

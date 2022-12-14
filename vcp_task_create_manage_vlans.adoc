@@ -16,10 +16,10 @@ keywords: netapp, VLANs, create, manage, delete, view vcp, vcenter, element
 [role="lead"]
 Vous pouvez ajouter un nouveau réseau virtuel à une configuration en cluster pour permettre la connexion d'un environnement mutualisé à un cluster exécutant le logiciel NetApp Element, et gérer le réseau virtuel à l'aide du plug-in vCenter.
 
-*  a virtual network
-*  virtual network details
-*  a virtual network
-*  a virtual network
+* <<Créer un réseau virtuel>>
+* <<Afficher les détails des réseaux virtuels>>
+* <<Modifier un réseau virtuel>>
+* <<Supprimer un réseau virtuel>>
 
 
 
@@ -28,7 +28,7 @@ Vous pouvez ajouter un nouveau réseau virtuel à une configuration en cluster p
 
 Vous pouvez ajouter un nouveau réseau virtuel à une configuration de cluster.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Les hôtes ESXi ne disposent que d'un adaptateur logiciel iSCSI unique.
 * Les hôtes ou les commutateurs sont configurés pour le VLAN.
 * Vous avez identifié le bloc d'adresses IP qui sera affecté aux réseaux virtuels sur les nœuds de cluster.
@@ -45,6 +45,7 @@ Cette configuration doit prendre en compte les critères suivants :
 
 
 ====
+.Description de la tâche
 Lorsqu'un réseau virtuel est ajouté, une interface pour chaque nœud est créée et chaque nœud nécessite une adresse IP de réseau virtuel. Le nombre d'adresses IP que vous spécifiez lors de la création d'un nouveau réseau virtuel doit être égal ou supérieur au nombre de nœuds du cluster. Les adresses réseau virtuelles sont provisionnées en bloc et attribuées automatiquement aux nœuds individuels. Il n'est pas nécessaire d'attribuer manuellement des adresses réseau virtuelles aux nœuds du cluster.
 
 .Étapes
@@ -132,6 +133,7 @@ Vous pouvez afficher des informations telles que l'ID et le nom de chaque VLAN, 
 
 Vous pouvez modifier les attributs VLAN, tels que le nom du VLAN, le masque de réseau et la taille des blocs d'adresse IP.
 
+.Description de la tâche
 Le marquage VLAN et le SVIP ne peuvent pas être modifiés pour un VLAN. L'attribut de passerelle ne peut être modifié que pour les VLAN VRF. Si des sessions iSCSI, de réplication à distance ou d'autres sessions réseau existent, la modification peut échouer.
 
 .Étapes

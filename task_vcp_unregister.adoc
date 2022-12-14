@@ -16,12 +16,13 @@ keywords: netapp, vcp, vcenter, plugin, element, unregister
 [role="lead"]
 Vous pouvez annuler l'enregistrement du plug-in NetApp Element pour VMware vCenter Server à l'aide de l'une de ces procédures.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Privilèges de rôle d'administrateur vCenter pour annuler l'enregistrement d'un plug-in.
 * L'adresse IP du nœud de gestion.
 * URL et informations d'identification pour vCenter à partir desquelles vous annulez l'enregistrement du plug-in.
 
 
+.Description de la tâche
 Pour vSphere 6.7 et les versions antérieures, la désinscription du plug-in a le même effet que sa désactivation, mais ne supprime pas tous les fichiers et dossiers associés qui sont installés localement. Pour supprimer tous les fichiers du plug-in, reportez-vous aux instructions de la section link:task_vcp_remove.html["retrait du plug-in"].
 
 Pour vSphere 7.0, tous les fichiers sont supprimés automatiquement après le retrait du plug-in.

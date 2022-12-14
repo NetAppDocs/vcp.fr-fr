@@ -27,7 +27,7 @@ Les événements QoSSIOC sont affichés à partir de clusters ajoutés localemen
 
 
 ====
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 * Le service QoSSIOC doit être configuré et vérifié en cours d’exécution à l’aide de la page QoSSIOC Settings du plug-in.
 * L'automatisation QoSSIOC doit être activée pour au moins un datastore.

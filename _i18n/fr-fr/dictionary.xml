@@ -273,7 +273,6 @@
   <block id="3d1c64d2c8b1e4058225a78c3ef09fa6" category="list-text">Sélectionnez *OK*.</block>
   <block id="3a3faf028a6ad950e4aa5336121d127d" category="section-title">Ajout de volumes à un groupe d'accès</block>
   <block id="939b3144baf39dbe0149159c50369c5a" category="paragraph">Vous pouvez ajouter des volumes à un groupe d'accès de volume. Chaque volume peut appartenir à plusieurs groupes d'accès aux volumes. Vous pouvez voir les groupes auxquels chaque volume appartient depuis la vue des volumes actifs.</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Ce dont vous avez besoin, 8217;ll</block>
   <block id="2b39b8bb48e01459e34037072a056457" category="list-text">Vous devez ajouter un cluster et en cours d'exécution au moins.</block>
   <block id="4cd9f1433acd5445145982da4fe89d87" category="list-text">Au moins un groupe d'accès existe.</block>
   <block id="d081f7c0c454b8a932fe9265913e716a" category="list-text">Au moins un volume actif existe.</block>
@@ -2645,4 +2644,9 @@
   <block id="f5409f597000de172b3e43bc31e32407" category="sidebar">Notes de version de la base de connaissances NetApp sur les services de contrôle et de gestion du cloud hybride</block>
   <block id="bc4fe2352063642d68529f2aa0ca7ca3" category="sidebar">Documentation produit NetApp</block>
   <block id="e97497d0f5938ed35b2e63e89f51bf3c" category="paragraph">A <block ref="e64b216761b70bc0cfda4bc4eab1b43a" category="inline-link-macro-rx"></block> Est une collection de volumes auxquels les utilisateurs peuvent accéder via des initiateurs iSCSI ou des initiateurs FC.</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">Ce dont vous avez besoin</block>
+  <block id="65988ccc1e915ab34bd44768f37b0444" category="paragraph-title">Action corrective pour le plug-in Element vCenter 5.0 ou version ultérieure</block>
+  <block id="47c4fb98f272f850da400ba07b3981fa" category="paragraph-title">Action corrective pour le plug-in Element vCenter 4.10 ou version antérieure</block>
+  <block id="d495047561c1a08074d3afeeb5b5d172" category="paragraph-title">Prérequis pour VMware vSphere</block>
+  <block id="3903fd261f224ad8af888f893eb71a5e" category="paragraph-title">Versions de VMware vSphere prises en charge par le plug-in</block>
 </blocks>

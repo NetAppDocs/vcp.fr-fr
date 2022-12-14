@@ -22,8 +22,10 @@ Avant d'utiliser le plug-in NetApp Element pour VMware vCenter Server pour gére
 --
 Vérifiez que votre système répond aux exigences d'utilisation du plug-in Element vCenter version 5.0 ou ultérieure.
 
+.Prérequis pour VMware vSphere
 VMware vSphere 8.0 et 7.0 comprenant vCenter et ESXi avec un adaptateur iSCSI logiciel et une configuration de réseau iSCSI, est requis pour utiliser le plug-in Element vCenter.
 
+.Versions de VMware vSphere prises en charge par le plug-in
 Le plug-in prend en charge les principales versions suivantes du logiciel VMware :
 
 * VSphere 8.0 comprend des datastores vCenter Server, ESXi, VMFS5 et VMFS6
@@ -38,8 +40,10 @@ IMPORTANT: VMware vSphere 6.5 et 6.7 ont atteint la fin du support le 15 octobre
 --
 Vérifiez que votre système répond aux exigences d'utilisation du plug-in Element vCenter 4.10 ou version antérieure.
 
+.Prérequis pour VMware vSphere
 Pour utiliser le plug-in vCenter Element vCenter, vous devez disposer de VMware vSphere 7.0, 6.7 ou 6.5, avec un adaptateur iSCSI logiciel et une configuration réseau iSCSI.
 
+.Versions de VMware vSphere prises en charge par le plug-in
 Le plug-in prend en charge les principales versions suivantes du logiciel VMware :
 
 * VSphere 7.0 et 7.0 mise à jour 1 et 2, notamment les datastores vCenter Server, ESXi, VMFS5 et VMFS6

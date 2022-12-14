@@ -21,11 +21,11 @@ Lorsque vous créez des planifications de snapshots, vous pouvez stocker les sna
 
 NOTE: Les horaires sont créés à l'aide de l'heure UTC+0. Il se peut que vous deviez régler la durée réelle d'exécution d'un instantané en fonction de votre fuseau horaire.
 
-*  a snapshot schedule
-*  snapshot schedule details
-*  a snapshot schedule
-*  a snapshot schedule
-*  a snapshot schedule
+* <<Créer un planning de snapshots>>
+* <<Afficher les détails de la planification des snapshots>>
+* <<Modifier un planning de snapshots>>
+* <<Copier un planning de snapshots>>
+* <<Supprime une planification de snapshots>>
 
 
 

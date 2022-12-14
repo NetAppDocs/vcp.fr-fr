@@ -17,9 +17,9 @@ keywords: netapp, storage, accounts, vcp, vcenter, element
 link:vcp_concept_accounts.html["Comptes d'utilisateur"] Permettent de contrôler l'accès aux ressources de stockage sur un réseau logiciel NetApp Element.
 
 .Options
-*  an account
-*  an account
-*  an account
+* <<Créez un compte>>
+* <<Modifier un compte>>
+* <<Supprimer un compte>>
 
 
 
@@ -28,7 +28,7 @@ link:vcp_concept_accounts.html["Comptes d'utilisateur"] Permettent de contrôler
 
 Vous pouvez créer un compte utilisateur unique pour autoriser l'accès aux volumes de stockage.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 
 
@@ -69,6 +69,7 @@ NOTE: Les secrets d'initiateur et de cible doivent être différents. Si ces cha
 
 Vous pouvez modifier un compte utilisateur pour modifier le statut ou les secrets CHAP. La modification des paramètres CHAP peut entraîner une perte de connectivité entre un hôte et ses volumes associés.
 
+.Description de la tâche
 Si vous utilisez des volumes persistants avec le nœud de gestion, ne modifiez pas le nom du compte associé à ces volumes.
 
 .Étapes
@@ -109,6 +110,7 @@ NOTE: Si vous ne modifiez pas les informations d'identification, elles restent l
 
 Vous pouvez supprimer des comptes utilisateur à l'aide du point d'extension du plug-in.
 
+.Ce dont vous avez besoin
 Supprimez et supprimez tout volume associé au compte ou réaffectez-le à un autre compte.
 
 

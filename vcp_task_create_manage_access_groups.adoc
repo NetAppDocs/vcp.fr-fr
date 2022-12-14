@@ -19,11 +19,11 @@ A link:https://docs.netapp.com/us-en/hci/docs/concept_hci_volume_access_groups.h
 Vous pouvez créer des groupes d'accès en mappant les IQN des initiateurs iSCSI ou les WWPN FC dans une collection de volumes. Chaque IQN que vous ajoutez à un groupe d'accès peut accéder à chaque volume du groupe sans nécessiter d'authentification CHAP. Chaque WWPN que vous ajoutez à un groupe d'accès permet d'accéder au réseau FC aux volumes du groupe d'accès.
 
 .Options
-*  an access group
-*  an access group
-*  volumes to an access group
-*  volumes from an access group
-*  an access group
+* <<Créez un groupe d'accès>>
+* <<Modifier un groupe d'accès>>
+* <<Ajout de volumes à un groupe d'accès>>
+* <<Supprimer des volumes d'un groupe d'accès>>
+* <<Supprimer un groupe d'accès>>
 
 
 
@@ -98,7 +98,7 @@ NOTE: Si vous supprimez un initiateur, cliquez sur l'icône de la corbeille pour
 
 Vous pouvez ajouter des volumes à un groupe d'accès de volume. Chaque volume peut appartenir à plusieurs groupes d'accès aux volumes. Vous pouvez voir les groupes auxquels chaque volume appartient depuis la vue des volumes actifs.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Vous devez ajouter un cluster et en cours d'exécution au moins.
 * Au moins un groupe d'accès existe.
 * Au moins un volume actif existe.

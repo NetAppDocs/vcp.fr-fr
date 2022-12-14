@@ -32,7 +32,7 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 == Tâches de configuration
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["Configurez les paramètres QoSSIOC"]
-*  QoSSIOC automation on datastores
+* <<Activation de l'automatisation QoSSIOC sur les datastores>>
 
 
 
@@ -40,10 +40,10 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 == Tâches de gestion
 
 * link:vcp_task_reports_qossioc.html["Surveiller la hiérarchisation des performances des machines virtuelles à l'aide des événements QoSSIOC"^]
-*  QoSSIOC settings
-*  the QoSSIOC service password
-*  QoSSIOC automation for a datastore
-*  QoSSIOC settings
+* <<Modifier les paramètres QoSSIOC>>
+* <<Modifier le mot de passe du service QoSSIOC>>
+* <<Désactivez l'automatisation QoSSIOC pour un datastore>>
+* <<Effacer les paramètres QoSSIOC>>
 
 
 
@@ -52,12 +52,14 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 
 Vous pouvez activer l'automatisation QoSSIOC et personnaliser les niveaux de performance des disques virtuels (VMDK) pour les datastores après avoir activé le service QoSSIOC pour le plug-in.
 
+.Ce dont vous avez besoin
 Vous avez configuré les paramètres du service QoSSIOC sur la page QoSSIOC Settings et le champ *QoSSIOC Status* s'affiche `UP`.
 
 * link:vcp_task_getstarted_5_0.html#configure-qossioc-settings-using-the-plug-in["Configurez les paramètres à l'aide du plug-in Element vCenter 5.0 et versions ultérieures"]
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["Configurez les paramètres à l'aide du plug-in Element vCenter 4.10 et versions antérieures"]
 
 
+.Description de la tâche
 QoSSIOC est disponible uniquement avec les datastores standard. Elle ne fonctionne pas avec les volumes virtuels (VVol). QoSSIOC ajuste les valeurs QoS sur les volumes d'éléments standard lorsqu'un événement de machine virtuelle se produit, comme les événements de mise sous tension ou hors tension, les redémarrages ou l'arrêt de l'invité, ou l'activité de reconfiguration.
 
 
@@ -146,11 +148,12 @@ NOTE: Après avoir configuré des paramètres QoSSIOC valides pour le nœud de g
 
 Vous pouvez modifier le mot de passe du service QoSSIOC sur le nœud de gestion à l'aide de l'interface utilisateur de l'utilitaire d'enregistrement.
 
-.Ce dont vous avez besoin, 8217;ll
+.Ce dont vous avez besoin
 * Votre nœud de gestion est sous tension.
 
 
-Ce processus décrit comment modifier uniquement le mot de passe QoSSIOC. Si vous voulez changer le nom d'utilisateur QoSSIOC, vous pouvez le faire à partir du  QoSSIOC settings,Paramètres QoSSIOC page.
+.Description de la tâche
+Ce processus décrit comment modifier uniquement le mot de passe QoSSIOC. Si vous voulez changer le nom d'utilisateur QoSSIOC, vous pouvez le faire à partir du <<Modifier les paramètres QoSSIOC,Paramètres QoSSIOC>> page.
 
 .Étapes
 . Dans votre client Web vSphere, ouvrez l'onglet *QoSSIOC Settings* :
