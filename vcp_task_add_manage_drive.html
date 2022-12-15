@@ -1196,7 +1196,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
     
   
 
@@ -1214,13 +1214,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>available drives to a cluster</p>
+<p><a href="#ajoutez-des-disques-disponibles-à-un-cluster">Ajoutez des disques disponibles à un cluster</a></p>
 </li>
 <li>
-<p>drive details</p>
+<p><a href="#afficher-les-détails-du-lecteur">Afficher les détails du lecteur</a></p>
 </li>
 <li>
-<p>a drive</p>
+<p><a href="#déposer-un-lecteur">Déposer un lecteur</a></p>
 </li>
 </ul>
 </div>
@@ -1233,6 +1233,7 @@
 <p>Vous pouvez ajouter des lecteurs à un cluster à l&#8217;aide du point d&#8217;extension du plug-in. Lorsque vous ajoutez un nœud au cluster ou que vous installez de nouveaux disques dans un nœud existant, les disques s&#8217;enregistrent automatiquement en tant que <code>Available</code>. Vous devez ajouter les disques au cluster avant que chaque disque ne puisse participer au cluster.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Les disques ne sont pas affichés dans la liste disponible lorsque les conditions suivantes existent :</p>
 </div>
 <div class="ulist">
@@ -1303,6 +1304,7 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez afficher la liste des lecteurs actifs dans le cluster à l&#8217;aide de la vue active sur la page lecteurs de l&#8217;onglet Cluster à partir du point d&#8217;extension du plug-in. Vous pouvez modifier la vue en sélectionnant les options disponibles à l&#8217;aide du filtre déroulant.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Lorsque vous initialisez un cluster, la liste des disques actifs est vide. Vous pouvez ajouter des disques non assignés à un cluster et listés dans l&#8217;onglet disponible après la création d&#8217;un nouveau cluster.</p>
 </div>
 <div class="olist arabic">
@@ -1356,6 +1358,7 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez retirer un lecteur d&#8217;un cluster à l&#8217;aide du point d&#8217;extension enfichable. Vous pouvez le faire en réduisant la capacité du cluster ou en préparant le remplacement de disques en fin de vie. Le retrait d&#8217;un lecteur met le lecteur hors ligne. Toutes les données du disque sont supprimées et migrées vers d&#8217;autres disques du cluster avant que le disque ne soit retiré du cluster. La migration des données vers d&#8217;autres disques actifs du système peut prendre quelques minutes à une heure selon l&#8217;utilisation de la capacité et les E/S actives sur le cluster.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Lorsque vous retirez un lecteur dans un <code>Failed</code> état, le lecteur n&#8217;est pas renvoyé à <code>Available</code> ou <code>Active</code> états-unis. En revanche, le disque n&#8217;est pas disponible pour une utilisation dans le cluster.</p>
 </div>
 <div class="olist arabic">

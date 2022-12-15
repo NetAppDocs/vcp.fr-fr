@@ -1196,7 +1196,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
     
   
 
@@ -1214,19 +1214,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>a node to a cluster</p>
+<p><a href="Ajout d&.html#8217;un nœud à un cluster">Ajout d&.html</a></p>
 </li>
 <li>
-<p>node details</p>
+<p><a href="#afficher-les-détails-du-nœud">Afficher les détails du nœud</a></p>
 </li>
 <li>
-<p>a node</p>
+<p><a href="#redémarrez-un-nœud">Redémarrez un nœud</a></p>
 </li>
 <li>
-<p>down a node</p>
+<p><a href="#arrêtez-un-nœud">Arrêtez un nœud</a></p>
 </li>
 <li>
-<p>a node from a cluster</p>
+<p><a href="Supprime un nœud d&.html#8217;un cluster">Supprime un nœud d&.html</a></p>
 </li>
 </ul>
 </div>
@@ -1239,7 +1239,7 @@
 <p>Vous pouvez ajouter des nœuds de stockage à votre cluster à l&#8217;aide du plug-in vCenter.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Le nœud que vous ajoutez a été configuré, sous tension et configuré.</p>
@@ -1262,6 +1262,7 @@ Si le nœud que vous ajoutez dispose d&#8217;une version mineure ou majeure du l
 </table>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Les nœuds requièrent la configuration initiale lors de la première mise sous tension. Lorsque le nœud a été configuré et configuré, il s&#8217;enregistre sur le cluster identifié lorsque le nœud a été configuré et apparaît dans la liste des nœuds en attente sur la page <strong>Cluster &gt; nœuds</strong> du point d&#8217;extension du plug-in.</p>
 </div>
 <div class="paragraph">
@@ -1384,9 +1385,11 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez redémarrer un ou plusieurs nœuds actifs dans un cluster à l&#8217;aide du point d&#8217;extension du plug-in.</p>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Pour redémarrer le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un redémarrage.</p>
 </div>
 <div class="admonitionblock important">
@@ -1471,6 +1474,7 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez arrêter un ou plusieurs nœuds actifs d&#8217;un cluster à l&#8217;aide du point d&#8217;extension du plug-in. Pour arrêter le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un arrêt simultané.</p>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.</p>
 </div>
 <div class="admonitionblock note">
@@ -1556,9 +1560,11 @@ Si un nœud a été arrêté plus de 5.5 minutes sous un type d&#8217;arrêt, le
 <p>Vous pouvez supprimer des nœuds d&#8217;un cluster sans interruption de service lorsque le stockage n&#8217;est plus nécessaire ou qu&#8217;ils nécessitent une maintenance.</p>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous avez supprimé tous les disques du nœud du cluster. Vous ne pouvez pas supprimer un nœud tant que <code>RemoveDrives</code> le processus est terminé et toutes les données ont été migrées à l&#8217;écart du nœud.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Au moins deux nœuds FC sont nécessaires pour assurer la connectivité FC dans un cluster NetApp Element. Si un seul nœud FC est connecté, le système déclenche des alertes dans le journal des événements jusqu&#8217;à ce que vous ajouiez un autre nœud FC au cluster, même si tout le trafic réseau FC continue de fonctionner avec un seul nœud FC.</p>
 </div>
 <div class="olist arabic">

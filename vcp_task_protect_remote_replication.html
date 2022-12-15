@@ -1196,7 +1196,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
     
   
 
@@ -1215,7 +1215,7 @@
 <p>Il peut répliquer des données de volume de manière synchrone ou asynchrone à partir de l&#8217;un des clusters d&#8217;une paire de clusters pour effectuer des scénarios de basculement et de restauration. Vous devez d&#8217;abord coupler deux clusters NetApp Element, puis coupler des volumes sur chaque cluster pour bénéficier de la réplication à distance en temps réel.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Assurez-vous que vous avez ajouté au moins un cluster au plug-in.</p>
@@ -1247,19 +1247,19 @@ Les appliances WAN Accelerator n&#8217;ont pas été qualifiées par NetApp pour
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
-<p>clusters</p>
+<p><a href="#coupler-les-clusters">Coupler les clusters</a></p>
 </li>
 <li>
-<p>volumes</p>
+<p><a href="#coupler-les-volumes">Coupler les volumes</a></p>
 </li>
 <li>
-<p>volume replication</p>
+<p><a href="#validation-de-la-réplication-de-volume">Validation de la réplication de volume</a></p>
 </li>
 <li>
-<p>a volume relationship after replication</p>
+<p><a href="#supprime-une-relation-de-volume-après-la-réplication">Supprime une relation de volume après la réplication</a></p>
 </li>
 <li>
-<p>volume relationships</p>
+<p><a href="#gestion-des-relations-de-volume">Gestion des relations de volume</a></p>
 </li>
 </ol>
 </div>
@@ -1275,7 +1275,7 @@ Les appliances WAN Accelerator n&#8217;ont pas été qualifiées par NetApp pour
 <p>Vous pouvez coupler un cluster source et cible à l&#8217;aide du MVIP du cluster cible si l&#8217;accès d&#8217;administrateur de cluster aux deux clusters est possible. Si l&#8217;accès administrateur de cluster n&#8217;est disponible que sur un seul cluster d&#8217;une paire de clusters, une clé de couplage peut être utilisée sur le cluster cible pour terminer l&#8217;appariement du cluster.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Vous avez besoin de privilèges d&#8217;administrateur de cluster pour un ou les deux clusters en cours de couplage.</p>
@@ -1312,10 +1312,10 @@ L&#8217;association de cluster requiert une connectivité complète entre les n�
 <div class="ulist">
 <ul>
 <li>
-<p>clusters using known credentials</p>
+<p><a href="Couplez des clusters à l&.html#8217;aide d&#8217;identifiants connus">Couplez des clusters à l&.html</a></p>
 </li>
 <li>
-<p>clusters with a pairing key</p>
+<p><a href="#couplez-des-clusters-avec-une-clé-de-couplage">Couplez des clusters avec une clé de couplage</a></p>
 </li>
 </ul>
 </div>
@@ -1325,10 +1325,11 @@ L&#8217;association de cluster requiert une connectivité complète entre les n�
 <p>Vous pouvez coupler deux clusters pour la réplication en temps réel en utilisant le MVIP d&#8217;un cluster pour établir une connexion avec l&#8217;autre cluster. Cette méthode requiert l&#8217;accès aux administrateurs du cluster sur les deux clusters.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Le nom d&#8217;utilisateur et le mot de passe de l&#8217;administrateur du cluster permettent d&#8217;authentifier l&#8217;accès au cluster avant de pouvoir apparier les clusters.</p>
 </div>
 <div class="paragraph">
-<p>Si le MVIP n&#8217;est pas connu ou si l&#8217;accès au cluster n&#8217;est pas disponible, vous pouvez coupler le cluster en générant une clé de couplage et utiliser la clé pour coupler les deux clusters. Pour obtenir des instructions, reportez-vous à la section  clusters with a pairing key.</p>
+<p>Si le MVIP n&#8217;est pas connu ou si l&#8217;accès au cluster n&#8217;est pas disponible, vous pouvez coupler le cluster en générant une clé de couplage et utiliser la clé pour coupler les deux clusters. Pour obtenir des instructions, reportez-vous à la section <a href="#couplez-des-clusters-avec-une-clé-de-couplage">Couplez des clusters avec une clé de couplage</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Étapes</div>
@@ -1512,7 +1513,7 @@ Ne modifiez aucun des caractères de la clé de couplage. La clé devient non va
 </div>
 </li>
 <li>
-<p>Depuis le vCenter qui contient le cluster distant, ,Ouvrez l&#8217;onglet protection.</p>
+<p>Depuis le vCenter qui contient le cluster distant, <a href="#open_protection_tab">Ouvrez l&#8217;onglet protection</a>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1566,7 +1567,7 @@ Attendez que la bague de chargement disparaisse avant de passer à l&#8217;étap
 <p>Une fois la tâche terminée et que la page <strong>Cluster pair</strong> s&#8217;affiche, vérifiez que la paire cluster est connectée.</p>
 </li>
 <li>
-<p>Pour vérifier que la paire de clusters est connectée, sur le cluster distant ,Ouvrez l&#8217;onglet protection Vous pouvez également utiliser l&#8217;interface utilisateur Element.</p>
+<p>Pour vérifier que la paire de clusters est connectée, sur le cluster distant <a href="#open_protection_tab">Ouvrez l&#8217;onglet protection</a> Vous pouvez également utiliser l&#8217;interface utilisateur Element.</p>
 </li>
 </ol>
 </div>
@@ -1605,13 +1606,13 @@ Attendez que la bague de chargement disparaisse avant de passer à l&#8217;étap
 <div class="ulist">
 <ul>
 <li>
-<p>volumes using known credentials: Utilisez les informations d&#8217;identification connues pour les deux clusters</p>
+<p><a href="Couplez des volumes à l&.html#8217;aide d&#8217;informations d&#8217;identification connues">Couplez des volumes à l&.html</a>: Utilisez les informations d&#8217;identification connues pour les deux clusters</p>
 </li>
 <li>
-<p>volumes using a pairing key: Utilisez une clé de couplage si les informations d&#8217;identification du cluster ne sont disponibles que sur le cluster source.</p>
+<p><a href="Couplez des volumes à l&.html#8217;aide d&#8217;une clé de couplage">Couplez des volumes à l&.html</a>: Utilisez une clé de couplage si les informations d&#8217;identification du cluster ne sont disponibles que sur le cluster source.</p>
 </li>
 <li>
-<p>target volumes and pair them with local volumes: Si vous connaissez les informations d&#8217;identification des deux clusters, créez un volume cible de réplication sur le cluster distant pour le coupler au cluster source.</p>
+<p><a href="#création-des-volumes-cibles-et-association-avec-des-volumes-locaux">Création des volumes cibles et association avec des volumes locaux</a>: Si vous connaissez les informations d&#8217;identification des deux clusters, créez un volume cible de réplication sur le cluster distant pour le coupler au cluster source.</p>
 </li>
 </ul>
 </div>
@@ -1621,12 +1622,12 @@ Attendez que la bague de chargement disparaisse avant de passer à l&#8217;étap
 <div class="ulist">
 <ul>
 <li>
-<p>a replication source and target to paired volumes</p>
+<p><a href="#attribuez-une-source-et-une-cible-de-réplication-aux-volumes-couplés">Attribuez une source et une cible de réplication aux volumes couplés</a></p>
 </li>
 </ul>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Vous devez avoir établi une connexion entre les clusters d&#8217;une paire de clusters.</p>
@@ -1922,6 +1923,7 @@ Si vous n&#8217;avez pas encore affecté un volume à la cible de réplication, 
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Cette procédure décrit le couplage de volumes entre deux volumes à l&#8217;aide de vCenter sur les sites locaux et distants. Pour les volumes qui ne sont pas contrôlés par le plug-in vCenter, vous pouvez alternativement démarrer ou terminer le couplage de volumes à l&#8217;aide de l&#8217;interface utilisateur Web d&#8217;Element.</p>
 </div>
 <div class="paragraph">
@@ -2047,7 +2049,7 @@ Ne modifiez aucun des caractères de la clé de couplage. La clé devient non va
 </div>
 </li>
 <li>
-<p>Depuis le vCenter qui contient le cluster distant, ,Ouvrez l&#8217;onglet gestion.</p>
+<p>Depuis le vCenter qui contient le cluster distant, <a href="#open_management">Ouvrez l&#8217;onglet gestion</a>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -2262,9 +2264,11 @@ Une fois le couplage effectué, les deux clusters commencent le processus de con
 <p>Cette procédure permet également de rediriger les données d&#8217;un volume source vers un volume cible distant en cas d&#8217;indisponibilité du volume source.</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Vous avez accès aux clusters contenant les volumes source et cible.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Cette procédure décrit l&#8217;attribution de volumes source et de réplication entre deux clusters à l&#8217;aide de vCenter sur les sites locaux et distants. Pour les volumes qui ne sont pas contrôlés par le plug-in vCenter, vous pouvez alternativement <a href="https://docs.netapp.com/us-en/element-software/storage/task_replication_assign_replication_source_and_target_to_paired_volumes.html">"attribuez un volume source ou de réplication"</a> Utilisation de l&#8217;interface utilisateur Web Element.</p>
 </div>
 <div class="paragraph">
@@ -2421,7 +2425,7 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Une fois la réplication terminée et vous n&#8217;avez plus besoin de la relation de couplage de volume, vous pouvez supprimer la relation de volume.</p>
 </div>
 <div class="paragraph">
-<p>Voir  a volume pair.</p>
+<p>Voir <a href="#supprime-une-paire-de-volumes">Supprime une paire de volumes</a>.</p>
 </div>
 </div>
 </div>
@@ -2434,16 +2438,16 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <div class="ulist">
 <ul>
 <li>
-<p>replication</p>
+<p><a href="#interrompre-la-réplication">Interrompre la réplication</a></p>
 </li>
 <li>
-<p>the mode of replication</p>
+<p><a href="#changer-le-mode-de-réplication">Changer le mode de réplication</a></p>
 </li>
 <li>
-<p>a volume pair</p>
+<p><a href="#supprime-une-paire-de-volumes">Supprime une paire de volumes</a></p>
 </li>
 <li>
-<p>a cluster pair</p>
+<p><a href="#supprime-une-paire-de-clusters">Supprime une paire de clusters</a></p>
 </li>
 </ul>
 </div>
@@ -2598,6 +2602,7 @@ La modification du mode de réplication entraîne la modification immédiate du 
 <p>Vous pouvez supprimer une paire de volumes si vous souhaitez supprimer une association de paires entre deux volumes.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Cette procédure décrit la suppression d&#8217;une relation de couplage de volumes entre deux volumes à l&#8217;aide de vCenter sur les sites locaux et distants.</p>
 </div>
 <div class="paragraph">
@@ -2741,10 +2746,10 @@ Cette action supprime uniquement l&#8217;extrémité de la paire de clusters sur
 <div class="ulist">
 <ul>
 <li>
-<p>pairing messages</p>
+<p><a href="#messages-de-couplage-de-volume">Messages de couplage de volume</a></p>
 </li>
 <li>
-<p>pairing warnings</p>
+<p><a href="#avertissements-de-couplage-de-volume">Avertissements de couplage de volume</a></p>
 </li>
 </ul>
 </div>

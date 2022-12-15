@@ -1196,7 +1196,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
     
   
 
@@ -1212,7 +1212,7 @@
 <p>Vous pouvez activer VMware vSphere <a href="vcp_concept_vvols.html">"Volumes virtuels (VVol)"</a> Fonctionnalité et configuration d&#8217;une configuration de volumes virtuels sur un cluster de stockage NetApp Element. Le plug-in Element pour vCenter Server surveille les performances et vous permet de gérer les volumes virtuels, <a href="vcp_concept_vvols.html#storage-containers">"conteneurs de stockage"</a>, <a href="vcp_concept_vvols.html#protocol-endpoints">"terminaux pe"</a>, et hôtes à partir du point d&#8217;extension du plug-in.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Vous utilisez un cluster NetApp Element 10 ou version ultérieure connecté à un environnement ESXi 6.5 ou version ultérieure avec compatibilité VVol.</p>
@@ -1234,13 +1234,13 @@
 <div class="title">Étapes</div>
 <ol class="arabic">
 <li>
-<p>virtual volumes functionality on the NetApp Element cluster</p>
+<p><a href="#activez-la-fonctionnalité-volumes-virtuels-sur-le-cluster-netapp-element">Activez la fonctionnalité volumes virtuels sur le cluster NetApp Element</a></p>
 </li>
 <li>
-<p>the VASA provider with vCenter</p>
+<p><a href="#enregistrez-le-fournisseur-vasa-avec-vcenter">Enregistrez le fournisseur VASA avec vCenter</a></p>
 </li>
 <li>
-<p>a storage container and associated VVol datastore</p>
+<p><a href="#créer-un-conteneur-de-stockage-et-le-datastore-vvol-associé">Créer un conteneur de stockage et le datastore VVol associé</a></p>
 </li>
 </ol>
 </div>
@@ -1252,13 +1252,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>virtual volume resources</p>
+<p><a href="#surveiller-les-ressources-des-volumes-virtuels">Surveiller les ressources des volumes virtuels</a></p>
 </li>
 <li>
-<p>a VVol datastore for a storage container</p>
+<p><a href="#créez-un-datastore-vvol-pour-un-conteneur-de-stockage">Créez un datastore VVOL pour un conteneur de stockage</a></p>
 </li>
 <li>
-<p>a storage container</p>
+<p><a href="#supprime-un-conteneur-de-stockage">Supprime un conteneur de stockage</a></p>
 </li>
 </ul>
 </div>
@@ -1332,7 +1332,7 @@ Lorsque les VVol sont activés, le cluster Element démarre le fournisseur VASA,
 <p>Copiez l&#8217;URL du fournisseur VASA à partir du champ <strong>URL du fournisseur VASA</strong>. Vous utiliserez cette URL pour enregistrer VASA Provider dans vCenter.</p>
 </li>
 <li>
-<p>Voir  the VASA provider with vCenter pour les étapes suivantes.</p>
+<p>Voir <a href="#enregistrez-le-fournisseur-vasa-avec-vcenter">Enregistrez le fournisseur VASA avec vCenter</a> pour les étapes suivantes.</p>
 </li>
 </ol>
 </div>
@@ -1345,7 +1345,7 @@ Lorsque les VVol sont activés, le cluster Element démarre le fournisseur VASA,
 <p>Vous devez enregistrer le fournisseur NetApp Element VASA avec vCenter pour que vCenter connaisse les fonctionnalités de VVol au sein du cluster. L&#8217;enregistrement du fournisseur VASA avec vCenter est une tâche ponctuelle de configuration.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Vous avez activé la fonctionnalité VVols pour le cluster.</p>
@@ -1353,6 +1353,7 @@ Lorsque les VVol sont activés, le cluster Element démarre le fournisseur VASA,
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Cette procédure décrit les étapes disponibles dans la version 6.7 de vSphere. Votre interface utilisateur vSphere peut différer légèrement des informations décrites en fonction de la version de vSphere installée. Pour plus d&#8217;aide, consultez la documentation de VMware vCenter.</p>
 </div>
 <div class="admonitionblock important">
@@ -1456,7 +1457,7 @@ Actualisez le fournisseur de stockage, si nécessaire, pour afficher le statut a
 </div>
 </li>
 <li>
-<p>Voir  a storage container and associated VVol datastore pour les étapes suivantes.</p>
+<p>Voir <a href="#créer-un-conteneur-de-stockage-et-le-datastore-vvol-associé">Créer un conteneur de stockage et le datastore VVol associé</a> pour les étapes suivantes.</p>
 </li>
 </ol>
 </div>
@@ -1602,13 +1603,13 @@ Si vous utilisez le mode lié vCenter, seuls les hôtes disponibles pour le serv
 <div class="ulist">
 <ul>
 <li>
-<p>VVols</p>
+<p><a href="#contrôle-des-volumes-virtuels">Contrôle des volumes virtuels</a></p>
 </li>
 <li>
-<p>storage containers</p>
+<p><a href="#surveillance-des-conteneurs-de-stockage">Surveillance des conteneurs de stockage</a></p>
 </li>
 <li>
-<p>protocol endpoints</p>
+<p><a href="#surveillance-des-terminaux-pe">Surveillance des terminaux PE</a></p>
 </li>
 </ul>
 </div>
@@ -1618,7 +1619,7 @@ Si vous utilisez le mode lié vCenter, seuls les hôtes disponibles pour le serv
 <p>Vous pouvez examiner les données générales de tous les volumes virtuels actifs du cluster ou les données détaillées de chaque volume virtuel. Le plug-in assure le suivi de l&#8217;efficacité, des performances, des événements et de la qualité de service des volumes virtuels, ainsi que des snapshots, des machines virtuelles et des liaisons associés.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Vous avez activé les machines virtuelles afin que les informations des volumes virtuels soient accessibles.</p>
@@ -1770,10 +1771,10 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <h2 id="créez-un-datastore-vvol-pour-un-conteneur-de-stockage">Créez un datastore VVOL pour un conteneur de stockage</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Une fois que vous avez créé un conteneur de stockage, vous devez également créer un datastore de volume virtuel qui représente le conteneur de stockage du cluster NetApp Element dans vCenter. Cette procédure peut être utilisée comme alternative à la création d&#8217;un datastore à partir du  a storage container and associated VVol datastore,Créer un conteneur de stockage assistant. Vous devez créer au moins un datastore VVol pour commencer à provisionner des machines virtuelles sauvegardées par VVol.</p>
+<p>Une fois que vous avez créé un conteneur de stockage, vous devez également créer un datastore de volume virtuel qui représente le conteneur de stockage du cluster NetApp Element dans vCenter. Cette procédure peut être utilisée comme alternative à la création d&#8217;un datastore à partir du <a href="#créer-un-conteneur-de-stockage-et-le-datastore-vvol-associé">Créer un conteneur de stockage</a> assistant. Vous devez créer au moins un datastore VVol pour commencer à provisionner des machines virtuelles sauvegardées par VVol.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Un conteneur de stockage existant dans l&#8217;environnement virtuel.</p>
@@ -1839,7 +1840,7 @@ Il n&#8217;est pas nécessaire de créer manuellement des LUN de point de termin
 <p>Vous pouvez supprimer des conteneurs de stockage du point d&#8217;extension du plug-in.</p>
 </div>
 <div class="ulist">
-<div class="title">Ce dont vous avez besoin, 8217;ll</div>
+<div class="title">Ce dont vous avez besoin</div>
 <ul>
 <li>
 <p>Tous les volumes ont été supprimés du conteneur de stockage.</p>

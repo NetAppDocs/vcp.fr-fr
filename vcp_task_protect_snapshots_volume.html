@@ -1196,7 +1196,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 13:57:32 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
     
   
 
@@ -1218,22 +1218,22 @@
 <div class="title">Options</div>
 <ul>
 <li>
-<p>a volume snapshot</p>
+<p><a href="#créer-un-snapshot-de-volume">Créer un snapshot de volume</a></p>
 </li>
 <li>
-<p>volume snapshot details</p>
+<p><a href="#afficher-les-détails-des-snapshots-de-volume">Afficher les détails des snapshots de volume</a></p>
 </li>
 <li>
-<p>a volume from a snapshot</p>
+<p><a href="Cloner un volume à partir d&.html#8217;un snapshot">Cloner un volume à partir d&.html</a></p>
 </li>
 <li>
-<p>back a volume to a snapshot</p>
+<p><a href="#restaurer-un-volume-vers-un-snapshot">Restaurer un volume vers un snapshot</a></p>
 </li>
 <li>
-<p>up a volume snapshot to an external object store</p>
+<p><a href="Sauvegardez un snapshot de volume dans un magasin d&.html#8217;objets externe">Sauvegardez un snapshot de volume dans un magasin d&.html</a></p>
 </li>
 <li>
-<p>a volume snapshot</p>
+<p><a href="#supprime-un-snapshot-de-volume">Supprime un snapshot de volume</a></p>
 </li>
 </ul>
 </div>
@@ -1637,13 +1637,13 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <div class="ulist">
 <ul>
 <li>
-<p>up a volume snapshot to an Amazon S3 object store</p>
+<p><a href="Sauvegarder un snapshot de volume dans un magasin d&.html#8217;objets Amazon S3">Sauvegarder un snapshot de volume dans un magasin d&.html</a></p>
 </li>
 <li>
-<p>up a volume snapshot to an OpenStack Swift object store</p>
+<p><a href="Sauvegardez un snapshot de volume dans un magasin d&.html#8217;objets OpenStack Swift">Sauvegardez un snapshot de volume dans un magasin d&.html</a></p>
 </li>
 <li>
-<p>up a volume snapshot to a cluster running Element software</p>
+<p><a href="#sauvegardez-un-snapshot-de-volume-sur-un-cluster-exécutant-le-logiciel-element">Sauvegardez un snapshot de volume sur un cluster exécutant le logiciel Element</a></p>
 </li>
 </ul>
 </div>
@@ -1837,9 +1837,11 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez sauvegarder un snapshot de volume résidant sur un cluster exécutant le logiciel NetApp Element sur un cluster Element distant.</p>
 </div>
 <div class="paragraph">
+<div class="title">Ce dont vous avez besoin</div>
 <p>Vous devez créer un volume sur le cluster de destination d&#8217;une taille égale ou supérieure au snapshot que vous utilisez pour la sauvegarde.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Lorsque vous sauvegardez ou restaurez un cluster à un autre, le système génère une clé à utiliser comme authentification entre les clusters. Cette clé d&#8217;écriture de volume en bloc permet au cluster source de s&#8217;authentifier auprès du cluster de destination, offrant ainsi la sécurité lors de l&#8217;écriture sur le volume de destination. Dans le cadre du processus de sauvegarde ou de restauration, vous devez générer une clé d&#8217;écriture de volume en bloc à partir du volume de destination avant de démarrer l&#8217;opération.</p>
 </div>
 <div class="olist arabic">
@@ -1978,6 +1980,7 @@ Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vous sou
 <p>Vous pouvez supprimer un snapshot de volume d&#8217;un cluster exécutant le logiciel NetApp Element à l&#8217;aide du point d&#8217;extension du plug-in. Lorsque vous supprimez un instantané, le système le supprime immédiatement.</p>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Vous pouvez supprimer les snapshots en cours de réplication à partir du cluster source. Si un snapshot est en cours de synchronisation avec le cluster cible lorsque vous le supprimez, la réplication de synchronisation est terminée et l&#8217;instantané est supprimé du cluster source. Le snapshot n&#8217;est pas supprimé du cluster cible.</p>
 </div>
 <div class="paragraph">
