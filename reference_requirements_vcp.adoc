@@ -10,11 +10,13 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]
 Avant d'utiliser le plug-in NetApp Element pour VMware vCenter Server pour gérer le stockage de votre baie 100 % Flash NetApp HCI ou SolidFire, vous devez vérifier que votre système répond aux exigences d'utilisation du plug-in.
+
+Pour les serveurs vCenter 8.0 et 7.0, vous pouvez le faire <<create_vcp_role,Créez un rôle VCP dans vCenter>> Pour un compte utilisateur de plug-in Element et attribuez des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
 
 [role="tabbed-block"]
 ====
@@ -96,6 +98,90 @@ Le plug-in prend en charge les principales versions suivantes :
 == Configuration requise pour les ports réseau
 
 Vous devez autoriser certains ports TCP par le biais du pare-feu de bord de votre centre de données afin que vous puissiez gérer le système à distance et permettre aux clients situés en dehors de votre centre de données de se connecter aux ressources. Pour obtenir la liste complète des ports utilisés dans les systèmes NetApp HCI et SolidFire, consultez ce document link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["page"].
+
+
+
+== (Facultatif) Créez un rôle VCP dans vCenter
+
+Pour les serveurs vCenter 8.0 et 7.0, vous pouvez créer un « rôle VCP » dans vCenter pour un compte utilisateur de plug-in Element et attribuer des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
+
+.Étapes
+. Connectez-vous au client Web vSphere en tant qu'administrateur.
+. Sélectionnez *Administration*.
+. Sélectionnez *authentification unique* > *utilisateurs et groupes*.
+. Sélectionnez l'onglet *Users* et dans la liste *Domain*, sélectionnez le domaine cible.
+. Sélectionnez *Ajouter*.
+. Renseignez les champs de l'écran *Ajouter un utilisateur* et sélectionnez *Ajouter*.
++
+image:vcp_add_user.PNG["Capture d'écran des champs Ajouter un utilisateur"]
+
+. Sélectionnez *contrôle d'accès* > *rôles*, puis *Nouveau*.
+. Dans l'écran *Nouveau rôle*, procédez comme suit :
++
+.. Sous *nom de rôle*, entrez "VCProle".
+.. Ender une description.
+.. Dans la liste *Afficher*, sélectionnez les autorisations pour votre version de vCenter Server :
++
+... Sélectionnez les autorisations pour vCenter Server 8.0 :
++
+**** Opérations de chiffrement > Enregistrer un serveur virtuel
+**** Datastore > tout sélectionner
+**** Poste > Sélectionner tout
+**** Hôte > Configuration > Modifier les paramètres
+**** Hôte > Configuration > connexion
+**** Hôte > Configuration > Maintenance
+**** Hôte > Configuration > Configuration de la partition de stockage
+**** Hôte > Configuration > gestion du système
+**** Hôte > Configuration > Ressources système
+**** Privilege.Task.Update.Task.Update.label > Privilege.Task.Update.Task.Update.label
+**** Tâches > tout sélectionner
+**** Machine virtuelle > Modifier l'inventaire > s'inscrire
+**** Stratégies de stockage VM > stratégies de stockage VM afficher les autorisations > Afficher les stratégies de stockage VM
+
+
+... Sélectionnez les autorisations pour vCenter Server 7.x :
++
+**** Opérations de chiffrement > Enregistrer un serveur virtuel
+**** Datastore > tout sélectionner
+**** Poste > Sélectionner tout
+**** Hôte > Configuration > Modifier les paramètres
+**** Hôte > Configuration > connexion
+**** Hôte > Configuration > Maintenance
+**** Hôte > Configuration > Configuration de la partition de stockage
+**** Hôte > Configuration > gestion du système
+**** Hôte > Configuration > Ressources système
+**** Plug-in > tout sélectionner
+**** Tâche planifiée > tout sélectionner
+**** Vues du stockage > tout sélectionner
+**** Tâches > tout sélectionner
+
+
+
+
+.. Sélectionnez *Créer*.
+
+
++
+image:vcp_create_vcprole.PNG["Capture d'écran des champs Nouveau rôle"]
+
+. Sélectionnez *autorisations globales*, puis *Ajouter*.
+. Dans l'écran *Ajouter une autorisation*, procédez comme suit :
++
+--
+.. Sélectionnez le domaine cible dans la liste *domaine*.
+.. Dans le champ *utilisateur/Groupe*, entrez l'ID utilisateur du plug-in d'élément.
+.. Sélectionnez *VCProle* dans la liste *role*.
+.. Sélectionnez *Propager aux enfants* et sélectionnez *OK*.
+
+
+--
++
+image:vcp_assign_vcprole.PNG["Capture d'écran des champs Ajouter une autorisation"]
+
++
+Vous pouvez maintenant vous connecter au client Web vSphere à l'aide du compte « vcusager ».
+
+
 
 
 
