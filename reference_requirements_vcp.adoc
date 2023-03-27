@@ -16,7 +16,7 @@ keywords: netapp, hci, kubernetes, on premise, cloud services
 [role="lead"]
 Avant d'utiliser le plug-in NetApp Element pour VMware vCenter Server pour gérer le stockage de votre baie 100 % Flash NetApp HCI ou SolidFire, vous devez vérifier que votre système répond aux exigences d'utilisation du plug-in.
 
-Pour les serveurs vCenter 8.0 et 7.0, vous pouvez le faire <<create_vcp_role,Créez un rôle VCP dans vCenter>> Pour un compte utilisateur de plug-in Element et attribuez des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
+Pour les serveurs vCenter 8.0 et 7.0, vous pouvez le faire <<create_vcp_role,Créez un rôle VCP dans vCenter>> Pour un compte utilisateur de plug-in Element, et attribuez des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
 
 [role="tabbed-block"]
 ====
@@ -103,7 +103,7 @@ Vous devez autoriser certains ports TCP par le biais du pare-feu de bord de votr
 
 == (Facultatif) Créez un rôle VCP dans vCenter
 
-Pour les serveurs vCenter 8.0 et 7.0, vous pouvez créer un « rôle VCP » dans vCenter pour un compte utilisateur de plug-in Element et attribuer des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
+Pour les serveurs vCenter 8.0 et 7.0, vous pouvez créer un rôle VCP dans vCenter pour un compte utilisateur de plug-in Element, et attribuer des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
 
 .Étapes
 . Connectez-vous au client Web vSphere en tant qu'administrateur.
