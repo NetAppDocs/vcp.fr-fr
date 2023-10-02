@@ -30,7 +30,7 @@ VMware vSphere 8.0 et 7.0 comprenant vCenter et ESXi avec un adaptateur iSCSI lo
 .Versions de VMware vSphere prises en charge par le plug-in
 Le plug-in prend en charge les principales versions suivantes du logiciel VMware :
 
-* VSphere 8.0 comprend des datastores vCenter Server, ESXi, VMFS5 et VMFS6
+* VSphere 8.0 Update 1 comprenant vCenter Server, ESXi, les datastores VMFS5 et VMFS6
 * VSphere 7.0 et 7.0 mise à jour 1, 2 et 3 incluant les datastores vCenter Server, ESXi, VMFS5 et VMFS6
 
 

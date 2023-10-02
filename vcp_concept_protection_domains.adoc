@@ -22,6 +22,8 @@ Un domaine de protection est un nœud ou un ensemble de nœuds regroupés de man
 
 Un domaine de châssis nécessite plus de ressources de capacité qu'un domaine de nœud pour être résilient aux pannes. Lorsqu'un seuil de protection est dépassé, un cluster ne dispose plus de la capacité suffisante pour corriger les pannes tout en assurant une disponibilité des données sans interruption.
 
+https://docs.netapp.com/us-en/element-software/concepts/concept_solidfire_concepts_data_protection.html#custom-protection-domains["En savoir plus sur les domaines de protection personnalisés"^].
+
 
 
 == Trouvez plus d'informations

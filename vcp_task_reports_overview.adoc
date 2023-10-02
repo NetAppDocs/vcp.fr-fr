@@ -61,6 +61,20 @@ NOTE: La fonction de domaines de protection n'est pas compatible avec les cluste
 ** *Capacité des métadonnées* : indique si la capacité des métadonnées est suffisante pour corriger les pannes tout en maintenant la disponibilité des données sans interruption. Normal (vert) indique que le cluster dispose de métadonnées suffisantes pour maintenir le niveau de contrôle sélectionné. Full (rouge) indique que le cluster ne prend plus en charge le niveau de surveillance sélectionné et qu'une action corrective est nécessaire.
 
 
+* *Intégrité du domaine de protection personnalisée* : affiche l'état d'intégrité du domaine de protection personnalisé pour le cluster lorsqu'un domaine de protection personnalisé est configuré sur le cluster.
++
+Les données suivantes indiquent la protection disponible contre la défaillance de l'un des domaines de protection personnalisée du cluster.
+
++
+** *Niveau de protection* : indique l'état général du niveau de protection.
+** *Capacité de bloc* : indique l'état actuel du niveau de protection du sous-système de services de bloc.
++
+Il indique également le seuil de capacité totale auquel la résilience est perdue.
+
+** *Capacité des métadonnées* : indique le niveau de protection actuel du sous-système des services de métadonnées.
+** *Nœuds ensemble* : indique l'état actuel du niveau de protection du sous-système des membres de l'ensemble.
+
+
 * *IOPS provisionnées* : résumé de la façon dont les IOPS du volume peuvent être surprovisionnées sur le cluster. Les calculs des IOPS provisionnées sont déterminés par la somme des IOPS minimales totales, des IOPS maximales et des IOPS en rafale pour tous les volumes du cluster, divisée par les IOPS maximales estimées pour le cluster.
 +
 
