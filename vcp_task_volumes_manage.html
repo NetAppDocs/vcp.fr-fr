@@ -1,0 +1,3342 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head class="at-element-marker">
+  <title>Gérer les volumes</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Gérer les volumes" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html" />
+	<meta property="og:description" content="Le plug-in NetApp Element pour VMware vCenter Server vous permet de créer, afficher, modifier, supprimer cloner, sauvegarder ou restaurer des volumes Vous po..." />
+  <meta property="og:image" content="https://docs.netapp.com/fr-fr/vcp/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Le plug-in NetApp Element pour VMware vCenter Server vous permet de créer, afficher, modifier, supprimer cloner, sauvegarder ou restaurer des volumes Vous po...">
+  <meta name="keywords" content=" netapp, volumes, vcp, vcenter, element,"><!-- Icons -->
+  <link rel="icon" href="/fr-fr/vcp/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/fr-fr/vcp/css/ie-netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/fr-fr/vcp/css/ie-landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/fr-fr/vcp/css/ie-tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel="canonical" href="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="x-default" href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="fr" href="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="en" href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="ja" href="https://docs.netapp.com/ja-jp/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="ko" href="https://docs.netapp.com/ko-kr/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.netapp.com/zh-cn/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="de" href="https://docs.netapp.com/de-de/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="es" href="https://docs.netapp.com/es-es/vcp/vcp_task_volumes_manage.html" />
+  <link rel="alternate" hreflang="it" href="https://docs.netapp.com/it-it/vcp/vcp_task_volumes_manage.html" />
+  <!-- Top level site integrations -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js"></script>
+    <script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8" data-document-language="true" data-domain-script="72570c5c-fe30-465f-b0e0-b77f7fb4ae34"></script>
+    <script type="text/javascript">function OptanonWrapper() { }</script>
+    <script type="text/plain" class="optanon-category-C0002" src="https://assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js"></script>
+    <script class="optanon-category-C0001">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.setAttributeNode(d.createAttribute('data-ot-ignore'));j.setAttribute('class','optanon-category-C0001');j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MD73T9M');</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      const MASTHEAD_OFFSET = 65;
+      const SECTIONS = $("main h2, main h3");
+      // PAGE NAV - Init
+      if (SECTIONS.length == 0) {
+        // remove if there is no elements
+        /*
+        $("#ie-right-navbar").remove();
+        $("#ie-right-navbar-collapse").remove();
+        */
+      } else {
+        $(".page-nav-title").css('display', 'block');
+        for (var i = 0; i < SECTIONS.length; i++) {
+          var sectionId = $(SECTIONS[i]).attr('id');
+          var sectionName = $(SECTIONS[i]).text();
+          var subClass = $(SECTIONS[i]).is("h3") ? ' page-nav__sublink' : '';
+          $("#page-menu").append('<li class="page-nav-item"><a href="#' + sectionId + '" class="page-nav__link' + subClass + '">' + sectionName + '</a></li>');
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/fr-fr/vcp/js/na-search.js'></script><script src='/fr-fr/vcp/js/ie-clouddocs.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script>
+    /*
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+      */
+  </script>
+  <script src='/fr-fr/vcp/js/custom-dropdown.js'></script>
+  <script src='/fr-fr/vcp/js/FileSaver.min.js'></script>
+  <script src='/fr-fr/vcp/js/jszip-utils.min.js'></script>
+  <script src='/fr-fr/vcp/js/jszip.min.js'></script><script src='/fr-fr/vcp/js/ie-pdf-ux.js'></script></head>
+
+
+  <body class role="document" data-flavor="">
+    <div class="skip-to-main">
+      <a href="#main" >Skip to main content</a>
+    </div><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD73T9M"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><div id="page" class="">
+      <div id="ie-phone-menu" class=""></div>
+      <div id="ie-content-wrap" class="">
+        <nav id="ie-new-header">
+    <ul>
+        <li id="ie-phone-menu-button">
+            <a href="#">
+                <image id="" src="/fr-fr/vcp/images/hamburger.svg" alt="menu" />
+            </a>
+        </li>
+
+        <li>
+            <a href="https://www.netapp.com/fr">
+                <image id="ie-header-logo" src="/fr-fr/vcp/images/netapp_logo.svg" alt="netapp" />
+            </a>
+        </li>
+        <li id="ie-header-docs">
+            <a href="https://www.netapp.com/fr/support-and-training/documentation/">Documents</a>
+        </li>
+
+        <!-- Empty container to push header left with or without lang selector -->
+        <li id="empty-container" style="margin-left: auto">
+        </li>
+        <!-- Start Language Selector --><li id="ie-language-dropdown">
+            <div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+                <div class="custom-dropdown-select custom-dropdown-select-lang">
+                    <img src="/fr-fr/vcp/images/language_white_24dp.svg" class="n-globe__icon" />
+                    <span class="lang-name">Français</span>
+                    <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu"><li>
+                        <a href="https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Français</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/us-en/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">English</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ja-jp/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">日本語</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/ko-kr/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">한국어</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-cn/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/zh-tw/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/de-de/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/es-es/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Español</span></a>
+                    </li><li>
+                        <a href="https://docs.netapp.com/it-it/vcp/vcp_task_volumes_manage.html"
+                            target="_self"><span translate="no" class="notranslate">Italiano</span></a>
+                    </li></ul>
+            </div>
+            </li>
+        <!-- End Language Selector -->
+
+
+        <li id="ie-allnetapp">
+            <div id="allnetapp-dropdown" class="custom-dropdown custom-dropdown-allnetapp">
+                <div class="custom-dropdown-select custom-dropdown-select-allnetapp">
+                    <img src="/fr-fr/vcp/images/apps_white_24dp.svg" alt="" class="allnetapp-icon" />
+                    <span class="allnetapp-name">Tout NetApp</span>
+                    <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown header invisible" />
+                    <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup header" />
+                    </button>
+                </div>
+
+                <ul class="custom-dropdown-menu allnetapp-dropdown">
+                    <li>
+                        <a href="https://bluexp.netapp.com/fr/"
+                            target="_self"><span translate="no" class="notranslate">BlueXP</span></a>
+                    </li>
+                    <li>
+                        <a href="https://mysupport.netapp.com/site/"
+                            target="_self"><span translate="no" class="notranslate">Support</span></a>
+                    </li>
+                    <li>
+                        <a href="https://kb.netapp.com/"
+                            target="_self"><span translate="no" class="notranslate">Base de connaissances</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.netapp.com/fr/support-and-training/netapp-learning-services/"
+                            target="_self"><span translate="no" class="notranslate">Formation</span></a>
+                    </li>
+                </ul>
+            </div>
+
+        </li>
+
+    </ul>
+</nav>
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+
+<div id="ie-new-sidebar-collapse" style="display: none">
+    <img id="sidebar-expand" class="ie-searchbox-icon" src="/fr-fr/vcp/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-new-sidebar">
+    <div id="ie-product-identity-lockup">
+        <div id="sidebar-collapse" class="">
+            <img src="/fr-fr/vcp/images/double_arrow.svg" alt="" />
+        </div>
+        <div id="ie-breadcrumb" class="">
+  <ul class="ie-breadcrumb">
+    <li class="">
+      <a href="https://docs.netapp.com">Tous les documents</a>
+    </li>
+    
+    
+
+    
+  </ul>
+  
+  <div class="ie-product-name" >
+    <!--<a href="/fr-fr/vcp/">-->
+      VCP
+    <!--</a>-->
+  </div>
+</div>
+
+            
+
+        
+        
+
+<div id="ie-searchbox" class="ie-searchbox-sidebar ">
+    <img class="ie-searchbox-icon" src="/fr-fr/vcp/images/loupe.svg" alt=""/>
+    <div id="react-search" 
+        data-search-html="/fr-fr/vcp/search.html" 
+        data-type="widget"
+        data-placeholder="Rechercher dans la documentation"
+        data-no-results-found="Aucun résultat trouvé pour : {query}"
+        data-did-you-mean="Rechercher {suggestion}."
+        data-no-results-found-did-you-mean="Aucun résultat n'a été trouvé pour {query}. Voulez-vous dire {suggestion} ?"
+        data-results-found="{hitCount} résultats"
+        data-error-message="Une erreur s'est produite. Merci de réessayer."
+        data-error-reset="Réinitialiser la recherche"
+        data-sk-es-pf-indexes="" 
+        data-flavor="">
+    </div>
+</div>
+        
+    </div>
+    <div id="ie-new-toc"><script>
+  let sidebarAccordion = true;
+
+  /* specific css rules for Mac */
+  if(navigator.platform.match('Mac') !== null) {
+    document.body.setAttribute('class', 'OSX');
+  }
+
+</script>
+
+<div id="ie-sidebar-container">
+  <ul id="ie-sidebar-list" ><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentation du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/index.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/index.html">
+        Documentation du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/concept_vcp_product_overview.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/concept_vcp_product_overview.html">
+        Présentation du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notes de version"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Notes de version</div>-->
+         Notes de version
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Nouveautés du plug-in NetApp Element pour VMware vCenter Server"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/rn_whatsnew_vcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/rn_whatsnew_vcp.html">
+        Nouveautés du plug-in NetApp Element pour VMware vCenter Server
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Informations supplémentaires sur la version"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/rn_relatedrn_vcp.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/rn_relatedrn_vcp.html">
+        Informations supplémentaires sur la version
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Concepts"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Concepts</div>-->
+         Concepts
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure</div>-->
+         Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation de l'architecture des plug-ins à distance"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_remote_plugin_architecture.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/fr-fr/vcp/vcp_concept_remote_plugin_architecture.html">
+        Présentation de l'architecture des plug-ins à distance
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension du plug-in distant NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_remote_plugin_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/fr-fr/vcp/vcp_concept_remote_plugin_extension_point.html">
+        Point d'extension du plug-in distant NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-2  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure</div>-->
+         Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension de la configuration NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_config_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/fr-fr/vcp/vcp_concept_config_extension_point.html">
+        Point d'extension de la configuration NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Point d'extension de gestion NetApp Element"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_management_extension_point.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/fr-fr/vcp/vcp_concept_management_extension_point.html">
+        Point d'extension de gestion NetApp Element
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Comptes d'utilisateur"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_concept_accounts.html">
+        Comptes d'utilisateur
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Les domaines de protection"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_protection_domains.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_concept_protection_domains.html">
+        Les domaines de protection
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mode lié et plug-in vCenter"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_linkedmode.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_concept_linkedmode.html">
+        Mode lié et plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="QoSSIOC"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_concept_qossioc.html">
+        QoSSIOC
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Volumes virtuels (vvols)"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_concept_vvols.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_concept_vvols.html">
+        Volumes virtuels (vvols)
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="De déploiement requis"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/reference_requirements_vcp.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/reference_requirements_vcp.html">
+        De déploiement requis
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installez et configurez le plug-in NetApp Element pour vCenter Server"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Installez et configurez le plug-in NetApp Element pour vCenter Server</div>-->
+         Installez et configurez le plug-in NetApp Element pour vCenter Server
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_getstarted_5_0.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_getstarted_5_0.html">
+        Installation et configuration du plug-in Element 5.0 et versions ultérieures pour vCenter Server 7.0 et versions ultérieures
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Installer et configurer le plug-in d'élément 4.10 et versions antérieures"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_getstarted.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_getstarted.html">
+        Installer et configurer le plug-in d'élément 4.10 et versions antérieures
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mettez à niveau le plug-in"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_upgrades.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/task_vcp_upgrades.html">
+        Mettez à niveau le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestion du stockage grâce au plug-in vCenter"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Gestion du stockage grâce au plug-in vCenter</div>-->
+         Gestion du stockage grâce au plug-in vCenter
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les clusters"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_clusters_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_clusters_manage.html">
+        Gérer les clusters
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les datastores"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_datastores_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_datastores_manage.html">
+        Gérer les datastores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gérer les volumes"
+      data-li-level="2#" 
+      class="  ie-sidebar-selected    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_volumes_manage.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_volumes_manage.html">
+        Gérer les volumes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer et gérer des comptes utilisateur"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_user_accounts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_create_manage_user_accounts.html">
+        Créer et gérer des comptes utilisateur
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion des groupes d'accès"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_access_groups.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_create_manage_access_groups.html">
+        Création et gestion des groupes d'accès
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion des initiateurs"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_initiators.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_create_manage_initiators.html">
+        Création et gestion des initiateurs
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuration et gestion des QoSSIOC pour les volumes Element et les datastores VMware"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_qossioc.html">
+        Configuration et gestion des QoSSIOC pour les volumes Element et les datastores VMware
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion de règles de QoS pour les volumes"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_qos_policies.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_qos_policies.html">
+        Création et gestion de règles de QoS pour les volumes
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestion du matériel de cluster et des réseaux virtuels"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Gestion du matériel de cluster et des réseaux virtuels</div>-->
+         Gestion du matériel de cluster et des réseaux virtuels
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Présentation de la gestion du matériel de cluster et des réseaux virtuels"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_manage_cluster_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_manage_cluster_overview.html">
+        Présentation de la gestion du matériel de cluster et des réseaux virtuels
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ajouter et gérer des disques"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_add_manage_drive.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_add_manage_drive.html">
+        Ajouter et gérer des disques
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ajoutez et gérez des nœuds"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_add_manage_nodes.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_add_manage_nodes.html">
+        Ajoutez et gérez des nœuds
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Création et gestion de réseaux virtuels"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_create_manage_vlans.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_create_manage_vlans.html">
+        Création et gestion de réseaux virtuels
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Contrôle des performances du système"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Contrôle des performances du système</div>-->
+         Contrôle des performances du système
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les performances du système à l'aide des options de rapport"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_intro.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_intro.html">
+        Surveiller les performances du système à l'aide des options de rapport
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveillez l'état global du cluster sur la page Présentation"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_overview.html">
+        Surveillez l'état global du cluster sur la page Présentation
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveillance des alertes système"
+      data-li-level="2" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_alerts.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_alerts.html">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Surveillance des alertes système</div>-->
+         Surveillance des alertes système
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Liste des alertes système"
+      data-li-level="3#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_reference_reports_alert_errors.html" 
+    ><a class="ie-sidebar-menuitem-3 " href="/fr-fr/vcp/vcp_reference_reports_alert_errors.html">
+        Liste des alertes système
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les journaux d'événements pour le dépannage"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_event_logs.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_event_logs.html">
+        Surveiller les journaux d'événements pour le dépannage
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Contrôle des performances du volume"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_volume_performance.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_volume_performance.html">
+        Contrôle des performances du volume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les sessions iSCSI pour déterminer l'état de la connexion"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_iscsi.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_iscsi.html">
+        Surveiller les sessions iSCSI pour déterminer l'état de la connexion
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Surveiller les performances des machines virtuelles en utilisant des événements QoSSIOC"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_reports_qossioc.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_reports_qossioc.html">
+        Surveiller les performances des machines virtuelles en utilisant des événements QoSSIOC
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Protection des données grâce au plug-in vCenter"
+      data-li-level="1" 
+      class=" sidebar-folder    "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="" 
+    ><a class="ie-sidebar-menuitem-1  ie-sidebar-button " href="#">
+        <img class="ie-sidebar-icon ie-sidebar-button open" src="/fr-fr/vcp/images/link_expand.svg" alt="" />
+        <img class="ie-sidebar-icon ie-sidebar-button close" src="/fr-fr/vcp/images/link_collapse.svg" alt="" />
+        <!--<div class="" style="display: inline;"> Protection des données grâce au plug-in vCenter</div>-->
+         Protection des données grâce au plug-in vCenter
+      </a>
+      <ul class="">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Protégez les données avec la présentation du plug-in vCenter"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_overview.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_protect_overview.html">
+        Protégez les données avec la présentation du plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créez et gérez des snapshots de volume"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_volume.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_protect_snapshots_volume.html">
+        Créez et gérez des snapshots de volume
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer et gérer des instantanés de groupe"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_group.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_protect_snapshots_group.html">
+        Créer et gérer des instantanés de groupe
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Créer des planifications de snapshot"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_snapshots_schedules.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_protect_snapshots_schedules.html">
+        Créer des planifications de snapshot
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Réplication à distance entre les clusters"
+      data-li-level="2#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_protect_remote_replication.html" 
+    ><a class="ie-sidebar-menuitem-2 " href="/fr-fr/vcp/vcp_task_protect_remote_replication.html">
+        Réplication à distance entre les clusters
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuration et gestion des volumes virtuels via le plug-in vCenter"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_task_configure_manage_vvols.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/vcp_task_configure_manage_vvols.html">
+        Configuration et gestion des volumes virtuels via le plug-in vCenter
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Désenregistrer le plug-in"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_unregister.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/task_vcp_unregister.html">
+        Désenregistrer le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Retirez le bouchon"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/task_vcp_remove.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/task_vcp_remove.html">
+        Retirez le bouchon
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Dépanner le plug-in"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/vcp_reference_troubleshoot_vcp.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/vcp_reference_troubleshoot_vcp.html">
+        Dépanner le plug-in
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Versions antérieures de la documentation du plug-in NetApp Element"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/reference_earlier_versions.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/reference_earlier_versions.html">
+        Versions antérieures de la documentation du plug-in NetApp Element
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Mentions légales"
+      data-li-level="1#" 
+      class="   "
+      dale-page-url="/vcp_task_volumes_manage.html" 
+      dale-entry-url="/legal-notices.html" 
+    ><a class="ie-sidebar-menuitem-1 " href="/fr-fr/vcp/legal-notices.html">
+        Mentions légales
+      </a></li></ul>
+</div>
+<script>
+
+  $(".ie-sidebar-button").click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    expandedLI = $('li.ie-sidebar-expand')
+
+    const li = $(this).closest("li");
+
+    const parentsLI = $(li).parents('li');
+
+    expandedLI.map(element => {
+      if (sidebarAccordion && !li.hasClass('ie-sidebar-expand') && jQuery.inArray(expandedLI[element], parentsLI) == -1) {
+        $(expandedLI[element]).toggleClass('ie-sidebar-expand');
+        $(expandedLI[element]).children("ul").animate({ height: 'toggle' }, 400, function () {
+          $(li).children("ul").toggleClass('ie-sidebar-open');
+
+        })
+      }
+
+    })
+
+    $(li).toggleClass('ie-sidebar-expand');
+    $(li).children("ul").animate({ height: 'toggle' }, 400, function () {
+      $(li).children("ul").toggleClass('ie-sidebar-open');
+    })
+  });
+
+
+  
+    $("li.ie-sidebar-selected").parents('ul').toggleClass("ie-sidebar-open");
+    $("li.ie-sidebar-selected").toggleClass("ie-sidebar-expand")
+    $("ul.ie-sidebar-open").parent().toggleClass("ie-sidebar-expand");
+    $("li.ie-sidebar-selected").children('ul').toggleClass("ie-sidebar-open")
+  
+  
+</script>
+    </div>
+</div>
+<script>
+
+    
+    let sidebarScrollTopPosition = 0;
+    $("#ie-new-toc").on("scroll", function () {
+        if (sidebarScrollTopPosition == 0) {
+            $.cookie("sidebarScroll", $("#ie-new-toc").scrollTop(), {
+                path: "/fr-fr/vcp"
+            });
+        }
+
+        if ($("#ie-new-toc").scrollTop() > 0) {
+            $('#ie-product-identity-lockup').addClass('ie-addShadow');
+        } else {
+            $('#ie-product-identity-lockup').removeClass('ie-addShadow');
+        }
+    });
+
+    $(function () {
+        if ($.cookie("sidebarScroll")) {
+            $("#ie-new-toc").scrollTop($.cookie("sidebarScroll"));
+        }
+    });
+
+    function setSidebarBottom() {
+        const footerGap = PXinViewport($(".n-footer"));
+        document.getElementById("ie-new-sidebar").style.bottom = Math.max(0, footerGap) + "px";
+    }
+
+    window.onscroll = () => {
+        setSidebarBottom();
+    };
+
+    $("#sidebar-collapse").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        if ($.cookie("sidebarScroll")) {
+            sidebarScrollTopPosition = $.cookie("sidebarScroll");
+        }
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 350, function () {
+            $("#ie-new-sidebar-collapse").show();
+            $("#ie-new-sidebar").removeClass("open")
+            $("#ie-new-sidebar").addClass("close")
+            $("#ie-new-sidebar").removeAttr("style")
+        });
+        $(".ie-content-pane").animate({ width: (width + sidebarWidth), marginLeft: (marginLeft - sidebarWidth) }, 350, function () {
+            resizeContent()
+        })
+
+    });
+    $("#sidebar-expand").click(function (e) {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        e.preventDefault();
+        const width = $(".ie-content-pane").width();
+        const marginLeft = parseInt($(".ie-content-pane").css('marginLeft'));
+
+        $("#ie-new-sidebar").animate({ width: 'toggle' }, 250, function () {
+            $('#ie-new-sidebar').css('display', 'flex');
+            $("#ie-new-sidebar-collapse").hide();
+            $("#ie-new-sidebar").removeClass("close")
+            $("#ie-new-sidebar").addClass("open")
+            setSidebarBottom();
+
+            if (sidebarScrollTopPosition != 0) {
+                $.cookie("sidebarScroll", sidebarScrollTopPosition, {
+                    path: "/fr-fr/vcp"
+                })
+                $("#ie-new-toc").scrollTop(sidebarScrollTopPosition);
+                sidebarScrollTopPosition = 0;
+            }
+        });
+        $(".ie-content-pane").animate({ width: (width - sidebarWidth), 'marginLeft': (marginLeft + sidebarWidth) }, 250, function () {
+            resizeContent()
+        })
+    });
+    function resizeContent() {
+        const sidebarWidth = $("#ie-new-sidebar").width() - $("#ie-new-sidebar-collapse").width();
+        const rightNavbarVisible =  $("#ie-right-navbar").css('display') && $("#ie-right-navbar").css('display') != 'none';
+        const sidebarVisible = $("#ie-new-sidebar").css('display') != 'none';
+        const rightNavbarWidth = $("#ie-right-navbar").width();
+        const rightNavbarCollapseWidth = $("#ie-right-navbar-collapse").width();
+        const rightNavbarCollapseVisible = $("#ie-right-navbar-collapse").css('display') && $("#ie-right-navbar-collapse").css('display') != 'none';
+        
+        if (rightNavbarVisible && sidebarVisible) {
+            $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarWidth}px)`)
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+        } else if (sidebarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${sidebarWidth}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${sidebarWidth + rightNavbarCollapseWidth}px)`)
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar").width()}px)`)
+            }
+
+        } else if (rightNavbarVisible) {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            $(".ie-content-pane").width(`calc(100% - ${rightNavbarWidth}px)`)
+        } else {
+            $(".ie-content-pane").css('marginLeft', `${$("#ie-new-sidebar-collapse").width()}px`)
+            if (rightNavbarCollapseVisible) {
+                $(".ie-content-pane").width(`calc(100% - ${rightNavbarCollapseWidth}px)`);
+            } else {
+                $(".ie-content-pane").width(`calc(100% - ${$("#ie-new-sidebar-collapse").width()}px) `);
+            }
+            
+        }
+    }
+    $(window).on("resize load", function () {
+        setSidebarBottom();
+        resizeContent()
+    });
+
+
+</script>
+
+<div class="ie-content-pane ie-component-detail-content ie-component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <!-- include utility.html -->
+      <div class="ie-info-disclaimer">
+    <span>
+      <div class="ie-info-disclaimer-container">
+        <div class="ie-info-disclaimer-icon">
+          <img src="/fr-fr/vcp/images/notification-icons.svg" class="luci-icon" alt="" />
+        </div>
+        <div class="ie-info-disclaimer-content">
+          <span> La version française est une traduction automatique. La version anglaise prévaut sur la française en cas de divergence. </span>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+    </span>
+  </div><div class="ie-component-detail-heading-wrap">
+  <h1 class="ie-component-detail-heading">Gérer les volumes</h1>
+</div>
+
+<div id="ie-byline">
+  
+<div class="page-details">
+    
+        
+            <time datetime="2022-12-14 18:10:44 +0000">12/14/2022</time>
+        
+    
+    
+        <span>Contributeurs
+        </span>
+    
+    
+</div>
+<div class="page-controls">
+    <div id="contribute-dropdown" class="custom-dropdown custom-dropdown-contrib" >
+        <div class="custom-dropdown-select custom-dropdown-select-contrib">
+        <span class="contrib-name"><img src="/fr-fr/vcp/images/discuss-sm.svg" alt="" class="github-icon" />Suggérer des modifications</span>
+        <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevrondown invisible" />
+        <img src="/fr-fr/vcp/images/dropdown-arrow.svg" alt="" class="custom-icon chevronup" />
+        </div>
+        <ul class="custom-dropdown-menu suggested-changes-dropdown"><li>
+                <a target="_blank" href="https://github.com/NetAppDocs/vcp.fr-fr/issues/new?template=new-from-page.yml&page-url=https://docs.netapp.com/fr-fr/vcp/vcp_task_volumes_manage.html&page-title=Gérer les volumes" class="page-nav-contribute-link" role="button">Demander des modifications de la documentation</a>
+            </li><li> 
+                <a target="_blank" href="https://github.com/NetAppDocs/vcp/blob/main/vcp_task_volumes_manage.adoc" class="page-nav-contribute-link" role="button">Modifier cette page</a>
+            </li><li><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >En savoir plus sur les contributions</a></li>
+        </ul>
+    </div>
+    <div id="pdf-control-container">
+        <div class="n-pdf-header">
+            <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+                <img class="adobe-icon" src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>PDF<img src="/fr-fr/vcp/images/dropdown-arrow.svg" class="custom-icon" alt="" />
+            </a>
+        </div>
+        <div class="n-pdf-body-container">
+            <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+                    
+                    
+                    
+                    <a target="_blank" class="pdf-download-link" href="/fr-fr/vcp/pdfs/fullsite-sidebar/Documentation_du_plug_in_NetApp_Element_pour_VMware_vCenter_Server.pdf" >
+                    <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>Un fichier PDF de toute la documentation</a>
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Notes_de_version.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Notes de version
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Concepts.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Concepts
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Plug_in_NetApp_Element_pour_VMware_vCenter_Server_5_0_ou_version_ultérieure.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Plug-in NetApp Element pour VMware vCenter Server 5.0 ou version ultérieure
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Plug_in_NetApp_Element_pour_VMware_vCenter_Server_4_10_ou_version_antérieure.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Plug-in NetApp Element pour VMware vCenter Server 4.10 ou version antérieure
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Installez_et_configurez_le_plug_in_NetApp_Element_pour_vCenter_Server.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Installez et configurez le plug-in NetApp Element pour vCenter Server
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Gestion_du_stockage_grâce_au_plug_in_vCenter.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Gestion du stockage grâce au plug-in vCenter
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Gestion_du_matériel_de_cluster_et_des_réseaux_virtuels.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Gestion du matériel de cluster et des réseaux virtuels
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Contrôle_des_performances_du_système.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Contrôle des performances du système
+          </a>
+          
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Surveillance_des_alertes_système.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Surveillance des alertes système
+          </a>
+          
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" class="pdf-download-link"
+            
+              href="/fr-fr/vcp/pdfs/sidebar/Protection_des_données_grâce_au_plug_in_vCenter.pdf" 
+            
+          >
+            <img src="/fr-fr/vcp/images/pdf-icon.png" alt="" width="16" height="16"/>
+            Protection des données grâce au plug-in vCenter
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li></ul>
+            <div class="zip-pdf-link-container" style="display: none;">   
+                <a href="#" id="zipPdf">
+                <img src="/fr-fr/vcp/images/pdf-zip.png" alt="" width="16" height="16"/>
+                <pre>Plusieurs fichiers PDF<span class="zip-size"></span></pre>
+                </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+        </div>
+    </div>        
+<script>
+$("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+$("#toggleButtonPdf").on('click', function(e){ 
+    e.stopPropagation();
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+});
+
+//hide is by clicking outside pdfcontainer
+$(document).on('click', function (e) {
+    if ($('#toggleContainerPdf').is(':visible') && !$('.n-pdf-body-container').is(e.target) && !$('.n-pdf-body-container').has(e.target).length)  {
+        
+        $("#toggleContainerPdf").toggle('display');
+        $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+        $("#toggleButtonPdf").removeClass("active");
+    }
+});
+</script>
+<script>
+    function getPdfLocation() {
+        const pdfLocation = window.scrollX + document.querySelector('#pdf-control-container').getBoundingClientRect().left
+        if (pdfLocation < 450) {
+            $(".n-pdf-body-container").addClass("block")
+        } else {
+            $(".n-pdf-body-container").removeClass("block")
+        }
+    
+    }
+    $( window ).on( "resize", function() {
+        getPdfLocation()
+} );
+</script>
+<script>
+    const pdfButtonWidth =  $(".n-pdf-header").width();
+    const pdfMenuWidth = $(".n-pdf-body-container").width();
+    $(".n-pdf-body-container").css('margin-left', `calc(${pdfButtonWidth - pdfMenuWidth}px)`);
+</script>
+</div>
+
+    
+
+</div>
+
+
+
+
+<div class="content-to-index">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>À l'aide du plug-in NetApp Element pour VMware vCenter Server, vous pouvez créer, afficher, modifier, supprimer, cloner, sauvegarder ou restaurer des volumes pour les comptes utilisateurs. Vous pouvez également gérer chaque volume d'un cluster, et ajouter ou supprimer des volumes dans des groupes d'accès aux volumes.</p>
+</div>
+<div class="ulist">
+<div class="title">Options</div>
+<ul>
+<li>
+<p><a href="#créer-un-volume">Créer un volume</a></p>
+</li>
+<li>
+<p><a href="#afficher-les-détails-du-volume">Afficher les détails du volume</a></p>
+</li>
+<li>
+<p><a href="#modifier-un-volume">Modifier un volume</a></p>
+</li>
+<li>
+<p><a href="#clonez-un-volume">Clonez un volume</a></p>
+</li>
+<li>
+<p><a href="#sauvegarder-ou-restaurer-des-volumes">Sauvegarder ou restaurer des volumes</a></p>
+</li>
+<li>
+<p><a href="#supprimez-des-volumes">Supprimez des volumes</a></p>
+</li>
+<li>
+<p><a href="#purger-les-volumes">Purger les volumes</a></p>
+</li>
+<li>
+<p><a href="#restaurer-les-volumes-supprimés">Restaurer les volumes supprimés</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="créer-un-volume">Créer un volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un nouveau volume et associer le volume à un compte donné (chaque volume doit être associé à un compte). Cette association permet au compte d'accéder au volume via les initiateurs iSCSI à l'aide des informations d'identification CHAP. Vous pouvez également spécifier les paramètres QoS d'un volume lors de sa création.</p>
+</div>
+<div class="paragraph">
+<p>VMware nécessite 512 octets pour les ressources disque. Si 512e n'est pas activé, un VMFS ne peut pas être créé.</p>
+</div>
+<div class="ulist">
+<div class="title">Ce dont vous avez besoin</div>
+<ul>
+<li>
+<p>Vous devez ajouter un cluster et en cours d'exécution au moins.</p>
+</li>
+<li>
+<p>Un compte utilisateur a été créé.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster que vous souhaitez utiliser pour la tâche dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, sélectionnez <strong>Créer un volume</strong>.</p>
+</li>
+<li>
+<p>Entrez un nom pour le volume.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="Astuce">
+</td>
+<td class="content">
+Utilisez les bonnes pratiques descriptives en matière de dénomination. Ceci est particulièrement important si plusieurs clusters ou serveurs vCenter sont utilisés dans votre environnement.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Entrez la taille totale du volume à créer.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+La taille de volume par défaut est en Go. Vous pouvez créer des volumes en utilisant des tailles mesurées en Go ou Gio : 1 Go = 1 000 000 000 octets 1 Gio = 1 073 741 824 octets
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Par défaut, l'émulation de 512 octets est définie sur ACTIVÉ pour tous les nouveaux volumes. VMware nécessite 512 octets pour les ressources disque. Si 512e n'est pas activé, un VMFS ne peut pas être créé.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez un compte utilisateur dans la liste <strong>compte</strong>.</p>
+</li>
+<li>
+<p>Dans la zone <strong>qualité de service</strong>, effectuez l'une des opérations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sous <strong>Policy</strong>, sélectionnez une stratégie de qualité de service existante, si disponible.</p>
+</li>
+<li>
+<p>Sous <strong>Paramètres personnalisés</strong>, définissez les valeurs minimum, maximum et rafale personnalisées pour IOPS ou utilisez les valeurs QoS par défaut.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="Important">
+</td>
+<td class="content">
+Les règles de qualité de service sont idéales pour les environnements de services, par exemple avec des serveurs de bases de données, d'applications ou d'infrastructure qui ne redémarrent pas et ont besoin d'un accès constant égal au stockage. L'automatisation personnalisée des QoSSIOC est idéale pour les machines virtuelles à usage léger, telles que les postes de travail virtuels ou les machines virtuelles de type kiosque spécialisé, qui peuvent être redémarrés, mis sous tension ou éteints chaque jour ou plusieurs fois par jour. Les politiques QoSSIOC d'automatisation et de qualité de service ne doivent pas être utilisées ensemble. Une fois que vous avez activé les paramètres QoSSIOC du datastore, tous les paramètres QoS au niveau du volume sont remplacés. Pour les volumes dont la valeur IOPS max ou Burst supérieure à 20,000, il faut des files d'attente très poussées ou plusieurs sessions pour atteindre ce niveau d'IOPS sur un seul volume.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="afficher-les-détails-du-volume">Afficher les détails du volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez consulter des informations générales sur tous les volumes actifs du cluster dans le point d'extension du plug-in. Vous trouverez également des détails sur chaque volume actif, notamment l'efficacité, les performances, la qualité de services et les snapshots associés.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Cliquez sur le sous-onglet <strong>volumes</strong>.</p>
+<div class="paragraph">
+<p>Des informations générales sur les volumes actifs s'affichent.</p>
+</div>
+</li>
+<li>
+<p>Vérifier un volume spécifique.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Afficher les détails</strong>.</p>
+</li>
+<li>
+<p>Passez en revue les informations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ID de volume</strong> : ID généré par le système pour le volume.</p>
+</li>
+<li>
+<p><strong>Nom du volume</strong> : nom attribué au volume.</p>
+</li>
+<li>
+<p><strong>Compte</strong> : le nom du compte attribué au volume.</p>
+</li>
+<li>
+<p><strong>Access Groups</strong> : nom du groupe d'accès de volume auquel le volume appartient.</p>
+</li>
+<li>
+<p><strong>Access</strong> : type d'accès attribué au volume lors de sa création.</p>
+<div class="paragraph">
+<p>Valeurs possibles :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Read/Write</code>: Toutes les lectures et écritures sont acceptées.</p>
+</li>
+<li>
+<p><code>Read Only</code>: Toutes les activités de lecture sont autorisées ; aucune écriture n'est autorisée.</p>
+</li>
+<li>
+<p><code>Locked</code>: Seul l'accès administrateur est autorisé.</p>
+</li>
+<li>
+<p><code>ReplicationTarget</code>: Désigné comme volume cible dans une paire de volumes répliqués.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Volume apparié</strong> : indique si le volume fait partie d'un couplage de volume.</p>
+</li>
+<li>
+<p><strong>Taille (Go)</strong> : taille totale en Go du volume.</p>
+</li>
+<li>
+<p><strong>Snapshots</strong> : nombre de snapshots créés pour le volume.</p>
+</li>
+<li>
+<p><strong>QoS Policy</strong> : nom de la stratégie QoS définie par l'utilisateur.</p>
+</li>
+<li>
+<p><strong>512e</strong> : indique si 512e est activé sur un volume. La valeur peut être Oui ou non</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Consultez les détails d'un volume spécifique, comme indiqué dans les sections suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#détails-généraux">Détails généraux</a></p>
+</li>
+<li>
+<p><a href="#section-efficacité">Section efficacité</a></p>
+</li>
+<li>
+<p><a href="#section-performances">Section performances</a></p>
+</li>
+<li>
+<p><a href="#section-qualité-de-service">Section qualité de service</a></p>
+</li>
+<li>
+<p><a href="#section-snapshots">Section snapshots</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="détails-généraux">Détails généraux</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Nom</strong> : nom attribué au volume.</p>
+</li>
+<li>
+<p><strong>ID de volume</strong> : ID généré par le système pour le volume.</p>
+</li>
+<li>
+<p><strong>IQN</strong> : le nom qualifié iSCSI du volume.</p>
+</li>
+<li>
+<p><strong>ID de compte</strong> : ID de compte unique du compte associé.</p>
+</li>
+<li>
+<p><strong>Compte</strong> : le nom du compte attribué au volume.</p>
+</li>
+<li>
+<p><strong>Access Groups</strong> : nom du groupe d'accès de volume auquel le volume appartient.</p>
+</li>
+<li>
+<p><strong>Taille</strong> : taille totale en octets du volume.</p>
+</li>
+<li>
+<p><strong>Volume apparié</strong> : indique si le volume fait partie d'un couplage de volume.</p>
+</li>
+<li>
+<p><strong>SCSI EUI Device ID</strong> : identificateur de périphérique SCSI unique au niveau mondial pour le volume au format 16 octets basé sur EUI-64.</p>
+</li>
+<li>
+<p><strong>SCSI NAA ID de périphérique</strong> : identifiant de périphérique SCSI unique global pour le noeud final de protocole dans le format étendu enregistré NAA IEEE.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-efficacité">Section efficacité</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Compression</strong> : le score d'efficacité de compression pour le volume.</p>
+</li>
+<li>
+<p><strong>Déduplication</strong> : score lié à l'efficacité de la déduplication pour le volume.</p>
+</li>
+<li>
+<p><strong>Provisionnement fin</strong> : le score d'efficacité du provisionnement fin pour le volume.</p>
+</li>
+<li>
+<p><strong>Dernière mise à jour</strong> : la date et l'heure de la dernière note d'efficacité.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-performances">Section performances</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ID de compte</strong> : ID de compte unique du compte associé.</p>
+</li>
+<li>
+<p><strong>IOPS réelles</strong> : IOPS réelles actuelles du volume au cours des 500 dernières millisecondes.</p>
+</li>
+<li>
+<p><strong>Async Delay</strong>: La durée depuis la dernière synchronisation du volume avec le cluster distant.</p>
+</li>
+<li>
+<p><strong>Taille moyenne des IOP</strong> : taille moyenne en octets des E/S récentes au volume au cours des 500 dernières millisecondes.</p>
+</li>
+<li>
+<p><strong>Burst IOPS Size</strong> : nombre total de crédits IOP disponibles pour l'utilisateur. Lorsque les volumes n'utilisent pas jusqu'à ce que le nombre maximal d'IOPS est atteint, les crédits s'accumulent.</p>
+</li>
+<li>
+<p><strong>Profondeur de la file d'attente client</strong> : nombre d'opérations de lecture et d'écriture en attente sur le volume.</p>
+</li>
+<li>
+<p><strong>Dernière mise à jour</strong> : la date et l'heure de la dernière mise à jour de performance.</p>
+</li>
+<li>
+<p><strong>Latence usec</strong> : temps moyen, en microsecondes, pour terminer les opérations sur le volume au cours des 500 dernières millisecondes. Une valeur « 0 » (zéro) signifie qu'il n'y a pas d'E/S au volume.</p>
+</li>
+<li>
+<p><strong>Blocs non nuls</strong> : nombre total de blocs de 4 Ko avec données après la dernière opération de collecte des déchets.</p>
+</li>
+<li>
+<p><strong>Utilisation des performances</strong> : pourcentage d'IOPS du cluster consommées. Par exemple, un cluster d'IOP de 250 000 IOPS avec une consommation de 40 %.</p>
+</li>
+<li>
+<p><strong>Read Bytes</strong> : nombre total d'octets cumulés lus depuis la création du volume.</p>
+</li>
+<li>
+<p><strong>Latence de lecture usec</strong> : temps moyen, en microsecondes, pour terminer les opérations de lecture du volume au cours des 500 dernières millisecondes.</p>
+</li>
+<li>
+<p><strong>Opérations de lecture</strong> : le total des opérations de lecture du volume depuis la création du volume.</p>
+</li>
+<li>
+<p><strong>Provisionnement fin</strong> : le score d'efficacité du provisionnement fin pour le volume.</p>
+</li>
+<li>
+<p><strong>Accélération</strong> : valeur flottante comprise entre 0 et 1 qui représente la quantité que le système contrôle les clients en dessous de leur maxIOPS en raison de la re-réplication des données, des erreurs transitoires et des instantanés pris.</p>
+</li>
+<li>
+<p><strong>Latence totale usec</strong> : le temps, en microsecondes, de terminer les opérations de lecture et d'écriture sur un volume.</p>
+</li>
+<li>
+<p>* Lectures non alignées* : pour les volumes de 512 e, le nombre d'opérations de lecture qui n'étaient pas sur une limite de secteur de 4 ko. Un grand nombre de lectures non alignées peut indiquer un alignement incorrect des partitions.</p>
+</li>
+<li>
+<p><strong>Écritures non alignées</strong> : pour les volumes de 512e, le nombre d'opérations d'écriture qui n'étaient pas sur une limite de secteur de 4 ko. Un grand nombre d'écritures non alignées peut indiquer un alignement incorrect des partitions.</p>
+</li>
+<li>
+<p><strong>Capacité utilisée</strong> : pourcentage de capacité utilisée.</p>
+</li>
+<li>
+<p><strong>ID de volume</strong> : ID généré par le système pour le volume.</p>
+</li>
+<li>
+<p><strong>Vol Access Groups</strong> : ID de groupe d'accès de volume associés au volume.</p>
+</li>
+<li>
+<p><strong>Utilisation du volume</strong> : valeur en pourcentage qui décrit la quantité d'utilisation du volume par le client. Valeurs possibles :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>0 : le client n'utilise pas le volume.</p>
+</li>
+<li>
+<p>100: Le client utilise le maximum</p>
+</li>
+<li>
+<p>Pour 100 : le client utilise sa rafale.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Write Bytes</strong> : nombre total d'octets cumulatifs écrits sur le volume depuis la création du volume.</p>
+</li>
+<li>
+<p><strong>Latence d'écriture usec</strong> : temps moyen, en microsecondes, pour terminer les opérations d'écriture sur un volume au cours des 500 dernières millisecondes.</p>
+</li>
+<li>
+<p><strong>Opérations d'écriture</strong> : total cumulé des opérations d'écriture sur le volume depuis la création du volume.</p>
+</li>
+<li>
+<p><strong>Blocs nuls</strong> : nombre total de blocs de 4Kio sans données après la dernière opération de collecte des déchets.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-qualité-de-service">Section qualité de service</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Policy</strong> : nom de la politique QoS attribuée au volume.</p>
+</li>
+<li>
+<p><strong>E/S Size</strong> : la taille des IOPS en Ko.</p>
+</li>
+<li>
+<p><strong>IOPS min</strong> : nombre minimal d'entrées et de sorties soutenues par seconde (IOPS) que le cluster fournit à un volume. La valeur d'IOPS minimale configurée pour un volume correspond au niveau de performance garanti pour un volume. Les performances ne tombent pas en dessous de ce niveau.</p>
+</li>
+<li>
+<p><strong>IOPS max</strong> : nombre maximal d'IOPS soutenues que le cluster fournit à un volume. Lorsque les niveaux d'IOPS du cluster sont extrêmement élevés, ce niveau de performance d'IOPS n'est pas dépassé.</p>
+</li>
+<li>
+<p><strong>IOPS en rafale</strong> : le nombre maximal d'IOPS autorisé dans un scénario en rafale courte. Si un volume s'exécute en dessous du nombre maximal d'IOPS, les crédits de bursting sont cumulés. Lorsque les niveaux de performance deviennent très élevés et vont jusqu'à des niveaux maximum, de courtes IOPS sont autorisées sur le volume.</p>
+</li>
+<li>
+<p><strong>Bande passante max</strong> : bande passante maximale autorisée par le système pour traiter des tailles de bloc plus importantes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-snapshots">Section snapshots</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ID instantané</strong> : ID généré par le système pour l'instantané.</p>
+</li>
+<li>
+<p><strong>Nom de l'instantané</strong> : nom défini par l'utilisateur pour l'instantané.</p>
+</li>
+<li>
+<p><strong>Date de création</strong> : date et heure de création de l'instantané.</p>
+</li>
+<li>
+<p><strong>Date d'expiration</strong> : jour et heure de la suppression de l'instantané.</p>
+</li>
+<li>
+<p><strong>Taille</strong> : taille définie par l'utilisateur de l'instantané en Go.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="modifier-un-volume">Modifier un volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez modifier les attributs de volume, tels que les valeurs QoS, la taille du volume et l'unité de mesure dans laquelle les valeurs d'octet sont calculées. Vous pouvez également modifier les niveaux d'accès et le compte qui peut accéder au volume. Vous pouvez également modifier l'accès au compte pour l'utilisation de la réplication ou restreindre l'accès au volume.</p>
+</div>
+<div class="paragraph">
+<p>Si vous utilisez des volumes persistants avec le nœud de gestion, ne modifiez pas les noms des volumes persistants.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Cliquez sur le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Modifier</strong>.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : dans le champ <strong>Volume Size</strong>, entrez une taille de volume différente en Go ou Gio.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Vous avez la possibilité d'augmenter la taille du volume, mais pas de la réduire. Si vous réglez la taille du volume pour la réplication, vous devez d'abord augmenter la taille du volume affecté en tant que cible de réplication. Vous pouvez alors redimensionner le volume source. Le volume cible peut être supérieur ou égal au volume source, mais il ne peut pas être plus petit.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p><strong>Facultatif</strong> : sélectionnez un autre compte utilisateur.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : sélectionnez un niveau d'accès différent de l'un des niveaux suivants :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lecture/écriture</p>
+</li>
+<li>
+<p>Lecture seule</p>
+</li>
+<li>
+<p>Verrouillé</p>
+</li>
+<li>
+<p>Cible de réplication</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans la zone <strong>qualité de service</strong>, effectuez l'une des opérations suivantes :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Sous Stratégie, sélectionnez une stratégie de qualité de service existante, si disponible.</p>
+</li>
+<li>
+<p>Sous Paramètres personnalisés, définissez les valeurs minimales, maximales et en rafale personnalisées pour IOPS ou utilisez les valeurs QoS par défaut.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="Astuce">
+</td>
+<td class="content">
+<strong>Meilleure pratique</strong> : lorsque vous modifiez les valeurs d'IOPS, utilisez des incréments de dizaines ou de centaines. Les valeurs d'entrée nécessitent des nombres entiers valides. Configurez des volumes avec une valeur de bursting extrêmement élevée. Le système peut ainsi traiter rapidement des charges de travail séquentielles de blocs volumineux occasionnelles, tout en limitant les IOPS soutenues pour un volume.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="Important">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Les règles de qualité de service sont idéales pour les environnements de services, par exemple avec des serveurs de bases de données, d'applications ou d'infrastructure qui ne redémarrent pas et ont besoin d'un accès constant égal au stockage. L'automatisation personnalisée des QoSSIOC est idéale pour les machines virtuelles à usage léger, telles que les postes de travail virtuels ou les machines virtuelles de type kiosque spécialisé, qui peuvent être redémarrés, mis sous tension ou éteints chaque jour ou plusieurs fois par jour. Les politiques QoSSIOC d'automatisation et de qualité de service ne doivent pas être utilisées ensemble.</p>
+</div>
+<div class="paragraph">
+<p>Une fois que vous avez activé les paramètres QoSSIOC du datastore, tous les paramètres QoS au niveau du volume sont remplacés.</p>
+</div>
+<div class="paragraph">
+<p>Pour les volumes dont la valeur IOPS max ou Burst supérieure à 20,000, il faut des files d'attente très poussées ou plusieurs sessions pour atteindre ce niveau d'IOPS sur un seul volume.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clonez-un-volume">Clonez un volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez créer un clone de volume pour effectuer une copie instantanée des données. Lorsque vous clonez un volume, le système crée un snapshot du volume, puis crée une copie des données référencées par le snapshot. Il s'agit d'un processus asynchrone, et la durée nécessaire de ce processus dépend de la taille du volume que vous clonez et de la charge actuelle du cluster.</p>
+</div>
+<div class="ulist">
+<div class="title">Ce dont vous avez besoin</div>
+<ul>
+<li>
+<p>Vous devez ajouter un cluster et en cours d'exécution au moins.</p>
+</li>
+<li>
+<p>Au moins un volume doit être créé.</p>
+</li>
+<li>
+<p>Au moins un compte utilisateur doit être créé.</p>
+</li>
+<li>
+<p>L'espace non provisionné disponible doit être égal ou supérieur à la taille du volume source.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Description de la tâche</div>
+<p>Le cluster prend en charge jusqu'à deux demandes de clones en cours d'exécution par volume et jusqu'à 8 opérations de clonage de volumes actifs à la fois. Les demandes dépassant ces limites sont placées en file d'attente pour traitement ultérieur.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Les volumes clonés n'héritent pas de l'appartenance des groupes d'accès aux volumes à partir du volume source.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Les systèmes d'exploitation diffèrent dans leur mode de traitement des volumes clonés. ESXi traitera un volume cloné comme une copie de volume ou un volume Snapshot. Le volume sera un périphérique disponible à utiliser pour créer un nouveau datastore. Pour plus d'informations sur le montage de volumes clones et la gestion des LUN de snapshot, reportez-vous à la documentation de VMware à propos de <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html" target="_blank" rel="noopener">"Montage d'une copie de datastore VMFS"</a> et <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html" target="_blank" rel="noopener">"Gérer les datastores VMFS en double"</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Vérifiez le volume à cloner.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Clone</strong>.</p>
+</li>
+<li>
+<p>Entrez un nom de volume pour le nouveau volume cloné.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/tip.svg" alt="Astuce">
+</td>
+<td class="content">
+Utilisez les bonnes pratiques descriptives en matière de dénomination. Ceci est particulièrement important si plusieurs clusters ou serveurs vCenter sont utilisés dans votre environnement.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez une taille en Go ou GIB pour le volume cloné.</p>
+<div class="paragraph">
+<p>La taille de volume par défaut est en Go. Vous pouvez créer des volumes en utilisant des tailles mesurées en Go ou Gio :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1 Go = 1 000 000 000 octets</p>
+</li>
+<li>
+<p>1 Gio = 1 073 741 824 octets</p>
+<div class="paragraph">
+<p>L'augmentation de la taille du volume d'un clone entraîne la création d'un nouveau volume avec de l'espace libre supplémentaire à l'extrémité du volume. En fonction de l'utilisation du volume, vous devrez peut-être étendre les partitions ou créer de nouvelles partitions dans l'espace libre pour l'utiliser.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sélectionnez un compte à associer au volume nouvellement cloné.</p>
+</li>
+<li>
+<p>Sélectionnez l'un des types d'accès suivants pour le volume nouvellement cloné :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lecture/écriture</p>
+</li>
+<li>
+<p>Lecture seule</p>
+</li>
+<li>
+<p>Verrouillé</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Réglez les paramètres de 512 e, si nécessaire.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Par défaut, l'émulation de 512 octets est activée pour tous les nouveaux volumes. VMware nécessite 512 octets pour les ressources disque. Si 512e n'est pas activé, un VMFS ne peut pas être créé et les détails du volume sont grisés.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+La durée d'une opération de clonage est affectée par la taille du volume et la charge actuelle du cluster. Actualisez la page si le volume cloné n'apparaît pas dans la liste des volumes.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sauvegarder-ou-restaurer-des-volumes">Sauvegarder ou restaurer des volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Le système peut être configuré pour sauvegarder et restaurer le contenu d'un volume vers et depuis un conteneur de magasin d'objets externe au stockage logiciel NetApp Element.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez également sauvegarder et restaurer des données depuis et vers des systèmes logiciels NetApp Element distants. Vous pouvez exécuter au maximum deux processus de sauvegarde ou de restauration à la fois sur un volume.</p>
+</div>
+<div class="sect2">
+<h3 id="sauvegarder-des-volumes">Sauvegarder des volumes</h3>
+<div class="paragraph">
+<p>Vous pouvez sauvegarder des volumes NetApp Element dans le stockage Element, ainsi que des magasins d'objets secondaires compatibles avec Amazon S3 ou OpenStack Swift.</p>
+</div>
+<div class="sect3">
+<h4 id="sauvegarde-dun-volume-dans-un-magasin-dobjets-amazon-s3">Sauvegarde d'un volume dans un magasin d'objets Amazon S3</h4>
+<div class="paragraph">
+<p>Vous pouvez sauvegarder des volumes NetApp Element dans des magasins d'objets externes compatibles avec Amazon S3.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Sauvegarder jusqu'à</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Sauvegarder le volume sur</strong>, sélectionnez <strong>Amazon S3</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option sous avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'hôte</strong>, entrez un nom d'hôte à utiliser pour accéder au magasin d'objets.</p>
+</li>
+<li>
+<p>Dans le champ <strong>ID de clé d'accès</strong>, saisissez un ID de clé d'accès pour le compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>clé d'accès secrète</strong>, saisissez la clé d'accès secrète du compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Amazon S3 bucket</strong>, saisissez le compartiment S3 dans lequel stocker la sauvegarde.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : dans le champ <strong>préfixe</strong>, entrez un préfixe pour le nom du volume de sauvegarde.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : dans le champ <strong>nametag</strong>, entrez un nom à ajouter au préfixe.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sauvegardez-un-volume-dans-un-magasin-dobjets-openstack-swift">Sauvegardez un volume dans un magasin d'objets OpenStack Swift</h4>
+<div class="paragraph">
+<p>Vous pouvez sauvegarder des volumes NetApp Element dans des magasins d'objets externes compatibles avec OpenStack Swift.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Sauvegarder jusqu'à</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Sauvegarder le volume sur</strong>, sélectionnez <strong>OpenStack Swift</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option sous avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>URL</strong>, entrez une URL à utiliser pour accéder au magasin d'objets.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'utilisateur</strong>, entrez un nom d'utilisateur pour le compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Authentication key</strong>, saisissez la clé d'authentification du compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Container</strong>, saisissez le conteneur dans lequel stocker la sauvegarde.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : dans le champ <strong>préfixe</strong>, entrez un préfixe pour le nom du volume de sauvegarde.</p>
+</li>
+<li>
+<p><strong>Facultatif</strong> : dans le champ <strong>nametag</strong>, entrez un nom à ajouter au préfixe.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sauvegardez-un-volume-dans-un-cluster-exécutant-le-logiciel-element">Sauvegardez un volume dans un cluster exécutant le logiciel Element</h4>
+<div class="paragraph">
+<p>Vous pouvez sauvegarder des volumes résidant sur un cluster exécutant le logiciel NetApp Element vers un cluster Element distant.</p>
+</div>
+<div class="paragraph">
+<p>Lors de la sauvegarde ou de la restauration d'un cluster à un autre, le système génère une clé à utiliser pour l'authentification entre les clusters.</p>
+</div>
+<div class="paragraph">
+<p>Cette clé d'écriture de volume en bloc permet au cluster source de s'authentifier auprès du cluster de destination, offrant ainsi la sécurité lors de l'écriture sur le volume de destination. Dans le cadre du processus de sauvegarde ou de restauration, vous devez générer une clé d'écriture de volume en bloc à partir du volume de destination avant de démarrer l'opération.</p>
+</div>
+<div class="paragraph">
+<p>Il s'agit d'une procédure en deux parties :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Destination) configurer le volume de sauvegarde</p>
+</li>
+<li>
+<p>(Source) Sauvegarder un volume</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Configurez le volume de sauvegarde</div>
+<ol class="arabic">
+<li>
+<p>Depuis le serveur vCenter et le cluster où vous souhaitez placer la sauvegarde de volume, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Restaurer depuis</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Restaurer depuis</strong>, sélectionnez <strong>NetApp Element</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option sous avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Generate Key</strong> pour générer une clé d'écriture de volume en bloc pour le volume de destination.</p>
+</li>
+<li>
+<p>Copiez la clé d'écriture de volume en bloc dans le presse-papiers afin de l'appliquer aux étapes ultérieures du cluster source.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Sauvegarder un volume</div>
+<ol class="arabic">
+<li>
+<p>Depuis vCenter et le cluster contenant le volume source à utiliser pour la sauvegarde, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Sauvegarder jusqu'à</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Sauvegarder le volume sur</strong>, sélectionnez <strong>NetApp Element</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez la même option que le cluster de destination au format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Remote cluster MVIP</strong>, entrez l'adresse IP virtuelle de gestion du cluster du volume de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'utilisateur du cluster distant</strong>, entrez le nom d'utilisateur administrateur de cluster pour le cluster de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Mot de passe utilisateur du cluster distant</strong>, entrez le mot de passe administrateur du cluster pour le cluster de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>clé d'écriture de volume en bloc</strong>, collez la clé que vous avez générée sur le cluster de destination.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="restaurez-des-volumes">Restaurez des volumes</h3>
+<div class="paragraph">
+<p>Lorsque vous restaurez un volume à partir d'une sauvegarde dans un magasin d'objets tel qu'OpenStack Swift ou Amazon S3, vous devez disposer d'informations de manifeste provenant du processus de sauvegarde d'origine. Si vous restaurez un volume NetApp Element sauvegardé sur un système de stockage basé sur un élément NetApp, les informations de manifeste ne sont pas requises. Vous trouverez les informations de manifeste requises pour la restauration à partir de Swift et S3 dans le journal des événements de l'onglet Rapports.</p>
+</div>
+<div class="sect3">
+<h4 id="restauration-dun-volume-à-partir-dune-sauvegarde-sur-un-magasin-dobjets-amazon-s3">Restauration d'un volume à partir d'une sauvegarde sur un magasin d'objets Amazon S3</h4>
+<div class="paragraph">
+<p>Vous pouvez restaurer un volume à partir d'une sauvegarde sur un magasin d'objets Amazon S3 à l'aide du plug-in.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis le plug-in vCenter, ouvrez l'onglet <strong>Reporting</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Reporting</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Reporting</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>Journal des événements</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez l'événement de sauvegarde qui a créé la sauvegarde à restaurer.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Détails</strong> pour l'événement.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Afficher les détails</strong>.</p>
+</li>
+<li>
+<p>Copiez les informations du manifeste dans le presse-papiers.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Management &gt; volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Restaurer depuis</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Restaurer depuis</strong>, sélectionnez <strong>Amazon S3</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'hôte</strong>, entrez un nom d'hôte à utiliser pour accéder au magasin d'objets.</p>
+</li>
+<li>
+<p>Dans le champ <strong>ID de clé d'accès</strong>, saisissez un ID de clé d'accès pour le compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>clé d'accès secrète</strong>, saisissez la clé d'accès secrète du compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Amazon S3 bucket</strong>, entrez le compartiment S3 dans lequel la sauvegarde est stockée.</p>
+</li>
+<li>
+<p>Collez les informations du manifeste dans le champ <strong>manifest</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="restauration-dun-volume-à-partir-dune-sauvegarde-sur-un-magasin-dobjets-openstack-swift">Restauration d'un volume à partir d'une sauvegarde sur un magasin d'objets OpenStack Swift</h4>
+<div class="paragraph">
+<p>Vous pouvez restaurer un volume à partir d'une sauvegarde sur un magasin d'objets OpenStack Swift à l'aide du plug-in.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Depuis le plug-in vCenter, ouvrez l'onglet <strong>Reporting</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Reporting</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Reporting</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>Journal des événements</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez l'événement de sauvegarde qui a créé la sauvegarde à restaurer.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Détails</strong> pour l'événement.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Afficher les détails</strong>.</p>
+</li>
+<li>
+<p>Copiez les informations du manifeste dans le presse-papiers.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Management &gt; volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Restaurer depuis</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Restaurer depuis</strong>, sélectionnez <strong>OpenStack Swift</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>URL</strong>, entrez une URL à utiliser pour accéder au magasin d'objets.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'utilisateur</strong>, entrez un nom d'utilisateur pour le compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Authentication key</strong>, saisissez la clé d'authentification du compte.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Container</strong>, entrez le nom du conteneur dans lequel la sauvegarde est stockée.</p>
+</li>
+<li>
+<p>Collez les informations du manifeste dans le champ <strong>manifest</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="restaurez-un-volume-à-partir-dune-sauvegarde-sur-un-cluster-exécutant-le-logiciel-element">Restaurez un volume à partir d'une sauvegarde sur un cluster exécutant le logiciel Element</h4>
+<div class="paragraph">
+<p>Vous pouvez restaurer un volume à partir d'une sauvegarde sur un cluster exécutant le logiciel NetApp Element. Lors de la sauvegarde ou de la restauration d'un cluster à un autre, le système génère une clé à utiliser pour l'authentification entre les clusters. Cette clé d'écriture de volume en bloc permet au cluster source de s'authentifier auprès du cluster de destination, offrant ainsi la sécurité lors de l'écriture sur le volume de destination. Dans le cadre du processus de sauvegarde ou de restauration, vous devez générer une clé d'écriture de volume en bloc à partir du volume de destination avant de démarrer l'opération.</p>
+</div>
+<div class="paragraph">
+<p>Il s'agit d'une procédure en deux parties :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(Cluster de destination) sélectionnez le volume à utiliser pour la restauration</p>
+</li>
+<li>
+<p>(Cluster source) Restaurer le volume</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Sélectionnez le volume à utiliser pour la restauration</div>
+<ol class="arabic">
+<li>
+<p>Dans le vCenter et le cluster où vous souhaitez restaurer le volume, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Restaurer depuis</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Restaurer depuis</strong>, sélectionnez <strong>NetApp Element</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez une option sous avec le format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cliquez sur <strong>Generate Key</strong> pour générer une clé d'écriture de volume en bloc pour le volume de destination.</p>
+</li>
+<li>
+<p>Copiez la clé d'écriture de volume en bloc dans le presse-papiers afin de l'appliquer aux étapes ultérieures du cluster source.</p>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Restaurez le volume</div>
+<ol class="arabic">
+<li>
+<p>Depuis vCenter et le cluster contenant le volume source à utiliser pour la restauration, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Sauvegarder jusqu'à</strong>.</p>
+</li>
+<li>
+<p>Sous <strong>Sauvegarder le volume sur</strong>, sélectionnez <strong>NetApp Element</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez l'option correspondant à la sauvegarde au format de données suivant :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Natif : format compressé lisible uniquement par les systèmes NetApp Element de stockage Software-Based.</p>
+</li>
+<li>
+<p>Non compressé : format non compressé compatible avec d'autres systèmes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Dans le champ <strong>Remote cluster MVIP</strong>, entrez l'adresse IP virtuelle de gestion du cluster du volume de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Nom d'utilisateur du cluster distant</strong>, entrez le nom d'utilisateur administrateur de cluster pour le cluster de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>Mot de passe utilisateur du cluster distant</strong>, entrez le mot de passe administrateur du cluster pour le cluster de destination.</p>
+</li>
+<li>
+<p>Dans le champ <strong>clé d'écriture de volume en bloc</strong>, collez la clé que vous avez générée sur le cluster de destination.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="supprimez-des-volumes">Supprimez des volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez supprimer un ou plusieurs volumes d'un cluster NetApp Element à l'aide du point d'extension du plug-in.</p>
+</div>
+<div class="paragraph">
+<p>Le système ne purge pas immédiatement un volume supprimé. Un volume supprimé peut être restauré pendant environ huit heures.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez restaurer un volume avant que le système ne le supprime ou purger manuellement le volume de la vue supprimée dans <strong>Management</strong> &gt; <strong>volumes</strong>. Lorsque vous restaurez un volume, les connexions iSCSI et en ligne sont rétablies.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="Important">
+</td>
+<td class="content">
+Les volumes persistants associés à des services de gestion sont créés et attribués à un nouveau compte lors de l'installation ou de la mise à niveau. Si vous utilisez des volumes persistants, ne modifiez pas ou ne supprimez pas les volumes ou leur compte associé.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="Important">
+</td>
+<td class="content">
+Si un volume utilisé pour créer un snapshot est supprimé, les snapshots associés sont répertoriés dans la vue inactive, sur la page protection &gt; snapshots. Lorsque les volumes source supprimés sont purgés, les snapshots en vue inactive sont également supprimés du système.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Supprimer un ou plusieurs volumes :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Dans la vue <strong>Active</strong>, vérifiez le volume que vous souhaitez supprimer.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>actions</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Supprimer</strong>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Le plug-in ne permet pas la suppression d'un volume avec un datastore.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Confirmez l'action.</p>
+<div class="paragraph">
+<p>Le volume passe de la vue active à la vue supprimée de la page volumes.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="purger-les-volumes">Purger les volumes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez purger manuellement les volumes après les avoir supprimés.</p>
+</div>
+<div class="paragraph">
+<p>Le système supprime automatiquement les volumes supprimés huit heures après leur suppression. Toutefois, si vous souhaitez purger un volume avant la durée de purge planifiée, vous pouvez effectuer une purge manuelle en procédant comme suit.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/important.svg" alt="Important">
+</td>
+<td class="content">
+Lorsqu'un volume est purgé, il est immédiatement et définitivement supprimé du système. Toutes les données du volume sont perdues.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez le filtre d'affichage et sélectionnez <strong>supprimé</strong> dans la liste.</p>
+</li>
+<li>
+<p>Sélectionnez un ou plusieurs volumes à purger.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Purge</strong>.</p>
+</li>
+<li>
+<p>Confirmez l'action.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="restaurer-les-volumes-supprimés">Restaurer les volumes supprimés</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Vous pouvez restaurer un volume dans le système NetApp Element s'il a été supprimé mais pas encore purgé.</p>
+</div>
+<div class="paragraph">
+<p>Le système purge automatiquement un volume environ huit heures après sa suppression. Si le système a purgé le volume, vous ne pouvez pas le restaurer.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/vcp/images/note.svg" alt="Remarque">
+</td>
+<td class="content">
+Si un volume est supprimé puis restauré, ESXi ne détecte pas le volume restauré (et le datastore s'il existe). Retirez la cible statique de la carte iSCSI VMware ESXi et relancez l'analyse de la carte.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Dans le plug-in vCenter, ouvrez l'onglet <strong>Management</strong> :</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Depuis le plug-in Element vCenter 5.0, sélectionnez <strong>NetApp Element Remote Plugin &gt; Management &gt; Management</strong>.</p>
+</li>
+<li>
+<p>Pour le plug-in Element vCenter 4.10 et les versions antérieures, sélectionnez <strong>NetApp Element Management &gt; Management</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Si deux clusters ou plus sont ajoutés, sélectionnez le cluster dans la barre de navigation.</p>
+</li>
+<li>
+<p>Sélectionnez le sous-onglet <strong>volumes</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez le filtre d'affichage et sélectionnez <strong>supprimé</strong> dans la liste.</p>
+</li>
+<li>
+<p>Sélectionnez un ou plusieurs volumes à restaurer.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Restaurer</strong>.</p>
+</li>
+<li>
+<p>Sélectionnez le filtre d'affichage et sélectionnez <strong>actif</strong> dans la liste.</p>
+</li>
+<li>
+<p>Vérifier que le ou les volumes et toutes les connexions sont restaurés.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trouvez-plus-dinformations">Trouvez plus d'informations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hci/index.html" target="_blank" rel="noopener">"Documentation NetApp HCI"</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/data-storage/solidfire/documentation" target="_blank" rel="noopener">"Page Ressources SolidFire et Element"</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+<div id="ie-right-navbar-collapse" class="close">
+  <img id="navbar-expand" class="ie-searchbox-icon" src="/fr-fr/vcp/images/double_arrow.svg" alt="" />
+</div>
+<div id="ie-right-navbar" class="open">
+  <div id="right-navbar-collapse">
+    <img src="/fr-fr/vcp/images/double_arrow.svg" alt="" />
+  </div>
+  <div class="page-nav-container">
+    <nav class="page-nav-fixed">
+      <div class="page-nav-title">Sur cette page</div>
+      <div class="page-nav-links">
+        <ul class="page-nav-inner" id="page-menu"></ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+
+<script>
+  resizeContent();
+  function setRightBarHeight() {
+    var h = 0;
+
+    // header 1
+    h += PXinViewport($('.n-footer'));
+    h += PXinViewport($('#ie-new-header'));
+
+    if ($('#ie-right-navbar').length) {
+      $('#ie-right-navbar').css({ height: `calc(100vh - ${h}px)` });
+    }
+    if ($('.page-nav-links').length) {
+      h += 98;
+      $('.page-nav-links').css({ height: `calc(100vh - ${h}px)` });
+    }
+  }
+
+  $(document).ready(function () {
+    // PAGE NAV - Click
+    const MASTHEAD_OFFSET = 65;
+    const SECTIONS = $("main h2, main h3");
+    let calculateActiveSection = false;
+    setTimeout(() => {
+      calculateActiveSection = true;
+    }, 100)
+
+    $(".page-nav__link").click(function (event) {
+      calculateActiveSection = false;
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      var target = $(event.target);
+      target.addClass('page-nav__link--active');
+      location.hash = event.target.hash;
+      setTimeout(() => {
+        calculateActiveSection = true;
+      }, 100)
+
+    });
+
+    // PAGE NAV - Scroll
+    $(window).on('resize scroll', function () {
+      if (calculateActiveSection) {
+        var activeSection = getActiveSection(SECTIONS, MASTHEAD_OFFSET);
+        if (activeSection) {
+          var activeHref = $(activeSection).attr('id');
+          $(".page-nav__link").removeClass('page-nav__link--active');
+          $("#page-menu a[href=#" + activeHref + "]").addClass('page-nav__link--active');
+          if (location.hash != "#" + activeHref) {
+            if (history.replaceState) {
+              history.replaceState(null, null, "#" + activeHref);
+            }
+          }
+        }
+      }
+    });
+
+    $(".n-pdf-button").click(function () {
+      $(this).toggleClass("active");
+    });
+
+    $.fn.isVisibleAndInViewport = function () {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+
+      return elementBottom > viewportTop && elementTop < viewportBottom && $(this).is(":visible");
+    };
+
+
+    $(window).on('resize scroll', function () {
+      setRightBarHeight();
+    });
+
+    $(window).trigger('resize');
+
+
+  });
+
+  $("#right-navbar-collapse").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 350, function () {
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+    });
+    $(".ie-content-pane").animate({ width: (width + rightNavbarWidth) }, 350, function () {
+      resizeContent()
+      setSidebarBottom();
+    })
+
+  });
+  $("#navbar-expand").click(function (e) {
+    const rightNavbarWidth = $("#ie-right-navbar").width() - $("#ie-right-navbar-collapse").width();
+    e.preventDefault();
+    const width = $(".ie-content-pane").width();
+    $("#ie-right-navbar").animate({ width: 'toggle' }, 250, function () {
+      $("#ie-right-navbar-collapse").removeClass("open")
+      $("#ie-right-navbar-collapse").addClass("close")
+      $("#ie-right-navbar").removeClass("close")
+      $("#ie-right-navbar").addClass("open")
+      setRightBarHeight();
+      setSidebarBottom();
+    });
+    $(".ie-content-pane").animate({ width: (width - rightNavbarWidth) }, 250, function () {
+      resizeContent()
+    })
+  });
+
+  function navbarResize() {
+    const rightNavbarResized = $("#ie-right-navbar-collapse").hasClass('resized');
+    if (window.innerWidth < 1024) {
+      $("#ie-right-navbar").removeClass("open")
+      $("#ie-right-navbar").addClass("close")
+      $("#ie-right-navbar").removeAttr("style")
+      $("#ie-right-navbar-collapse").removeClass("close")
+      $("#ie-right-navbar-collapse").addClass("open")
+      $("#ie-right-navbar-collapse").addClass("resized")
+    } else {
+      if (rightNavbarResized) {
+        $('#ie-right-navbar').removeClass('close');
+        $('#ie-right-navbar').addClass('open');
+        $("#ie-right-navbar-collapse").removeClass("resized")
+        $("#ie-right-navbar-collapse").removeClass("open")
+        $("#ie-right-navbar-collapse").addClass("close")
+      }
+    }
+    resizeContent()
+  }
+  navbarResize();
+  $(window).on('resize load', function () {
+    navbarResize()
+  });
+
+  function getActiveSection(sections, offset) {
+    var scrollPosition = $(window).scrollTop() + offset + 5;
+    var activeSection;
+    for (var i = 0; i < sections.length; i++) {
+      var el = $(sections[i]);
+      var activePosition = el.offset().top;
+      if (activePosition > scrollPosition) {
+        break;
+      }
+
+      activeSection = sections[i];
+    }
+
+    return activeSection;
+  }
+
+  $("a[href*=#]:not([href=#])").click(function () {
+    setTimeout(() => {
+      $(window).trigger('scroll');
+    }, 105)
+  })
+
+  const hashOnLoad = location.href.split("#")[1];
+  setTimeout(function () {
+    if (hashOnLoad) {
+      $(".page-nav__link").removeClass('page-nav__link--active');
+      $("#page-menu a[href=#" + hashOnLoad + "]").addClass('page-nav__link--active');
+    }
+  }, 100)
+
+</script>
+
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+        <div class="n-footer__left">
+          <li class="n-footer__copyright-link">
+                    <a href="https://www.netapp.com/company/legal/copyright/">© 2024 NetApp, Inc.</a>
+          </li>
+        </div>
+        <div class="n-footer__center">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Conditions d'utilisation</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Déclaration de confidentialité</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Déclaration sur les cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Paramètres des cookies</a>
+            </li>
+          </ul>
+       </div>
+        <div class="n-footer__right">
+              <li class="n-footer__copyright-link">
+                <a target="_self" href="javascript:netapp_mailto()">Envoyer des commentaires à propos de cette page</a>
+              </li>
+        </div>
+     </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/fr-fr/vcp/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/fr-fr/vcp/js/prism.js'></script>
+      <script type="text/javascript" src='/fr-fr/vcp/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/fr-fr/vcp/js/ie-tabbed-blocks.js'></script>
+    <script src='/fr-fr/vcp/js/ie-sidebar.js'></script>
+  </body>
+
+</html>
