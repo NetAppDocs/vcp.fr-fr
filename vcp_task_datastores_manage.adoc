@@ -86,12 +86,38 @@ TIP: Utiliser un nom unique pour chaque datastore d'un data Center. Pour plusieu
 NOTE: Vous devez avoir au moins un hôte connecté avant de pouvoir créer un nouveau datastore. Si votre hôte a plusieurs initiateurs, sélectionnez un initiateur ou l'hôte pour sélectionner tous les initiateurs. Si vous utilisez le mode lié vCenter, seuls les hôtes disponibles pour le serveur vCenter auquel le cluster est affecté sont disponibles pour la sélection.
 
 . Sélectionnez *Suivant*.
-. Dans le volet *configurer le volume*, sélectionnez un volume existant et passez à l'étape suivante, ou créez un volume pour le nouveau datastore :
+. Dans le volet *configurer le volume*, sélectionnez un volume existant ou créez un nouveau volume pour le nouveau datastore :
 +
+[role="tabbed-block"]
+====
+.Sélectionnez un volume existant
+--
+Si vous sélectionnez un volume existant, vous devez respecter les conditions préalables suivantes :
 
-NOTE: Si vous sélectionnez un volume existant pour créer un nouveau datastore, les données existantes seront perdues. Pour les volumes VMFS existants, voir la documentation VMware à propos de https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html["Montage d'une copie de datastore VMFS"^] et https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html["Gérer les datastores VMFS en double"^].
-
+** Pour utiliser un groupe d'accès de volume :
 +
+... Créez un nouveau volume avec 512e activé.
+... Ajoutez le volume à un groupe d'accès contenant un ou plusieurs initiateurs hôtes cibles.
+
+
+** Pour utiliser CHAP :
++
+... Assurez-vous que CHAP est configuré pour chaque adaptateur iSCSI hôte cible.
+... Créez un nouveau volume avec 512e activé à l'aide de l'une des options suivantes :
++
+**** Utilisez un compte avec les paramètres CHAP appropriés pour chaque hôte cible.
+**** Créez un compte et configurez les secrets de la cible et de l'initiateur.
+
+
+... Afficher les détails du volume.
+... Ajoutez l'IQN du volume à chaque table de découverte statique de la carte iSCSI de l'hôte cible.
+
+
+
+
+--
+.Créer un volume
+--
 .. Entrez un nom pour le volume qui soutient le datastore.
 .. Sélectionnez un compte utilisateur dans la liste des comptes.
 .. Entrez la taille totale du volume à créer.
@@ -118,6 +144,8 @@ TIP: Pour les volumes dont la valeur IOPS max ou Burst supérieure à 20,000, il
 
 
 
+--
+====
 . Sélectionnez *Suivant*.
 . Configurez le type d'autorisation pour l'accès hôte en choisissant l'une des options suivantes :
 +
