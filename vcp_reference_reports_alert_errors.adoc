@@ -101,10 +101,10 @@ Un service de bloc a été détecté comme défectueux :
 ** Gravité = Avertissement : aucune action n'est entreprise. Cette période d'avertissement expire dans cTimeUntilBSIsKilledMsec=330000 millisecondes.
 ** Gravité = erreur : le système met automatiquement hors service les données et reréplique ses données sur d'autres lecteurs en bon état.
 ** Gravité = critique : des services de bloc défaillants sur plusieurs nœuds supérieurs ou égaux au nombre de réplications (2 pour la double hélice). Les données ne sont pas disponibles et la synchronisation des bacs ne se termine pas.
-
-
 +
 Recherchez des problèmes de connectivité réseau et des erreurs matérielles. Il y aura d'autres défauts si des composants matériels spécifiques sont défectueux. Le défaut s'efface lorsque le service de bloc est accessible ou lorsque le service a été déclassé.
+
+
 
 * *BmcSelfTestFailé*
 +
@@ -208,12 +208,9 @@ Le cluster renvoie cette panne lorsqu'un ou plusieurs disques sont en panne, ce 
 ** Le service maître du nœud est inaccessible (tous les disques du nœud sont considérés comme manquants/défaillants).
 ** Le lecteur est verrouillé et la clé d'authentification du lecteur ne peut pas être acquise.
 ** Le lecteur est verrouillé et l'opération de déverrouillage échoue.
-
-
 +
 Pour résoudre ce problème :
 
-+
 ** Vérifiez la connectivité réseau du nœud.
 ** Remplacez le lecteur.
 ** Assurez-vous que la clé d'authentification est disponible.
@@ -237,10 +234,10 @@ La durée de vie restante d'un disque est inférieure aux seuils, mais il foncti
 +
 ** Disque en série : <numéro de série> dans le slot : <slot de nœud><slot de disque> présente des niveaux d'usure stratégiques.
 ** Disque avec série : <numéro de série> dans le slot : <slot de nœud><slot de disque> présente une faible usure.
-
-
 +
 Pour résoudre ce problème, remplacez rapidement le lecteur.
+
+
 
 * *DupliateClusterMasterCandidates*
 +

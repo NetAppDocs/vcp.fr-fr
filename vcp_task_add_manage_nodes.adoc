@@ -109,9 +109,6 @@ Pour redémarrer le cluster, vous pouvez sélectionner tous les nœuds du cluste
 
 IMPORTANT: Cette méthode redémarre tous les services réseau d'un nœud, ce qui entraîne une perte temporaire de connectivité réseau.
 
-
-NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterprise SDS.
-
 .Étapes
 . Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
 +
@@ -141,10 +138,6 @@ Vous pouvez arrêter un ou plusieurs nœuds actifs d'un cluster à l'aide du poi
 
 .Ce dont vous avez besoin
 Vous avez arrêté les E/S et déconnecté toutes les sessions iSCSI si vous redémarrez plusieurs nœuds simultanément.
-
-.Description de la tâche
-
-NOTE: Cette fonctionnalité est indisponible dans les clusters SolidFire Enterprise SDS.
 
 .Étapes
 . Dans votre client Web vSphere, ouvrez l'onglet *Cluster* :
