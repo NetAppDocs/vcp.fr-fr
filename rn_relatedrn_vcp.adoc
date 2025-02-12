@@ -35,6 +35,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 == Logiciel NetApp Element
 
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886996["Notes de version du logiciel NetApp Element 12.8"^] _NOUVEAU_
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884468["Notes de version du logiciel NetApp Element 12.7"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2882193["Notes de version du logiciel NetApp Element 12.5"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["Notes de version du logiciel NetApp Element 12.3.2"^]
