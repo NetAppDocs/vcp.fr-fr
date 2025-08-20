@@ -40,9 +40,9 @@ indexpage:
   - title: Ressources supplémentaires
     links:
     - title: Ressources de documentation sur SolidFire et Element
-      url: https://www.netapp.com/data-storage/solidfire/documentation
+      url: https://docs.netapp.com/us-en/element-software/index.html
     - title: Ressources de documentation NetApp HCI
-      url: https://www.netapp.com/hybrid-cloud/hci-documentation/
+      url: https://docs.netapp.com/us-en/hci/index.html
     - title: Notes de version de la base de connaissances NetApp sur les services
         de contrôle et de gestion du cloud hybride
       url: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes
