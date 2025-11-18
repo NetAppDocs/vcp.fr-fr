@@ -23,7 +23,8 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 == Logiciel NetApp Element
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886996["Notes de version du logiciel NetApp Element 12.8"^] _NOUVEAU_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3362264["Notes de version du logiciel NetApp Element 12.9"^]_Nouveau_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2886996["Notes de version du logiciel NetApp Element 12.8"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2884468["Notes de version du logiciel NetApp Element 12.7"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2882193["Notes de version du logiciel NetApp Element 12.5"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2881056["Notes de version du logiciel NetApp Element 12.3.2"^]
@@ -48,7 +49,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 == Plug-in NetApp Element pour VMware vCenter Server
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3344864["Notes de version du plug-in vCenter 5.5"^]_NOUVEAU_
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3344864["Notes de version du plug-in vCenter 5.5"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3330676["Notes de version du plug-in vCenter 5.4"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3316480["Notes de version du plug-in vCenter 5.3"^]
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2886272["Notes de version du plug-in vCenter 5.2"^]
