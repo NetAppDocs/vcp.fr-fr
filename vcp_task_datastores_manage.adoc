@@ -42,6 +42,7 @@ TIP: Surveiller les opérations des datastores pour l'achèvement à l'aide de l
 
 
 
+[[create-a-datastore]]
 == Créer un datastore
 
 Vous pouvez créer un datastore à partir de l'extension du plug-in.
@@ -212,6 +213,7 @@ TIP: Par défaut, les partages de disques SIOC maximum sont définis sur `Unlimi
 
 
 
+[[view-the-datastore-list]]
 == Afficher la liste des datastores
 
 Vous pouvez afficher les datastores disponibles sur la page datastores à partir du point d'extension du plug-in.
@@ -254,6 +256,7 @@ NOTE: Les datastores couvrant plusieurs volumes (datastores mixtes) ne sont pas 
 
 
 
+[[extend-a-datastore]]
 == Extension d'un datastore
 
 Vous pouvez étendre un datastore pour augmenter la taille du volume à l'aide du point d'extension du plug-in. L'extension du datastore étend également le volume VMFS associé à ce datastore.
@@ -283,6 +286,7 @@ NOTE: L'extension du datastore consomme la taille entière du volume. La nouvell
 
 
 
+[[clone-a-datastore]]
 == Cloner un datastore
 
 Vous pouvez cloner des datastores à l'aide du plug-in, qui inclut le montage du nouveau datastore sur le serveur ou le cluster ESXi souhaité. Vous pouvez nommer le clone du datastore et configurer ses paramètres QoSSIOC, volume, hôte et type d'autorisation.
@@ -424,6 +428,7 @@ TIP: Par défaut, les partages de disques SIOC maximum sont définis sur `Unlimi
 
 
 
+[[share-a-datastore]]
 == Partager un datastore
 
 Vous pouvez partager un datastore avec un ou plusieurs hôtes à l'aide du point d'extension du plug-in.
@@ -490,6 +495,7 @@ Si un initiateur hôte est déjà associé à un groupe d'accès de volume, le c
 
 
 
+[[perform-vaai-unmap]]
 == Effectuer la commande VAAI UNMAP
 
 Si vous souhaitez qu'un cluster récupère l'espace de bloc libéré des datastores VMFS5 à provisionnement fin, utilisez la fonctionnalité VAAI UNMAP.
@@ -530,6 +536,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, sélectionnez le cluster à utilis
 
 
 
+[[delete-a-datastore]]
 == Supprimer un datastore
 
 Vous pouvez supprimer un datastore à l'aide du point d'extension du plug-in. Cette opération supprime définitivement tous les fichiers associés aux machines virtuelles du datastore que vous souhaitez supprimer. Le plug-in ne supprime pas les datastores contenant des machines virtuelles enregistrées.
@@ -557,6 +564,7 @@ NOTE: Vous pouvez également choisir de conserver le volume, puis de l'associer 
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

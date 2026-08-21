@@ -27,6 +27,7 @@ Une règle de QoS (QoS) vous permet de créer et de sauvegarder un paramètre de
 
 
 
+[[create-a-qos-policy]]
 == Création d'une règle de QoS
 
 Vous pouvez créer des règles de QoS et les appliquer aux volumes qui doivent avoir des performances équivalentes.
@@ -58,6 +59,7 @@ TIP: Utilisez les bonnes pratiques descriptives en matière de dénomination. Ce
 
 
 
+[[apply-a-qos-policy-to-volumes]]
 == Appliquer une policy de QoS aux volumes
 
 Vous pouvez appliquer une règle de qualité de services existante à plusieurs volumes. Utilisez ce processus lorsque vous souhaitez appliquer une règle en bloc à un ou plusieurs volumes.
@@ -86,6 +88,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[change-the-qos-policy-association-of-a-volume]]
 == Modifier l'association de la politique de QoS d'un volume
 
 Vous pouvez supprimer une association de règles de QoS d'un volume ou sélectionner une autre politique de QoS ou personnalisée.
@@ -119,6 +122,7 @@ NOTE: Vous pouvez également cliquer sur *Réinitialiser la qualité de service 
 
 
 
+[[edit-a-qos-policy]]
 == Modifiez une règle QoS
 
 Vous pouvez modifier le nom d'une stratégie de QoS existante ou modifier les valeurs associées à cette règle. La modification des valeurs de performances de la politique de QoS affecte la QoS pour tous les volumes associés à la règle.
@@ -155,6 +159,7 @@ NOTE: Vous pouvez également cliquer sur Réinitialiser la QoS par défaut pour 
 
 
 
+[[delete-a-qos-policy]]
 == Suppression d'une règle QoS
 
 Vous pouvez supprimer une règle QoS s'il n'est plus nécessaire. Lorsque vous supprimez une policy de QoS, tous les volumes associés à cette règle gèrent les valeurs de QoS précédemment définies par la règle, mais sous la forme QoS individuelle du volume. Toute association avec la politique de QoS supprimée est supprimée.
@@ -179,6 +184,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

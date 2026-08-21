@@ -18,12 +18,14 @@ Les volumes virtuels vSphere sont un modèle de stockage utilisé par VMware qui
 
 
 
+[[bindings]]
 == Liaisons
 
 Le cluster NetApp Element choisit un noeud final de protocole optimal, crée une liaison qui associe l'hôte ESXi et le volume virtuel au noeud final du protocole et renvoie la liaison à l'hôte ESXi. Une fois lié, l'hôte ESXi peut effectuer des opérations d'E/S avec le volume virtuel lié.
 
 
 
+[[protocol-endpoints]]
 == Terminaux PE
 
 Les hôtes VMware ESXi utilisent des proxys d'E/S logiques appelés terminaux de protocole pour communiquer avec les volumes virtuels. Les hôtes ESXi lient les volumes virtuels aux terminaux PE pour effectuer des opérations d'E/S. Lorsqu'une machine virtuelle de l'hôte effectue une opération d'E/S, le point de terminaison de protocole associé dirige les E/S vers le volume virtuel auquel elle est couplée.
@@ -38,6 +40,7 @@ ISCSI est le seul protocole pris en charge par le logiciel NetApp Element. Le pr
 
 
 
+[[storage-containers]]
 == Conteneurs de stockage
 
 Les conteneurs de stockage sont des constructions logiques qui sont mappées aux comptes NetApp Element et utilisées pour le reporting et l'allocation des ressources. Ils regroupent des capacités de stockage brutes ou des fonctionnalités de stockage agrégées que le système de stockage peut fournir aux volumes virtuels. Un datastore VVol créé dans vSphere est mappé à un conteneur de stockage individuel. Par défaut, un conteneur de stockage unique dispose de toutes les ressources disponibles depuis le cluster NetApp Element. Si une gouvernance plus granulaire est nécessaire pour la colocation, plusieurs conteneurs de stockage peuvent être créés.
@@ -52,6 +55,7 @@ Vous pouvez également découvrir les conteneurs de stockage dans vCenter lors d
 
 
 
+[[vasa-provider]]
 == Fournisseur VASA
 
 Pour que vSphere soit conscient de la fonctionnalité vVol du cluster NetApp Element, l'administrateur vSphere doit enregistrer le fournisseur NetApp Element VASA auprès de vCenter. Le fournisseur VASA est le chemin de contrôle hors bande entre vSphere et le cluster Element. Il est chargé d'exécuter les demandes sur le cluster Element pour le compte de vSphere, par exemple la création de machines virtuelles, la mise à disposition de machines virtuelles pour vSphere et la publicité des fonctionnalités de stockage pour vSphere.
@@ -66,9 +70,9 @@ NOTE: Le support VASA pour 10 centres maximum est disponible en tant que correct
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Page Ressources NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Ressources de documentation sur SolidFire et Element"^]
 

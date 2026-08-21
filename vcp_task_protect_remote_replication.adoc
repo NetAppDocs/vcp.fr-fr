@@ -38,6 +38,7 @@ NOTE: Les appliances WAN Accelerator n'ont pas été qualifiées par NetApp pour
 
 
 
+[[pair-clusters]]
 == Coupler les clusters
 
 Vous devez coupler deux clusters pour utiliser la fonctionnalité de réplication en temps réel. Une fois que vous avez couplé et connecté deux clusters, vous pouvez configurer des volumes actifs sur un cluster pour qu'ils soient répliqués en continu sur un second cluster, assurant ainsi la protection continue des données (CDP).
@@ -64,6 +65,7 @@ Choisissez l'une des méthodes suivantes :
 
 
 
+[[pair-clusters-using-known-credentials]]
 === Couplez des clusters à l'aide d'identifiants connus
 
 Vous pouvez coupler deux clusters pour la réplication en temps réel en utilisant le MVIP d'un cluster pour établir une connexion avec l'autre cluster. Cette méthode requiert l'accès aux administrateurs du cluster sur les deux clusters.
@@ -112,6 +114,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[pair-clusters-with-a-pairing-key]]
 === Couplez des clusters avec une clé de couplage
 
 Si vous disposez d'un accès administrateur de cluster à un cluster local, mais pas à distance, vous pouvez coupler les clusters à l'aide d'une clé de couplage. Une clé de couplage est générée sur un cluster local, puis envoyée de manière sécurisée à un administrateur de cluster sur un site distant afin d'établir une connexion et d'effectuer le couplage du cluster pour une réplication en temps réel.
@@ -172,6 +175,7 @@ NOTE: Attendez que la bague de chargement disparaisse avant de passer à l'étap
 
 
 
+[[validate-the-cluster-pair-connections]]
 === Valider les connexions de la paire de clusters
 
 Une fois le couplage du cluster terminé, vous pouvez vérifier la connexion de la paire de clusters pour assurer la réussite de la réplication.
@@ -184,6 +188,7 @@ Une fois le couplage du cluster terminé, vous pouvez vérifier la connexion de 
 
 
 
+[[pair-volumes]]
 == Coupler les volumes
 
 Une fois la connexion entre les clusters d'une paire de clusters établie, vous pouvez coupler un volume sur un cluster avec un volume sur l'autre cluster de la paire.
@@ -207,6 +212,7 @@ Après l'établissement d'une relation de couplage de volume, vous devez identif
 
 
 
+[[pair-volumes-using-known-credentials]]
 === Couplez des volumes à l'aide d'informations d'identification connues
 
 Vous pouvez associer un volume local à un autre volume d'un cluster distant. Utilisez cette méthode si l'administrateur du cluster a accès aux deux clusters sur lesquels les volumes doivent être appariés. Cette méthode utilise l'ID du volume du cluster distant pour établir une connexion.
@@ -312,6 +318,7 @@ NOTE: Si vous n'avez pas encore affecté un volume à la cible de réplication, 
 
 
 
+[[pair-volumes-using-a-pairing-key]]
 === Couplez des volumes à l'aide d'une clé de couplage
 
 Vous pouvez coupler un volume local avec un autre volume d'un cluster distant à l'aide d'une touche de couplage. Utilisez cette méthode si l'administrateur du cluster est autorisé à accéder uniquement au cluster source. Cette méthode génère une clé de couplage qui peut être utilisée sur le cluster distant pour terminer la paire de volumes.
@@ -399,6 +406,7 @@ NOTE: Les volumes couplés à l'aide d'une touche de couplage apparaissent une f
 
 
 
+[[create-target-volumes-and-pair-them-with-local-volumes]]
 === Création des volumes cibles et association avec des volumes locaux
 
 Vous pouvez coupler deux ou plusieurs volumes locaux avec des volumes cibles associés sur un cluster distant. Ce processus crée un volume cible de réplication sur le cluster distant pour chaque volume source local sélectionné. Utilisez cette méthode si Cluster Admin accède aux deux clusters sur lesquels les volumes doivent être appariés et que le cluster distant est contrôlé par le plug-in.
@@ -452,6 +460,7 @@ NOTE: Une fois le couplage effectué, les deux clusters commencent le processus 
 
 
 
+[[assign-a-replication-source-and-target-to-paired-volumes]]
 === Attribuez une source et une cible de réplication aux volumes couplés
 
 Si vous n'avez pas affecté de volume à la cible de réplication pendant le couplage de volume, la configuration n'est pas terminée. Vous pouvez utiliser cette procédure pour affecter un volume source et son volume cible de réplication. Une source ou une cible de réplication peut être un volume dans une paire de volumes.
@@ -506,6 +515,7 @@ IMPORTANT: Si vous attribuez un volume existant comme cible de réplication, les
 
 
 
+[[validate-volume-replication]]
 == Validation de la réplication de volume
 
 Après la réplication d'un volume, assurez-vous que les volumes source et cible sont actifs. Dans l'état actif, les volumes sont couplés, les données sont envoyées depuis la source vers le volume cible, et les données sont synchronisées.
@@ -527,6 +537,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-a-volume-relationship-after-replication]]
 == Supprime une relation de volume après la réplication
 
 Une fois la réplication terminée et vous n'avez plus besoin de la relation de couplage de volume, vous pouvez supprimer la relation de volume.
@@ -535,6 +546,7 @@ Voir <<Supprime une paire de volumes>>.
 
 
 
+[[manage-volume-relationships]]
 == Gestion des relations de volume
 
 Vous pouvez gérer les relations de volume de plusieurs façons, comme mettre en pause la réplication, inverser le couplage de volumes, changer le mode de réplication, supprimer une paire de volumes ou supprimer une paire de clusters.
@@ -547,6 +559,7 @@ Vous pouvez gérer les relations de volume de plusieurs façons, comme mettre en
 
 
 
+[[pause-replication]]
 === Interrompre la réplication
 
 Vous pouvez modifier les propriétés de la paire de volumes pour interrompre la réplication manuellement.
@@ -576,6 +589,7 @@ IMPORTANT: La mise en pause ou la reprise manuelle de la réplication du volume 
 
 
 
+[[change-the-mode-of-replication]]
 === Changer le mode de réplication
 
 Vous pouvez modifier les propriétés de la paire de volumes pour modifier le mode de réplication de la relation de la paire de volumes.
@@ -611,6 +625,7 @@ IMPORTANT: La modification du mode de réplication entraîne la modification imm
 
 
 
+[[delete-a-volume-pair]]
 === Supprime une paire de volumes
 
 Vous pouvez supprimer une paire de volumes si vous souhaitez supprimer une association de paires entre deux volumes.
@@ -646,6 +661,7 @@ NOTE: Dans le cas des clusters qui ne sont pas gérés par le plug-in, cette act
 
 
 
+[[delete-a-cluster-pair]]
 === Supprime une paire de clusters
 
 Vous pouvez supprimer une relation de couplage de cluster entre deux clusters à l'aide de vCenter sur les sites locaux et distants. Pour supprimer complètement une relation de couplage de cluster, vous devez supprimer les extrémités de la paire de clusters des clusters locaux et distants.
@@ -675,6 +691,7 @@ NOTE: Cette action supprime uniquement l'extrémité de la paire de clusters sur
 
 
 
+[[volume-pairing-messages-and-warnings]]
 == Messages et avertissements de couplage de volume
 
 Vous pouvez afficher les informations relatives aux volumes qui ont été appariés ou qui sont en cours de couplage sur la page paires de volumes de l'onglet protection à partir du point d'extension du plug-in. Depuis le plug-in Element vCenter 5.0, sélectionnez l'onglet gestion dans le point d'extension du plug-in distant NetApp Element. Pour le plug-in Element vCenter 4.10 et versions antérieures, sélectionnez le point d'extension NetApp Element Management.
@@ -687,6 +704,7 @@ Le système affiche des messages de couplage et de progression dans la colonne �
 
 
 
+[[volume-pairing-messages]]
 === Messages de couplage de volume
 
 Vous pouvez afficher les messages pendant le processus de couplage initial sur la page paires de volumes de l'onglet protection à partir du point d'extension du module. Ces messages s'affichent dans la colonne Etat du volume et peuvent s'afficher aux extrémités source et cible du couplage.
@@ -704,6 +722,7 @@ Vous pouvez afficher les messages pendant le processus de couplage initial sur l
 
 
 
+[[volume-pairing-warnings]]
 === Avertissements de couplage de volume
 
 Vous pouvez afficher les messages d'avertissement après avoir couplé des volumes sur la page paires de volumes de l'onglet protection à partir du point d'extension du plug-in. Ces messages s'affichent dans la colonne Etat du volume et peuvent s'afficher aux extrémités source et cible du couplage.

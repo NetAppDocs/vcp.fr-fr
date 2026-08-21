@@ -24,6 +24,7 @@ link:vcp_concept_accounts.html["Comptes d'utilisateur"] Permettent de contrôler
 
 
 
+[[create-an-account]]
 == Créez un compte
 
 Vous pouvez créer un compte utilisateur unique pour autoriser l'accès aux volumes de stockage.
@@ -65,6 +66,7 @@ NOTE: Les secrets d'initiateur et de cible doivent être différents. Si ces cha
 
 
 
+[[edit-an-account]]
 == Modifier un compte
 
 Vous pouvez modifier un compte utilisateur pour modifier le statut ou les secrets CHAP. La modification des paramètres CHAP peut entraîner une perte de connectivité entre un hôte et ses volumes associés.
@@ -106,6 +108,7 @@ NOTE: Si vous ne modifiez pas les informations d'identification, elles restent l
 
 
 
+[[delete-an-account]]
 == Supprimer un compte
 
 Vous pouvez supprimer des comptes utilisateur à l'aide du point d'extension du plug-in.
@@ -136,6 +139,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

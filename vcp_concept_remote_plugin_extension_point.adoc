@@ -26,12 +26,14 @@ Les onglets suivants sont disponibles depuis le point d'extension du plug-in dis
 
 
 
+[[getting-started]]
 == Mise en route
 
 L'onglet mise en route présente les points d'extension du plug-in et les actions qui peuvent être effectuées. Vous pouvez masquer les pages mise en route de chaque page ou les restaurer à partir de l'onglet *About*.
 
 
 
+[[configuration]]
 == Configuration
 
 L'onglet *Configuration* vous permet d'ajouter et de gérer des clusters et de configurer les paramètres des nœuds de gestion pour QoSSIOC.
@@ -50,6 +52,7 @@ Les onglets suivants sont disponibles dans l'onglet *Configuration* :
 
 
 
+[[management]]
 == Gestion
 
 L'onglet *Management* permet d'effectuer les opérations suivantes :
@@ -83,6 +86,7 @@ Les onglets suivants sont disponibles dans l'onglet *Management* :
 
 
 
+[[about]]
 == À propos de
 
 Affiche des informations sur la version du plug-in et fournit une option de téléchargement de service pack.

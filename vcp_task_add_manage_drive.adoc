@@ -23,6 +23,7 @@ Vous pouvez ajouter des lecteurs à un cluster, afficher des lecteurs existants 
 
 
 
+[[add-available-drives-to-a-cluster]]
 == Ajoutez des disques disponibles à un cluster
 
 Vous pouvez ajouter des lecteurs à un cluster à l'aide du point d'extension du plug-in. Lorsque vous ajoutez un nœud au cluster ou que vous installez de nouveaux disques dans un nœud existant, les disques s'enregistrent automatiquement en tant que `Available`. Vous devez ajouter les disques au cluster avant que chaque disque ne puisse participer au cluster.
@@ -57,6 +58,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[view-drive-details]]
 == Afficher les détails du lecteur
 
 Vous pouvez afficher la liste des lecteurs actifs dans le cluster à l'aide de la vue active sur la page lecteurs de l'onglet Cluster à partir du point d'extension du plug-in. Vous pouvez modifier la vue en sélectionnant les options disponibles à l'aide du filtre déroulant.
@@ -85,6 +87,7 @@ Vous pouvez afficher des informations telles que les ID de disque, la capacité 
 
 
 
+[[remove-a-drive]]
 == Déposer un lecteur
 
 Vous pouvez retirer un lecteur d'un cluster à l'aide du point d'extension enfichable. Vous pouvez le faire en réduisant la capacité du cluster ou en préparant le remplacement de disques en fin de vie. Le retrait d'un lecteur met le lecteur hors ligne. Toutes les données du disque sont supprimées et migrées vers d'autres disques du cluster avant que le disque ne soit retiré du cluster. La migration des données vers d'autres disques actifs du système peut prendre quelques minutes à une heure selon l'utilisation de la capacité et les E/S actives sur le cluster.
@@ -119,6 +122,7 @@ NOTE: Si la capacité de retrait des disques actifs est insuffisante avant de su
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

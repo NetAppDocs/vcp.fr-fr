@@ -25,6 +25,7 @@ keywords: netapp, nodes, create, manage, delete, view vcp, vcenter, element
 
 
 
+[[add-a-node-to-a-cluster]]
 == Ajout d'un nœud à un cluster
 
 Vous pouvez ajouter des nœuds de stockage à votre cluster à l'aide du plug-in vCenter.
@@ -71,6 +72,7 @@ Une fois l'action terminée, le nœud apparaît dans la liste des nœuds actifs 
 
 
 
+[[view-node-details]]
 == Afficher les détails du nœud
 
 Vous pouvez afficher la liste des nœuds du cluster sur la page nœuds de l'onglet Cluster à partir du point d'extension du plug-in. Vous devez sélectionner la vue active pour afficher la liste des nœuds actifs. Vous pouvez modifier la vue en sélectionnant `Pending`, `PendingActive`, et `All` options à l'aide du filtre déroulant.
@@ -96,6 +98,7 @@ Vous pouvez afficher des informations telles que les ID de nœud, le nom et l'é
 
 
 
+[[restart-a-node]]
 == Redémarrez un nœud
 
 Vous pouvez redémarrer un ou plusieurs nœuds actifs dans un cluster à l'aide du point d'extension du plug-in.
@@ -132,6 +135,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[shut-down-a-node]]
 == Arrêtez un nœud
 
 Vous pouvez arrêter un ou plusieurs nœuds actifs d'un cluster à l'aide du point d'extension du plug-in. Pour arrêter le cluster, vous pouvez sélectionner tous les nœuds du cluster et effectuer un arrêt simultané.
@@ -165,6 +169,7 @@ NOTE: Si un nœud a été arrêté plus de 5.5 minutes sous un type d'arrêt, le
 
 
 
+[[remove-a-node-from-a-cluster]]
 == Supprime un nœud d'un cluster
 
 Vous pouvez supprimer des nœuds d'un cluster sans interruption de service lorsque le stockage n'est plus nécessaire ou qu'ils nécessitent une maintenance.
@@ -202,6 +207,7 @@ Tous les nœuds supprimés d'un cluster apparaissent dans la liste des nœuds en
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

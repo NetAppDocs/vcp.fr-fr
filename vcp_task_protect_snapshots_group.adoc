@@ -26,6 +26,7 @@ Vous pouvez créer un snapshot de groupe d'un ensemble de volumes associé afin 
 
 
 
+[[create-a-group-snapshot]]
 == Créez un snapshot de groupe
 
 Vous pouvez créer immédiatement un snapshot d'un groupe de volumes ou créer une planification permettant d'automatiser d'autres snapshots du groupe de volumes. Un snapshot de groupe unique peut effectuer des snapshots de manière cohérente jusqu'à 32 volumes à la fois.
@@ -77,6 +78,7 @@ NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez un
 
 
 
+[[view-group-snapshot-details]]
 == Afficher les détails des instantanés de groupe
 
 Vous pouvez vérifier que le snapshot a été ajouté.
@@ -110,6 +112,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[clone-volumes-from-a-group-snapshot]]
 == Cloner des volumes à partir d'un snapshot de groupe
 
 Vous pouvez cloner un groupe de volumes à partir d'un snapshot de groupe instantané. Une fois les volumes créés, vous pouvez les utiliser comme n'importe quel autre volume du système.
@@ -148,6 +151,7 @@ NOTE: La taille du volume et la charge actuelle du cluster affectent le temps n�
 
 
 
+[[roll-back-volumes-to-a-group-snapshot]]
 == Restaurer les volumes dans un snapshot de groupe
 
 Vous pouvez restaurer un groupe de volumes actifs vers un snapshot de groupe. Tous les volumes associés d'un snapshot de groupe sont alors à leur état au moment de la création du snapshot de groupe. Cette procédure restaure également les tailles de volume à la taille enregistrée dans le snapshot d'origine. Si le système a purgé un volume, tous les snapshots de ce volume ont également été supprimés au moment de la purge ; le système ne restaure pas les snapshots de volume supprimés.
@@ -178,6 +182,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-a-group-snapshot]]
 == Supprimer un snapshot de groupe
 
 Vous pouvez supprimer un instantané de groupe du système. Lorsque vous supprimez le snapshot de groupe, vous pouvez choisir de supprimer ou de conserver tous les instantanés associés au groupe en tant que snapshots individuels.
@@ -209,6 +214,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

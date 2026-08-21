@@ -36,6 +36,7 @@ Vous pouvez consulter les journaux d'événements pour vérifier s'il y a des op
 
 
 
+[[event-types]]
 == Types d'événement
 
 Le système signale plusieurs types d'événements ; chaque événement est une opération que le système a effectuée. Les événements peuvent être de routine, des événements normaux ou des événements nécessitant l'intervention de l'administrateur. La colonne Type d'événement de la page Journal des événements indique dans quelle partie du système l'événement s'est produit.
@@ -97,6 +98,7 @@ Il existe trois types d'événements de réaffectation de tranche, qui incluent 
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

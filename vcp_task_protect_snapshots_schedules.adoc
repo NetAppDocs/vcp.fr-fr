@@ -30,6 +30,7 @@ NOTE: Les horaires sont créés à l'aide de l'heure UTC+0. Il se peut que vous 
 
 
 
+[[create-a-snapshot-schedule]]
 == Créer un planning de snapshots
 
 Vous pouvez planifier l'exécution automatique d'un ou de plusieurs volumes à des intervalles spécifiques.
@@ -76,6 +77,7 @@ NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez un
 
 
 
+[[view-snapshot-schedule-details]]
 == Afficher les détails de la planification des snapshots
 
 Vous pouvez vérifier les détails de la planification des snapshots.
@@ -97,6 +99,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[edit-a-snapshot-schedule]]
 == Modifier un planning de snapshots
 
 Vous pouvez modifier des plannings de snapshots existants. Après modification, la prochaine fois que le planning s'exécute, il utilise les attributs mis à jour. Tous les snapshots créés par le planning d'origine restent sur le système de stockage.
@@ -148,6 +151,7 @@ NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez un
 
 
 
+[[copy-a-snapshot-schedule]]
 == Copier un planning de snapshots
 
 Vous pouvez créer une copie d'un planning de snapshots et l'attribuer à de nouveaux volumes ou l'utiliser à d'autres fins.
@@ -173,6 +177,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-a-snapshot-schedule]]
 == Supprime une planification de snapshots
 
 Vous pouvez supprimer un planning de snapshots. Une fois que vous avez supprimé le planning, il n'exécute pas de snapshots planifiés futurs. Tous les snapshots créés par la planification restent sur le système de stockage.
@@ -197,6 +202,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

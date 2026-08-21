@@ -22,6 +22,7 @@ Un compte peut avoir jusqu'à 2000 volumes qui lui sont attribués, mais un volu
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

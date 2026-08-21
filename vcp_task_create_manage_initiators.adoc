@@ -27,6 +27,7 @@ Vous pouvez créer, modifier et supprimer des initiateurs, et leur donner des al
 
 
 
+[[create-an-initiator]]
 == Créer un initiateur
 
 Vous pouvez créer des initiateurs iSCSI ou Fibre Channel et éventuellement leur attribuer des alias.
@@ -85,6 +86,7 @@ Le format accepté d'un WWPN de l'initiateur Fibre Channel est `:Aa:bB:CC:dd:11:
 
 
 
+[[edit-an-initiator]]
 == Modifier un initiateur
 
 Vous pouvez modifier l'alias d'un initiateur existant ou ajouter un alias s'il n'existe pas déjà.
@@ -110,6 +112,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[add-initiators-to-an-access-group]]
 == Ajoutez des initiateurs à un groupe d'accès
 
 Vous pouvez ajouter des initiateurs à un groupe d'accès pour autoriser l'accès aux volumes du groupe d'accès au volume sans avoir besoin d'une authentification CHAP. Lorsque vous ajoutez un initiateur à un groupe d'accès de volume, celui-ci a accès à tous les volumes de ce groupe.
@@ -135,6 +138,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-an-initiator]]
 == Supprimer un initiateur
 
 Vous pouvez supprimer un initiateur après celui-ci n'est plus nécessaire. Lorsque vous supprimez un initiateur, le système le supprime de tout groupe d'accès de volume associé. Toutes les connexions utilisant l'initiateur restent valides jusqu'à ce que la connexion soit réinitialisée.
@@ -159,6 +163,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

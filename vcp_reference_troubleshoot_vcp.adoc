@@ -7,7 +7,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 = Dépanner le plug-in vCenter
 :hardbreaks:
 :allow-uri-read: 
-:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:url-peak: https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -18,7 +18,7 @@ keywords: netapp, hci, vcp, vcenter, element, troubleshoot, monitor, report, ale
 Vous devez connaître les problèmes courants liés au plug-in NetApp Element pour VMware vCenter Server et les étapes à suivre pour les résoudre.
 
 * <<L'enregistrement du plug-in a réussi mais les icônes n'apparaissent pas dans le client Web>>
-* <<Erreurs après la mise à niveau du plug-in NetApp Element pour VMware vCenter Server 4.8 ou version ultérieure avec VMware vCenter Server 6.7U1>>
+* <<error_vcp48_67u1,Erreurs après la mise à niveau du plug-in NetApp Element pour VMware vCenter Server 4.8 ou version ultérieure avec VMware vCenter Server 6.7U1>>
 * <<Erreur lors de l'enregistrement du plug-in à l'aide de l'interface d'enregistrement>>
 * <<Erreur lors de la mise à jour du plug-in à l'aide de l'interface d'enregistrement>>
 * <<Message d'erreur indiquant que le poste NetApp ne peut pas être mis à niveau>>
@@ -36,6 +36,7 @@ Vous devez connaître les problèmes courants liés au plug-in NetApp Element po
 
 
 
+[[plug-in-registration-successful-but-icons-do-not-appear-in-web-client]]
 == L'enregistrement du plug-in a réussi mais les icônes n'apparaissent pas dans le client Web
 
 .Description
@@ -83,6 +84,8 @@ NOTE: Vous devrez peut-être corriger une URL inaccessible ou incorrecte. Mettez
 
 
 
+[[errors-after-netapp-element-plug-in-for-vmware-vcenter-server-4-8-or-later-upgrade-with-vmware-vcenter-server-6-7u1]]
+[[error_vcp48_67u1]]
 == Erreurs après la mise à niveau du plug-in NetApp Element pour VMware vCenter Server 4.8 ou version ultérieure avec VMware vCenter Server 6.7U1
 
 .Description
@@ -107,6 +110,7 @@ Si le problème persiste, vous devez le faire link:vcp_task_getstarted_5_0.html#
 
 
 
+[[error-registering-plug-in-using-registration-ui]]
 == Erreur lors de l'enregistrement du plug-in à l'aide de l'interface d'enregistrement
 
 .Description
@@ -117,6 +121,7 @@ Dans l'utilitaire d'enregistrement, utilisez *Update Plug-in* au lieu de *Regist
 
 
 
+[[error-updating-plug-in-using-registration-ui]]
 == Erreur lors de la mise à jour du plug-in à l'aide de l'interface d'enregistrement
 
 .Description
@@ -127,6 +132,7 @@ Dans l'utilitaire d'enregistrement, utilisez *Enregistrer le plug-in* au lieu de
 
 
 
+[[error-message-that-netapp-extension-cannot-be-upgraded]]
 == Message d'erreur indiquant que le poste NetApp ne peut pas être mis à niveau
 
 .Messagerie
@@ -147,6 +153,7 @@ Lors d'une mise à niveau de Windows vCenter Server de la version 6.0 vers la ve
 
 
 
+[[removing-plug-in-completes-successfully-but-icons-remain]]
 == Le retrait du plug-in a réussi mais les icônes restent
 
 .Description
@@ -157,6 +164,7 @@ Déconnectez-vous du client Web vSphere et reconnectez-vous. Il peut être néce
 
 
 
+[[plug-in-cannot-be-unregistered-or-removed-after-admin-password-change]]
 == Le plug-in ne peut pas être ni enregistré ni supprimé après la modification du mot de passe administrateur
 
 .Description
@@ -171,6 +179,7 @@ Pour le plug-in 4.4 ou version ultérieure, mettez à jour le mot de passe de l'
 
 
 
+[[plug-in-management-tasks-fail-or-volumes-are-not-accessible-to-esxi-host]]
 == Les tâches de gestion du plug-in échouent ou les volumes ne sont pas accessibles à l'hôte ESXi
 
 .Description
@@ -186,6 +195,7 @@ Pour le plug-in 4.4 ou version ultérieure, mettez à jour le mot de passe de l'
 
 
 
+[[failure-occurs-during-vcenter-plug-in-use-on-firefox-59-0-2-browsers]]
 == L'échec se produit lors de l'utilisation du plug-in vCenter sur les navigateurs Firefox 59.0.2
 
 .Messagerie
@@ -199,6 +209,7 @@ Utilisez le FQDN complet dans l'URL du navigateur. VMware requiert une résoluti
 
 
 
+[[delete-datastore-operation-fails]]
 == Échec de l'opération de suppression du datastore
 
 .Description
@@ -209,6 +220,7 @@ Vérifier que toutes les machines virtuelles ont été supprimées du datastore.
 
 
 
+[[cluster-pair-cannot-connect-using-a-pairing-key]]
 == Impossible de connecter la paire de clusters à l'aide d'une clé de couplage
 
 .Description
@@ -219,6 +231,7 @@ Supprimez manuellement la paire de clusters non configurée le processus créé 
 
 
 
+[[error-message-for-qossioc-status]]
 == Message d'erreur pour l'état QoSSIOC
 
 .Description
@@ -232,6 +245,7 @@ L'état QoSSIOC du plug-in affiche une icône d'avertissement et un message d'er
 
 
 
+[[qossioc-service-shown-as-available-but-is-unavailable]]
 == Le service QoSSIOC est affiché comme disponible mais n'est pas disponible
 
 .Description
@@ -245,6 +259,7 @@ Dans l'onglet *QoSSIOC Settings* du point d'extension de la configuration NetApp
 
 
 
+[[qossioc-is-enabled-for-datastore-but-unavailable]]
 == QoSSIOC est activé pour le datastore mais indisponible
 
 .Description
@@ -260,5 +275,5 @@ Vérifier que la fonctionnalité SIOC VMware est activée sur le datastore :
 ----
 SIOC is not enabled
 ----
-. Voir https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_'Network_Down'_or_'Down'_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["cet article"] pour l'action corrective spécifique à votre problème.
+. Consultez  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["cet article"] pour connaître la mesure corrective spécifique à votre problème.
 

@@ -28,6 +28,7 @@ Vous pouvez afficher les informations générales sur le cluster pour le cluster
 
 
 
+[[reporting-overview-page-data]]
 == Données de la page Présentation des rapports
 
 Les données suivantes apparaissent sur la page Présentation des rapports :
@@ -106,6 +107,7 @@ NOTE: Par exemple, si le cluster contient quatre volumes, chacun avec un minimum
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

@@ -28,6 +28,7 @@ Vous pouvez créer des groupes d'accès en mappant les IQN des initiateurs iSCSI
 
 
 
+[[create-an-access-group]]
 == Créez un groupe d'accès
 
 Vous pouvez créer des groupes d'accès de volumes avec un ou plusieurs initiateurs. Le mappage des initiateurs clients Fibre Channel (WWPN) ou iSCSI (IQN) sur les volumes d'un groupe d'accès de volume permet d'obtenir des E/S sécurisées entre un réseau et un volume.
@@ -60,6 +61,7 @@ NOTE: Des initiateurs peuvent être ajoutés ou supprimés après la création d
 
 
 
+[[edit-an-access-group]]
 == Modifier un groupe d'accès
 
 Vous pouvez modifier les noms de groupes d'accès au volume ou ajouter ou supprimer des initiateurs du point d'extension du plug-in.
@@ -94,6 +96,7 @@ NOTE: Si vous supprimez un initiateur, cliquez sur l'icône de la corbeille pour
 
 
 
+[[add-volumes-to-an-access-group]]
 == Ajout de volumes à un groupe d'accès
 
 Vous pouvez ajouter des volumes à un groupe d'accès de volume. Chaque volume peut appartenir à plusieurs groupes d'accès aux volumes. Vous pouvez voir les groupes auxquels chaque volume appartient depuis la vue des volumes actifs.
@@ -125,6 +128,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[remove-volumes-from-an-access-group]]
 == Supprimer des volumes d'un groupe d'accès
 
 Vous pouvez supprimer des volumes d'un groupe d'accès.
@@ -154,6 +158,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-an-access-group]]
 == Supprimer un groupe d'accès
 
 Vous pouvez supprimer des groupes d'accès de volume à l'aide du point d'extension du plug-in. Vous n'avez pas besoin de supprimer des ID d'initiateurs ni de dissocier des volumes du groupe d'accès au volume avant de supprimer le groupe. Après avoir supprimé le groupe d'accès, l'accès de groupe aux volumes est interrompu.
@@ -178,6 +183,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

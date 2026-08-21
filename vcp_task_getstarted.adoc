@@ -7,7 +7,7 @@ keywords: netapp, hci, vcp, vcenter, element, install, setup
 = Installer et configurer le plug-in d'élément 4.10 et versions antérieures
 :hardbreaks:
 :allow-uri-read: 
-:url-peak: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)
+:url-peak: https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -34,12 +34,14 @@ Lisez et effectuez chaque étape pour installer et commencer à utiliser le plug
 
 
 
+[[prepare-for-installation]]
 == Avant l'installation
 
 Avant de commencer l'installation, vérifiez link:reference_requirements_vcp.html["de déploiement requis"].
 
 
 
+[[install-the-management-node]]
 == Installez le nœud de gestion
 
 Vous pouvez effectuer manuellement https://docs.netapp.com/us-en/hci/docs/task_mnode_install.html["installez le nœud de gestion"^] Si votre cluster exécute le logiciel NetApp Element à l'aide de l'image appropriée pour votre configuration.
@@ -48,6 +50,7 @@ Ce processus manuel est destiné aux administrateurs du stockage 100 % Flash Sol
 
 
 
+[[register-the-plug-in-with-vcenter]]
 == Enregistrez le plug-in avec vCenter
 
 Le déploiement du module plug-in vCenter dans le client Web vSphere implique l'enregistrement du package en tant qu'extension sur vCenter Server. Une fois l'inscription terminée, le plug-in est disponible pour tout client Web vSphere qui se connecte à votre environnement vSphere.
@@ -137,6 +140,7 @@ NOTE: Cette action termine l'installation dans vSphere Web client. Si les icône
 
 
 
+[[modify-vcenter-properties-for-a-dark-site-http-server]]
 == Modifiez les propriétés vCenter d'un serveur HTTP de site sombre
 
 Si vous avez l'intention de personnaliser une URL pour un serveur HTTP interne (site sombre) pendant l'enregistrement du plug-in vCenter, vous devez modifier le fichier des propriétés du client Web vSphere `webclient.properties`. Vous pouvez utiliser vCSA ou Windows pour effectuer les modifications.
@@ -247,6 +251,7 @@ NOTE: Une fois la procédure d'enregistrement terminée, vous pouvez la supprime
 
 
 
+[[access-the-plug-in-and-verify-successful-installation]]
 == Accédez au plug-in et vérifiez que l'installation a réussi
 
 Une fois l'installation ou la mise à niveau terminée, les points d'extension NetApp Element Configuration and Management apparaissent dans l'onglet raccourcis du client Web vSphere et dans le panneau latéral.
@@ -258,6 +263,7 @@ NOTE: Si les icônes du plug-in vCenter ne sont pas visibles, reportez-vous à l
 
 
 
+[[add-storage-clusters-for-use-with-the-plug-in]]
 == Ajout de clusters de stockage pour une utilisation avec le plug-in
 
 Vous pouvez ajouter un cluster exécutant le logiciel Element à l'aide du point d'extension de configuration de NetApp Element, afin qu'il puisse être géré par le plug-in.
@@ -307,6 +313,7 @@ Lorsque le processus est terminé, le cluster apparaît dans la liste des cluste
 
 
 
+[[configure-qossioc-settings-using-the-plug-in]]
 == Configurez les paramètres QoSSIOC à l'aide du plug-in
 
 Vous pouvez configurer la qualité de service automatique basée sur le contrôle des E/S du stockage link:vcp_concept_qossioc.html["(QoSSIOC)"] pour les volumes individuels et les datastores contrôlés par le plug-in. Pour ce faire, vous configurez les informations d'identification QoSSIOC et vCenter qui permettront au service QoSSIOC de communiquer avec vCenter.
@@ -350,21 +357,23 @@ Une fois le service QoSSIOC activé, vous pouvez configurer les performances QoS
 
 
 
+[[configure-user-accounts]]
 == Configurer des comptes utilisateur
 
 Pour activer l'accès aux volumes, vous devez en créer au moins un link:vcp_task_create_manage_user_accounts.html#create-an-account["compte utilisateur"].
 
 
 
+[[create-datastores-and-volumes]]
 == Créer des datastores et des volumes
 
 Vous pouvez créer link:vcp_task_datastores_manage.html#create-a-datastore["Datastores et volumes Element"] à commencer à allouer du stockage.
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Page Ressources NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Ressources de documentation sur SolidFire et Element"^]
 

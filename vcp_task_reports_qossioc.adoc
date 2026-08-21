@@ -44,6 +44,7 @@ Les événements QoSSIOC sont affichés à partir de clusters ajoutés localemen
 
 
 
+[[qossioc-event-data]]
 == Données d'événement QoSSIOC
 
 * *Date* : la date et l'heure de l'événement QoSSIOC.
@@ -58,6 +59,7 @@ Les événements QoSSIOC sont affichés à partir de clusters ajoutés localemen
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

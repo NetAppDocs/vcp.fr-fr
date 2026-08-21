@@ -28,6 +28,7 @@ Vous pouvez afficher des informations sur les sessions iSCSI connectées au clus
 
 
 
+[[iscsi-session-data]]
 == Données de session iSCSI
 
 * *Node* : nœud hébergeant la partition de métadonnées principale du volume.
@@ -45,6 +46,7 @@ Vous pouvez afficher des informations sur les sessions iSCSI connectées au clus
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

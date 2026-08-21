@@ -29,6 +29,7 @@ keywords: netapp, volumes, vcp, vcenter, element,
 
 
 
+[[create-a-volume]]
 == Créer un volume
 
 Vous pouvez créer un nouveau volume et associer le volume à un compte donné (chaque volume doit être associé à un compte). Cette association permet au compte d'accéder au volume via les initiateurs iSCSI à l'aide des informations d'identification CHAP. Vous pouvez également spécifier les paramètres QoS d'un volume lors de sa création.
@@ -80,6 +81,7 @@ IMPORTANT: Les règles de qualité de service sont idéales pour les environneme
 
 
 
+[[view-volume-details]]
 == Afficher les détails du volume
 
 Vous pouvez consulter des informations générales sur tous les volumes actifs du cluster dans le point d'extension du plug-in. Vous trouverez également des détails sur chaque volume actif, notamment l'efficacité, les performances, la qualité de services et les snapshots associés.
@@ -136,6 +138,7 @@ Valeurs possibles :
 
 
 
+[[general-details-section]]
 === Détails généraux
 
 * *Nom* : nom attribué au volume.
@@ -152,6 +155,7 @@ Valeurs possibles :
 
 
 
+[[efficiency-section]]
 === Section efficacité
 
 * *Compression* : le score d'efficacité de compression pour le volume.
@@ -162,6 +166,7 @@ Valeurs possibles :
 
 
 
+[[performance-section]]
 === Section performances
 
 * *ID de compte* : ID de compte unique du compte associé.
@@ -200,6 +205,7 @@ Valeurs possibles :
 
 
 
+[[quality-of-service-section]]
 === Section qualité de service
 
 * *Policy* : nom de la politique QoS attribuée au volume.
@@ -212,6 +218,7 @@ Valeurs possibles :
 
 
 
+[[snapshots-section]]
 === Section snapshots
 
 * *ID instantané* : ID généré par le système pour l'instantané.
@@ -223,6 +230,7 @@ Valeurs possibles :
 
 
 
+[[edit-a-volume]]
 == Modifier un volume
 
 Vous pouvez modifier les attributs de volume, tels que les valeurs QoS, la taille du volume et l'unité de mesure dans laquelle les valeurs d'octet sont calculées. Vous pouvez également modifier les niveaux d'accès et le compte qui peut accéder au volume. Vous pouvez également modifier l'accès au compte pour l'utilisation de la réplication ou restreindre l'accès au volume.
@@ -280,6 +288,7 @@ Pour les volumes dont la valeur IOPS max ou Burst supérieure à 20,000, il faut
 
 
 
+[[clone-a-volume]]
 == Clonez un volume
 
 Vous pouvez créer un clone de volume pour effectuer une copie instantanée des données. Lorsque vous clonez un volume, le système crée un snapshot du volume, puis crée une copie des données référencées par le snapshot. Il s'agit d'un processus asynchrone, et la durée nécessaire de ce processus dépend de la taille du volume que vous clonez et de la charge actuelle du cluster.
@@ -297,7 +306,7 @@ Le cluster prend en charge jusqu'à deux demandes de clones en cours d'exécutio
 
 NOTE: Les volumes clonés n'héritent pas de l'appartenance des groupes d'accès aux volumes à partir du volume source.
 
-Les systèmes d'exploitation diffèrent dans leur mode de traitement des volumes clonés. ESXi traitera un volume cloné comme une copie de volume ou un volume Snapshot. Le volume sera un périphérique disponible à utiliser pour créer un nouveau datastore. Pour plus d'informations sur le montage de volumes clones et la gestion des LUN de snapshot, reportez-vous à la documentation de VMware à propos de https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EEFEB765-A41F-4B6D-917C-BB9ABB80FC80.html["Montage d'une copie de datastore VMFS"^] et https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.storage.doc/GUID-EBAB0D5A-3C77-4A9B-9884-3D4AD69E28DC.html["Gérer les datastores VMFS en double"^].
+Les systèmes d'exploitation diffèrent dans leur gestion des volumes clonés. ESXi traite un volume cloné comme une copie de volume ou un volume snapshot. Le volume sera un périphérique disponible pour créer un nouveau datastore. Pour plus d'informations sur le montage des volumes clonés et la gestion des LUN snapshot, consultez la documentation VMware concernant https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage/working-with-datastores-in-vsphere-storage-environment/vsphere-vmfs-datastore-copies-and-datastore-resignaturing/resignature-a-vmfs-datastore-copy-in-the-vsphere-web-client.html["Montage d'une copie de datastore VMFS"^] et https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/7-0/vsphere-storage/working-with-datastores-in-vsphere-storage-environment/vsphere-vmfs-datastore-copies-and-datastore-resignaturing.html["Gérer les datastores VMFS en double"^].
 
 .Étapes
 . Dans le plug-in vCenter, ouvrez l'onglet *Management* :
@@ -349,6 +358,7 @@ NOTE: La durée d'une opération de clonage est affectée par la taille du volum
 
 
 
+[[back-up-or-restore-volumes]]
 == Sauvegarder ou restaurer des volumes
 
 Le système peut être configuré pour sauvegarder et restaurer le contenu d'un volume vers et depuis un conteneur de magasin d'objets externe au stockage logiciel NetApp Element.
@@ -357,6 +367,7 @@ Vous pouvez également sauvegarder et restaurer des données depuis et vers des 
 
 
 
+[[back-up-volumes]]
 === Sauvegarder des volumes
 
 Vous pouvez sauvegarder des volumes NetApp Element dans le stockage Element, ainsi que des magasins d'objets secondaires compatibles avec Amazon S3 ou OpenStack Swift.
@@ -494,6 +505,7 @@ Il s'agit d'une procédure en deux parties :
 
 
 
+[[restore-volumes]]
 === Restaurez des volumes
 
 Lorsque vous restaurez un volume à partir d'une sauvegarde dans un magasin d'objets tel qu'OpenStack Swift ou Amazon S3, vous devez disposer d'informations de manifeste provenant du processus de sauvegarde d'origine. Si vous restaurez un volume NetApp Element sauvegardé sur un système de stockage basé sur un élément NetApp, les informations de manifeste ne sont pas requises. Vous trouverez les informations de manifeste requises pour la restauration à partir de Swift et S3 dans le journal des événements de l'onglet Rapports.
@@ -635,6 +647,7 @@ Il s'agit d'une procédure en deux parties :
 
 
 
+[[delete-volumes]]
 == Supprimez des volumes
 
 Vous pouvez supprimer un ou plusieurs volumes d'un cluster NetApp Element à l'aide du point d'extension du plug-in.
@@ -677,6 +690,7 @@ Le volume passe de la vue active à la vue supprimée de la page volumes.
 
 
 
+[[purge-volumes]]
 == Purger les volumes
 
 Vous pouvez purger manuellement les volumes après les avoir supprimés.
@@ -703,6 +717,7 @@ IMPORTANT: Lorsqu'un volume est purgé, il est immédiatement et définitivement
 
 
 
+[[restore-deleted-volumes]]
 == Restaurer les volumes supprimés
 
 Vous pouvez restaurer un volume dans le système NetApp Element s'il a été supprimé mais pas encore purgé.
@@ -730,6 +745,7 @@ NOTE: Si un volume est supprimé puis restauré, ESXi ne détecte pas le volume 
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

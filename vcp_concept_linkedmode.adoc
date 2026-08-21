@@ -97,6 +97,7 @@ Vous avez vCenter 1 et vCenter 2 en mode lié, cluster de stockage 1 et cluster 
 ====
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

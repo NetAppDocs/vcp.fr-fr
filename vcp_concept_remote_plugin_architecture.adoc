@@ -30,6 +30,7 @@ L'architecture du plug-in à distance du client vSphere est conçue pour intégr
 
 
 
+[[remote-element-plug-in-for-vcenter-server-high-level-architecture]]
 == Plug-in d'élément distant pour l'architecture générale de vCenter Server
 
 Grâce à NetApp Hybrid Cloud Control, le plug-in distant Element est déployé dans un conteneur docker situé à l'intérieur d'un nœud de gestion avec des services de gestion.
@@ -53,6 +54,7 @@ Le serveur vCenter du plug-in d'élément distant, le service d'enregistrement e
 |===
 
 
+[[remote-element-plug-in-communication-paths-overview]]
 == Présentation des chemins de communication du plug-in d'élément distant
 
 Vous devez d'abord enregistrer le plug-in distant avec vCenter Server à l'aide du service d'enregistrement exécuté sur un nœud de gestion (`https://<mnode-ip>:9443/`). Sur la page d'inscription, vous pouvez afficher le nom d'utilisateur, le mot de passe et le `plugin.json` chemin d'accès au fichier de manifeste.
@@ -68,6 +70,7 @@ Toutes les communications à partir de l'interface utilisateur du plug-in se fon
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

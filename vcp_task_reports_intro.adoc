@@ -28,6 +28,7 @@ Grâce au plug-in vCenter, vous pouvez surveiller les composants et les performa
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

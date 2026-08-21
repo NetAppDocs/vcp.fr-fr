@@ -74,6 +74,7 @@ IMPORTANT: VMware vSphere 6.0 a atteint la fin du support le 12 mars 2020. VSphe
 ====
 
 
+[[vsphere-compatibility-and-best-practices]]
 == Compatibilité et meilleures pratiques vSphere
 
 Prenez en compte les fonctionnalités et recommandations suivantes avant d'utiliser le plug-in :
@@ -85,6 +86,7 @@ Prenez en compte les fonctionnalités et recommandations suivantes avant d'utili
 
 
 
+[[netapp-element-support]]
 == Prise en charge de NetApp Element
 
 Le plug-in prend en charge les principales versions suivantes :
@@ -95,12 +97,15 @@ Le plug-in prend en charge les principales versions suivantes :
 
 
 
+[[network-port-requirements]]
 == Configuration requise pour les ports réseau
 
 Vous devez autoriser certains ports TCP par le biais du pare-feu de bord de votre centre de données afin que vous puissiez gérer le système à distance et permettre aux clients situés en dehors de votre centre de données de se connecter aux ressources. Pour obtenir la liste complète des ports utilisés dans les systèmes NetApp HCI et SolidFire, consultez ce document link:https://docs.netapp.com/us-en/hci/docs/hci_prereqs_required_network_ports.html["page"].
 
 
 
+[[optional-create-a-vcp-role-in-vcenter]]
+[[create_vcp_role]]
 == (Facultatif) Créez un rôle VCP dans vCenter
 
 Pour les serveurs vCenter 8.0 et 7.0, vous pouvez créer un rôle VCP dans vCenter pour un compte utilisateur de plug-in Element, et attribuer des autorisations pour enregistrer ou mettre à niveau le plug-in Element pour vCenter Server et effectuer des tâches d'administration de plug-in Element.
@@ -185,6 +190,7 @@ Vous pouvez maintenant vous connecter au client Web vSphere à l'aide du compte 
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

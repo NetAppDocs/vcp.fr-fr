@@ -21,6 +21,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[netapp-hci]]
 == NetApp HCI
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP2882194["Notes de version de NetApp HCI 1.10"^]
@@ -33,6 +34,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[netapp-element-software]]
 == Logiciel NetApp Element
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3362264["Notes de version du logiciel NetApp Element 12.9"^]_Nouveau_
@@ -52,6 +54,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[management-services]]
 == Services de gestion
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Notes de mise à jour des services de gestion KB"^]
@@ -59,6 +62,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[netapp-element-plug-in-for-vmware-vcenter-server]]
 == Plug-in NetApp Element pour VMware vCenter Server
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3344864["Notes de version du plug-in vCenter 5.5"^]
@@ -79,6 +83,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[compute-firmware]]
 == Calcul du firmware
 
 * https://docs.netapp.com/us-en/hci/docs/rn_compute_firmware_2.146.html["Notes de version de Compute Firmware Bundle 2.146"^]
@@ -89,6 +94,7 @@ NOTE: Vous serez invité à vous connecter à l'aide de vos identifiants du site
 
 
 
+[[storage-firmware]]
 == Micrologiciel de stockage
 
 * https://docs.netapp.com/us-en/hci/docs/rn_storage_firmware_2.146.html["Notes de version du pack de firmware de stockage 2.146"^]

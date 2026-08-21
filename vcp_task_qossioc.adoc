@@ -29,6 +29,7 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 
 
 
+[[setup-tasks]]
 == Tâches de configuration
 
 * link:vcp_task_getstarted.html#configure-qossioc-settings-using-the-plug-in["Configurez les paramètres QoSSIOC"]
@@ -37,6 +38,7 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 
 
 
+[[management-tasks]]
 == Tâches de gestion
 
 * link:vcp_task_reports_qossioc.html["Surveiller la hiérarchisation des performances des machines virtuelles à l'aide des événements QoSSIOC"^]
@@ -48,6 +50,7 @@ Pour le mode lié, le plug-in Element vCenter enregistre tous les serveurs vCent
 
 
 
+[[enabling-qossioc-automation-on-datastores]]
 == Activation de l'automatisation QoSSIOC sur les datastores
 
 Vous pouvez activer l'automatisation QoSSIOC et personnaliser les niveaux de performance des disques virtuels (VMDK) pour les datastores après avoir activé le service QoSSIOC pour le plug-in.
@@ -106,6 +109,7 @@ Lorsque vous activez l'automatisation QoSSIOC pour un datastore, le bouton chang
 
 
 
+[[edit-qossioc-settings]]
 == Modifier les paramètres QoSSIOC
 
 Vous pouvez modifier les informations d'identification QoSSIOC et vCenter d'un nœud de gestion d'éléments actif.
@@ -125,7 +129,7 @@ Vous pouvez modifier les informations d'identification QoSSIOC et vCenter d'un n
 ** *QoSSIOC Mot de passe* : le mot de passe de l'élément QoSSIOC. Le mot de passe par défaut du service QoSSIOC est `solidfire`. Si vous n'avez pas créé de mot de passe personnalisé, vous pouvez en créer un à partir de l'interface utilisateur de l'utilitaire d'enregistrement (`https://[management node IP]:9443`).
 +
 
-NOTE: Pour les déploiements NetApp HCI, le mot de passe par défaut est généré de manière aléatoire lors de l'installation. Pour déterminer le mot de passe, reportez-vous à la procédure 4 dans ce document https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KO"^] article.
+NOTE: Pour les déploiements NetApp HCI, le mot de passe par défaut est généré aléatoirement lors de l'installation. Pour déterminer le mot de passe, consultez la procédure 4 de cet  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KO"^] article.
 
 ** *ID utilisateur vCenter* : nom d'utilisateur pour l'administrateur vCenter avec privilèges de rôle administrateur complets.
 ** *Mot de passe vCenter* : mot de passe de l'administrateur vCenter avec privilèges d'administrateur complets.
@@ -134,7 +138,7 @@ NOTE: Pour les déploiements NetApp HCI, le mot de passe par défaut est génér
 . Sélectionnez *OK*. Le champ QoSSIOC Status s'affiche `UP` lorsque le plug-in peut communiquer avec le service.
 +
 
-NOTE: Voir ceci https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KO"^] pour dépanner si l'état est l'un des suivants : * `Down`: QoSSIOC n'est pas activé. * `Not Configured`: Les paramètres QoSSIOC n'ont pas été configurés. * `Network Down`: VCenter ne peut pas communiquer avec le service QoSSIOC sur le réseau. Il se peut que le nœud M et le service SIOC soient toujours en cours d'exécution.
+NOTE: Consultez cette section  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KO"^] pour résoudre le problème si le statut correspond à l’un des cas suivants : * `Down` : QoSSIOC n’est pas activé. * `Not Configured` : Les paramètres QoSSIOC n’ont pas été configurés. * `Network Down` : vCenter ne peut pas communiquer avec le service QoSSIOC sur le réseau. Le mNode et le service SIOC peuvent néanmoins être en cours d’exécution.
 
 +
 
@@ -144,6 +148,7 @@ NOTE: Après avoir configuré des paramètres QoSSIOC valides pour le nœud de g
 
 
 
+[[change-the-qossioc-service-password]]
 == Modifier le mot de passe du service QoSSIOC
 
 Vous pouvez modifier le mot de passe du service QoSSIOC sur le nœud de gestion à l'aide de l'interface utilisateur de l'utilitaire d'enregistrement.
@@ -180,7 +185,7 @@ image::vcp_registration_ui_qossioc.png[Menu de l'utilitaire d'enregistrement du 
 .. *Ancien mot de passe* : le mot de passe actuel du service QoSSIOC. Si vous n'avez pas encore attribué de mot de passe, saisissez le mot de passe par défaut de `solidfire`.
 +
 
-NOTE: Pour les déploiements NetApp HCI, le mot de passe par défaut est généré de manière aléatoire lors de l'installation. Pour déterminer le mot de passe, reportez-vous à la procédure 4 dans ce document https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Element_Plug-in_for_vCenter_server/mNode_Status_shows_as_%27Network_Down%27_or_%27Down%27_in_the_mNode_Settings_tab_of_the_Element_Plugin_for_vCenter_(VCP)["KO"^] article.
+NOTE: Pour les déploiements NetApp HCI, le mot de passe par défaut est généré aléatoirement lors de l'installation. Pour déterminer le mot de passe, consultez la procédure 4 de cet  https://kb.netapp.com/on-prem/solidfire/Element_OS_Kbs/mNode_Status_Network_Down_or_Down_in_the_mNode_Settings_tab_of_Element_Plugin_for_vCenter_VCP["KO"^] article.
 
 .. *Nouveau mot de passe* : le nouveau mot de passe pour le service QoSSIOC.
 .. *Confirmer le mot de passe* : saisissez à nouveau le nouveau mot de passe.
@@ -203,6 +208,7 @@ Le champ *QoSSIOC Status* s'affiche `UP` lorsque le plug-in peut communiquer ave
 
 
 
+[[disable-qossioc-automation-for-a-datastore]]
 == Désactivez l'automatisation QoSSIOC pour un datastore
 
 Vous pouvez désactiver l'intégration QoSSIOC pour un datastore.
@@ -228,6 +234,7 @@ L'option Activer QoS & SIOC désactive automatiquement l'option remplacer QoS pa
 
 
 
+[[clear-qossioc-settings]]
 == Effacer les paramètres QoSSIOC
 
 Vous pouvez effacer les détails de configuration QoSSIOC pour le nœud de gestion du stockage Element (nœud M). Vous devez effacer les paramètres du noeud de gestion configuré avant de configurer les informations d'identification d'un nouveau noeud de gestion ou de modifier le mot de passe du service QoSSIOC. La suppression des paramètres QoSSIOC supprime les QoSSIOC actifs du serveur vCenter, du cluster et des datastores.
@@ -249,6 +256,7 @@ Le champ *QoSSIOC Status* s'affiche `Not Configured` une fois le processus termi
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

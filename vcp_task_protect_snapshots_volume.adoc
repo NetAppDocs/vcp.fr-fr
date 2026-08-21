@@ -29,6 +29,7 @@ Vous pouvez utiliser les snapshots pour restaurer un volume à son état au mome
 
 
 
+[[create-a-volume-snapshot]]
 == Créer un snapshot de volume
 
 Vous pouvez créer un snapshot d'un volume actif pour préserver l'image du volume à tout moment.
@@ -78,6 +79,7 @@ NOTE: Lorsque vous définissez une période de rétention, vous sélectionnez un
 
 
 
+[[view-volume-snapshot-details]]
 == Afficher les détails des snapshots de volume
 
 Vous pouvez vérifier que le snapshot a été ajouté.
@@ -106,6 +108,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[clone-a-volume-from-a-snapshot]]
 == Cloner un volume à partir d'un snapshot
 
 Vous pouvez créer un nouveau volume à partir d'un snapshot d'un volume. Dans ce cas, le système utilise les informations de snapshot pour cloner un nouveau volume à l'aide des données contenues sur le volume au moment de la création de l'instantané. Ce processus stocke également des informations sur les autres instantanés du volume dans le nouveau volume créé.
@@ -162,6 +165,7 @@ TIP: Actualisez la page si nécessaire.
 
 
 
+[[roll-back-a-volume-to-a-snapshot]]
 == Restaurer un volume vers un snapshot
 
 Vous pouvez restaurer un volume à un instantané à tout moment. Cette opération annule les modifications apportées au volume depuis la création du snapshot.
@@ -198,6 +202,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[back-up-a-volume-snapshot-to-an-external-object-store]]
 == Sauvegardez un snapshot de volume dans un magasin d'objets externe
 
 Vous pouvez utiliser la fonctionnalité de sauvegarde intégrée pour sauvegarder un snapshot de volume. Vous pouvez sauvegarder des snapshots depuis un cluster exécutant le logiciel NetApp Element vers un magasin d'objets externe ou vers un autre cluster basé sur Element.
@@ -211,6 +216,7 @@ Lorsque vous sauvegardez un snapshot dans un magasin d'objets externe, vous deve
 
 
 
+[[back-up-a-volume-snapshot-to-an-amazon-s3-object-store]]
 === Sauvegarder un snapshot de volume dans un magasin d'objets Amazon S3
 
 Vous pouvez sauvegarder des snapshots NetApp Element dans des magasins d'objets externes compatibles avec Amazon S3.
@@ -252,6 +258,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[back-up-a-volume-snapshot-to-an-openstack-swift-object-store]]
 === Sauvegardez un snapshot de volume dans un magasin d'objets OpenStack Swift
 
 Vous pouvez sauvegarder des snapshots NetApp Element dans des magasins d'objets secondaires compatibles avec OpenStack Swift.
@@ -293,6 +300,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[back-up-a-volume-snapshot-to-a-cluster-running-element-software]]
 === Sauvegardez un snapshot de volume sur un cluster exécutant le logiciel Element
 
 Vous pouvez sauvegarder un snapshot de volume résidant sur un cluster exécutant le logiciel NetApp Element sur un cluster Element distant.
@@ -355,6 +363,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[delete-a-volume-snapshot]]
 == Supprime un snapshot de volume
 
 Vous pouvez supprimer un snapshot de volume d'un cluster exécutant le logiciel NetApp Element à l'aide du point d'extension du plug-in. Lorsque vous supprimez un instantané, le système le supprime immédiatement.
@@ -389,6 +398,7 @@ NOTE: Si deux clusters ou plus sont ajoutés, assurez-vous que le cluster que vo
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]

@@ -32,11 +32,11 @@ Pour mettre à niveau le plug-in, suivez les instructions de la documentation de
 
 
 
+[[find-more-information]]
 == Trouvez plus d'informations
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMLP3344864["Notes de version du plug-in NetApp Element vCenter 5.5"^]
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/Management_services_for_Element_Software_and_NetApp_HCI/Management_Services_Release_Notes["Notes de version des services de contrôle et de gestion dans le cloud hybride"^]
 * https://docs.netapp.com/us-en/hci/index.html["Documentation NetApp HCI"^]
-* http://mysupport.netapp.com/hci/resources["Page Ressources NetApp HCI"^]
-* https://www.netapp.com/data-storage/solidfire/documentation["Page Ressources SolidFire et Element"^]
+* https://docs.netapp.com/us-en/element-software/index.html["Ressources de documentation sur SolidFire et Element"^]
 
